@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  
+  <servlet>
+    <servlet-name>Accueil</servlet-name>
+    <servlet-class>hei.projetiti.controllers.AccueilServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Connexion</servlet-name>
+    <servlet-class>hei.projetiti.controllers.ConnexionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Profil</servlet-name>
+    <servlet-class>hei.projetiti.controllers.ProfilServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Annonces</servlet-name>
+    <servlet-class>hei.projetiti.controllers.AnnoncesServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Contact</servlet-name>
+    <servlet-class>hei.projetiti.controllers.ContactServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Administration</servlet-name>
+    <servlet-class>hei.projetiti.controllers.AdministrationServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GestionComptes</servlet-name>
+    <servlet-class>hei.projetiti.controllers.GestionComptesServlet</servlet-class>
+  </servlet>
+  
+
+  
+  
+  <servlet-mapping>
+    <servlet-name>Accueil</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Connexion</servlet-name>
+    <url-pattern>/connexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Profil</servlet-name>
+    <url-pattern>/profil</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Annonces</servlet-name>
+    <url-pattern>/annonces</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Contact</servlet-name>
+    <url-pattern>/contact</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Administration</servlet-name>
+    <url-pattern>/administration</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>GestionComptes</servlet-name>
+    <url-pattern>/gestion-comptes</url-pattern>
+  </servlet-mapping>
+
+
+  
+  <welcome-file-list>
+    <welcome-file>index</welcome-file>
+  </welcome-file-list>
+</web-app>

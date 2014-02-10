@@ -1,0 +1,223 @@
+*
+{
+	font-family: "Arial", sans-serif;
+	font-size:1em;
+}
+
+/**** Menu de navigation ****/
+
+body
+{
+	margin:0;
+	min-width:900px;
+}
+
+nav#menuGeneral
+{
+	position:relative;
+	top:-16px;
+	right:0px;			/* occupe toute la largeur de l'écran */
+	left:0px;
+	height:50px;
+	background-color:#FDD909;
+	background-image:linear-gradient(to top, rgb(255,247,0), rgb(255,167,0));
+}
+
+
+a.bandeau					/* Liens du bandeau de navigation */
+{
+	color:#000000;			
+	text-decoration:none;	/* Sans soulignement */	
+}
+
+a
+{
+    color:black;
+    text-decoration:none;
+}
+
+nav#menuGeneral > ul > li				/* Eléments du menu de navigation */
+{
+	display:inline;	
+	position:relative;
+	top:15px;
+	margin-right:50px;
+}
+
+nav#menuGeneral > ul > li:first-child
+{
+	margin-left:200px;
+}
+
+nav#menuGeneral > ul > li:last-child
+{
+	margin-right:5px;
+}
+
+
+li.active a			/* Elément sélectionné, c'est à dire la page sur laquelle on se trouve */
+{
+	background-color:#000000;
+	color:white;	
+	border-radius:10px;
+	padding: 5px 10px;
+	font-weight:bold;
+}   
+
+
+/*** Bandeau ***/
+header
+{
+	background:rgb(220,220,220);
+	position:relative;
+}
+header > img.header
+{
+	position:absolute;
+	width:80%;
+	height:100%;
+}
+
+header > img.header, header > div#identifiant
+{
+	display:inline-block;
+	vertical-align:top;
+}
+
+/*** Connexion ***/
+
+body#connexion
+{
+	background-image:url("../img/cght.jpg");
+	background-attachment:fixed;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:contain;
+}
+
+div.box
+  {
+	position:relative;
+	width:220px;
+	height:100%;
+	margin:15% 56%;
+	background-color:rgba(250,250,250,0.5);
+	border:3px solid white;
+	padding:10px;
+  }
+  
+div.box p
+{
+	text-align:center;
+}
+
+.connexion
+{
+	background-color:white;
+}
+
+#modifier
+{
+	border-radius:0px;
+	background-color:rgb(200,200,200);
+	border:1px solid black;
+	padding:3px 5px;
+	cursor:pointer;
+}
+
+
+/*** Menu de la page Administration ***/
+
+.menuLateral
+{
+	position:absolute;
+	margin-top:-16px;
+	width:150px;
+	border:3px solid rgb(120,184,35);
+	padding:20px;
+	text-align:center;
+}
+
+.menuLateral ul li
+{
+	margin-left:-40px;
+	list-style-type:none;
+	padding:5px;
+	border : 1px solid black;
+	margin-top:10px;
+	text-align:center;
+}
+
+.menuLateral > ul > li:first-child
+{
+	margin-top:-10px;
+	margin-bottom:40px;
+	border:2px solid rgb(120,184,35);
+	background-image:linear-gradient(to top, rgb(220,220,220), rgb(250,250,250));
+	color:rgb(120,184,35);
+	text-align:center;
+	padding:10px 20px;
+}
+
+
+
+/*** Identification de la session ***/
+
+#identifiant
+{
+	position:relative;
+	border:2px solid rgb(50,155,50);
+	width:19.7%;
+	left:80%;
+	text-align:center;
+	height:140px;
+	word-wrap:break-word;
+}
+
+#identifiant a
+{
+	position:relative;
+	top:40px;
+	border:1px solid red;
+	color:red;
+	background:white;
+	padding:4px;
+	background-image:url("../img/deconnexion.png");
+	background-repeat:no-repeat;
+	background-size:26px 26px;
+	padding-left:30px;
+	border-radius:5px;
+}
+
+#identifiant a:hover
+{
+	background:rgb(245,245,245);
+	color:rgb(230,0,0);
+	border:1px solid rgb(230,0,0);
+	background-image:url("../img/deconnexion.png");
+	background-repeat:no-repeat;
+	background-size:26px 26px;
+	padding-left:30px;
+}
+
+
+/*** Contenu page ***/
+
+.contenuPage
+{
+	position:absolute;
+	margin-top:-16px;
+	margin-left:195px;
+	padding:20px;
+	border: 1px solid red;
+}
+
+article.actualite
+{
+	background:rgb(220,220,220);
+	border-radius:10px;
+	padding:10px;
+	border: 1px solid black;
+	margin-bottom:10px;
+}
+
