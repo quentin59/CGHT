@@ -40,7 +40,7 @@
 		<!-- Corps de la page -->
 		
     <div class="contenuPage">
-		<h2>Les petites annoncesdouble</h2>
+		<h2>Les petites annonces</h2>
 		
     </div>       
 		
