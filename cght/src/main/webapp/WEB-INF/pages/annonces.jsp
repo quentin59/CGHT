@@ -40,8 +40,8 @@
 		<!-- Corps de la page -->
 		
     <div class="contenuPage">
-		<h2>Les petites annonces</h2>
-		<p>Balbla</p>
+		<h2>Les petites annoncesdouble</h2>
+		
     </div>       
 		
     </body>
