@@ -1,6 +1,6 @@
 package hei.projetiti.dao;
 
-package hei.projetiti.model.Annonce;
+import hei.projetiti.model.Annonce;
 
 import java.util.List;
 

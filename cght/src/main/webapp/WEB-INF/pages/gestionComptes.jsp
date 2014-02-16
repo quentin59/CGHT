@@ -26,10 +26,11 @@
     	<jsp:include page="menu.jsp">
     	<jsp:param name="pageSelectionnee" value="administration"/>
 		</jsp:include>
-    
-     <!-- Menu d'administration -->
-    	<jsp:include page="adminMenu.jsp"/>
     	
+    	<!-- Menu d'administration -->
+    	<jsp:include page="adminMenu.jsp">
+    	<jsp:param name="pageAdminSelectionnee" value="gestionComptes"/>
+		</jsp:include>
     	
     	<!-- Corps de la page -->
     	<div class="contenuPage">

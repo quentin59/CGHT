@@ -28,7 +28,9 @@
 		</jsp:include>
     
      <!-- Menu d'administration -->
-    	<jsp:include page="adminMenu.jsp"/>
+    	<jsp:include page="adminMenu.jsp">
+    	<jsp:param name="pageAdminSelectionnee" value="administration"/>
+		</jsp:include>
     	
     	
     	<!-- Corps de la page -->

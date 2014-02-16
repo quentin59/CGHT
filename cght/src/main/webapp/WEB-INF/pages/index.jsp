@@ -46,7 +46,7 @@
     </div>
     <div class="contenuPage">
     	<c:forEach var="actualite" items="${actualites}">
-			<article class=actualite>
+			<article class="actualite">
 				<h2>${actualite.titre}</h2>
 				<p>${actualite.contenu}</p>
 				<p>${actualite.licence}</p>

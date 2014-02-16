@@ -29,6 +29,10 @@
     <servlet-name>GestionComptes</servlet-name>
     <servlet-class>hei.projetiti.controllers.GestionComptesServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Inscription</servlet-name>
+    <servlet-class>hei.projetiti.controllers.InscriptionServlet</servlet-class>
+  </servlet>
   
 
   
@@ -57,9 +61,13 @@
     <servlet-name>Administration</servlet-name>
     <url-pattern>/administration</url-pattern>
   </servlet-mapping>
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>GestionComptes</servlet-name>
     <url-pattern>/gestion-comptes</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Inscription</servlet-name>
+    <url-pattern>/inscription</url-pattern>
   </servlet-mapping>
 
 

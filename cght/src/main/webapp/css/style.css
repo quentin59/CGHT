@@ -212,7 +212,7 @@ div.box p
 	border: 1px solid red;
 }
 
-article.actualite
+article.actualite, article.annonce
 {
 	background:rgb(220,220,220);
 	border-radius:10px;
@@ -221,3 +221,87 @@ article.actualite
 	margin-bottom:10px;
 }
 
+
+/*** Page d'inscription ***/
+
+.inscription
+{
+	border:1px solid rgb(220,220,220);
+	padding:20px;
+	margin:20px;
+}
+
+legend
+{
+	background-color:rgb(220,220,220);
+}
+
+.col
+{
+	width:100%;
+}
+
+.col  tr td, .col  tr td input
+{
+	vertical-align:middle;
+}
+
+.col tr td:first-child
+{
+	width:15%;
+}
+
+.col tr td:nth-child(2)
+{
+	width:35%;
+}
+
+.col tr td:nth-child(3)
+{
+	width:15%;
+}
+
+.col tr td:nth-child(4)
+{
+	width:35%;
+}
+
+#adresse, #codepostal, #ville
+{
+ width:300px;
+}
+
+#tablepaiements
+{
+	border:1px solid black;
+	border-collapse:collapse;
+	width:100%;
+	text-align:center;
+}
+
+#tablepaiements tr:first-child td
+{
+	background-color:rgb(220,220,220);
+}
+
+#tablepaiements td, #tablepaiements tr
+{
+	border:1px solid black;
+}
+
+#statut > input
+{
+	position:relative;
+	display:inline;
+	margin-left:30px;
+}
+
+#ajouteradherent
+{
+	display:block;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+
+/*** ***/
