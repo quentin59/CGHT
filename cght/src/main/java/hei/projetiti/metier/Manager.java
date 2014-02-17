@@ -6,6 +6,7 @@ import hei.projetiti.dao.AdherentDao;
 import hei.projetiti.dao.AnnonceDao;
 import hei.projetiti.dao.impl.ActualiteDaoImpl;
 import hei.projetiti.dao.impl.AdherentDaoImpl;
+import hei.projetiti.dao.impl.AnnonceDaoImpl;
 import hei.projetiti.model.Actualite;
 import hei.projetiti.model.Adherent;
 import hei.projetiti.model.Annonce;
@@ -17,6 +18,7 @@ public class Manager {
 	private static Manager instance;
 	private AdherentDao adherentdao = new AdherentDaoImpl();
 	private ActualiteDao actualitedao = new ActualiteDaoImpl();
+	private AnnonceDao annoncedao = new AnnonceDaoImpl();
 	
 	
 	public static Manager getInstance() {
@@ -34,5 +36,7 @@ public class Manager {
 		return actualitedao.listerActualites();
 	}
 	
-	
+	public List<Annonce> listerAnnonces(){
+		return annoncedao.listerAnnonces();
+	}
 }

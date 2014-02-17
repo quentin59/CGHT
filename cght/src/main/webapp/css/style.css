@@ -304,4 +304,91 @@ legend
 }
 
 
-/*** ***/
+/*** Gestion des cours ***/
+
+#tablecours
+{
+	border:1px solid black;
+	border-collapse:collapse;
+	width:100%;
+	text-align:center;
+}
+
+#tablecours tr:first-child td
+{
+	background-color:rgb(220,220,220);
+}
+
+#tablecours td, #tablecours tr
+{
+	border:1px solid black;
+}
+
+#ajoutercours td
+{
+	width:25%;
+}
+
+legend
+{
+	background-color:rgb(220,220,220);
+}
+
+.bouton
+{
+	display:block;
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+
+/*** Menu administration ***/
+
+.gras
+{
+	font-weight:bold;
+	border:1px solid red;
+}
+
+
+/*** Impressions ***/
+
+#fieldsetfichesadherents, #fieldsetfichespresence
+{
+	display:inline;
+	width:30%;
+}
+
+#legendfiches, #legendpresences 
+{
+	background-color:rgb(220,220,220);
+}
+
+#fichesadherents, #fichespresences
+{
+	border:1px solid black;
+	border-collapse:collapse;
+	text-align:center;
+	width:100%;
+}
+
+
+#fichesadherents tr:first-child td, #fichespresences tr:first-child td
+{
+	background-color:rgb(220,220,220);
+}
+
+#fichesadherents td, #fichesadherents tr, #fichespresences td, #fichespresences tr
+{
+	border:1px solid black;
+}
+
+.button
+{
+	display:block;
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:20px;
+}

@@ -30,8 +30,16 @@
     <servlet-class>hei.projetiti.controllers.GestionComptesServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>GestionCours</servlet-name>
+    <servlet-class>hei.projetiti.controllers.GestionCoursServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>Inscription</servlet-name>
     <servlet-class>hei.projetiti.controllers.InscriptionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Impression</servlet-name>
+    <servlet-class>hei.projetiti.controllers.ImpressionServlet</servlet-class>
   </servlet>
   
 
@@ -66,8 +74,16 @@
     <url-pattern>/gestion-comptes</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+    <servlet-name>GestionCours</servlet-name>
+    <url-pattern>/gestion-cours</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Inscription</servlet-name>
     <url-pattern>/inscription</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Impression</servlet-name>
+    <url-pattern>/impression</url-pattern>
   </servlet-mapping>
 
 
