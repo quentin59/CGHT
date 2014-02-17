@@ -72,7 +72,7 @@
 						<label for="mdp">Mot de passe actuel</label>
 					</td>
 					<td>
-						<input id="mdp" type="text" placeholder="Mot de passe actuel"/>
+						<input id="mdp" type="password" placeholder="Mot de passe actuel"/>
 					</td>
 				</tr>
 			</table>
@@ -92,7 +92,7 @@
 						<label for="vieuxmdp">Ancien mot de passe</label>
 					</td>
 					<td>
-						<input id="vieuxmdp" type="text" placeholder="Ancien mot de passe"/>
+						<input id="vieuxmdp" type="password" placeholder="Ancien mot de passe"/>
 					</td>
 				</tr>
 				<tr>		
@@ -106,7 +106,7 @@
 						<label for="newmdp">Nouveau mot de passe</label>
 					</td>
 					<td>
-						<input id="newmdp" type="text" placeholder="Nouveau mot de passe"/>
+						<input id="newmdp" type="password" placeholder="Nouveau mot de passe"/>
 					</td>
 				</tr>
 				<tr>		
@@ -120,7 +120,7 @@
 						<label for="newmdp2">Retapez votre nouveau mot de passe</label>
 					</td>
 					<td>
-						<input id="newmdp2" type="text" placeholder="Nouveau mot de passe"/>
+						<input id="newmdp2" type="password" placeholder="Nouveau mot de passe"/>
 					</td>
 				</tr>
 			</table>

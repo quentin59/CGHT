@@ -4,6 +4,11 @@
 	font-size:1em;
 }
 
+legend
+{
+	background-color:rgb(220,220,220);
+}
+
 /**** Menu de navigation ****/
 
 body
@@ -231,11 +236,6 @@ article.actualite, article.annonce
 	margin:20px;
 }
 
-legend
-{
-	background-color:rgb(220,220,220);
-}
-
 .col
 {
 	width:100%;
@@ -329,11 +329,6 @@ legend
 	width:25%;
 }
 
-legend
-{
-	background-color:rgb(220,220,220);
-}
-
 .bouton
 {
 	display:block;
@@ -362,11 +357,6 @@ legend
 	vertical-align:top;
 }
 
-#legendfiches, #legendpresences 
-{
-	background-color:rgb(220,220,220);
-}
-
 #fichesadherents, #fichespresences
 {
 	border:1px solid black;
@@ -387,18 +377,13 @@ legend
 }
 
 
-/*** Page de parametre ***/
+/*** Page de parametres ***/
 
 .profil
 {
 	border:1px solid rgb(220,220,220);
 	padding:20px;
 	margin:20px;
-}
-
-legend
-{
-	background-color:rgb(220,220,220);
 }
 
 .col
@@ -431,7 +416,7 @@ legend
 	width:35%;
 }
 
-input
+.col tr td input
 {
 	width:200px;
 }
