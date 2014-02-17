@@ -40,21 +40,15 @@
 	<legend id="legendfiches">Fiches adhérents</legend>
 	<table id="fichesadherents">
 		<tr>
-			<td>
-			Adhérents
-			</td>
-			<td>
-			Sélectionner
-			<br/>
-			<input type="checkbox" name="selectionneradherent" value="selectionneradherent">Tout sélectionner</input>
+			<td>Adhérents</td>
+			<td>Sélectionner<br/>
+				<input type="checkbox" name="selectionneradherent" value="selectionneradherent">Tout sélectionner</input>
 			</td>
 		</tr>
 		<tr>
+			<td>Adherent1</td>
 			<td>
-			Adherent1
-			</td>
-			<td>
-			<input type="checkbox" name="selectionneradherent" value="selectionneradherent"></input>
+				<input type="checkbox" name="selectionneradherent" value="selectionneradherent"></input>
 			</td>
 		</tr>
 	</table>
