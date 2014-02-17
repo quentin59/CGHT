@@ -25,7 +25,7 @@
     
      <nav class="menuLateral" id="menuProfil">
 		<ul>
-			<li>Profil</li>
+			<li><a href="profil">Profil</a></li>
 			<li>Informations personnelles</li>
 			<li>Paramètres</li>
 		</ul>

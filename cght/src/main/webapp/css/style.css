@@ -358,7 +358,8 @@ legend
 #fieldsetfichesadherents, #fieldsetfichespresence
 {
 	display:inline;
-	width:30%;
+	width:43%;
+	vertical-align:top;
 }
 
 #legendfiches, #legendpresences 
@@ -385,10 +386,52 @@ legend
 	border:1px solid black;
 }
 
-.button
+
+/*** Page de parametre ***/
+
+.profil
 {
-	display:block;
-	margin-right:auto;
-	margin-left:auto;
-	margin-top:20px;
+	border:1px solid rgb(220,220,220);
+	padding:20px;
+	margin:20px;
+}
+
+legend
+{
+	background-color:rgb(220,220,220);
+}
+
+.col
+{
+	width:100%;
+}
+
+.col  tr td, .col  tr td input
+{
+	vertical-align:middle;
+}
+
+.col tr td:first-child
+{
+	width:15%;
+}
+
+.col tr td:nth-child(2)
+{
+	width:35%;
+}
+
+.col tr td:nth-child(3)
+{
+	width:15%;
+}
+
+.col tr td:nth-child(4)
+{
+	width:35%;
+}
+
+input
+{
+	width:200px;
 }

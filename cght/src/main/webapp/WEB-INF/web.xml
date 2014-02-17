@@ -41,7 +41,10 @@
     <servlet-name>Impression</servlet-name>
     <servlet-class>hei.projetiti.controllers.ImpressionServlet</servlet-class>
   </servlet>
-  
+  <servlet>
+    <servlet-name>Parametres</servlet-name>
+    <servlet-class>hei.projetiti.controllers.ParametresServlet</servlet-class>
+  </servlet>
 
   
   
@@ -84,6 +87,10 @@
   <servlet-mapping>
     <servlet-name>Impression</servlet-name>
     <url-pattern>/impression</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Parametres</servlet-name>
+    <url-pattern>/parametres</url-pattern>
   </servlet-mapping>
 
 

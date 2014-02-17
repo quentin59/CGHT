@@ -59,7 +59,7 @@
 		</tr>
 	</table>
 	
-	<input type="submit" class="button" name="imprimerfiches" value="Imprimer" />
+	<input type="submit" class="bouton" name="imprimerfiches" value="Imprimer" />
 	
 	</fieldset>
 	
@@ -86,7 +86,7 @@
 		</tr>
 	</table>
 	
-	<input type="submit" class="button" name="imprimerpresence" value="Imprimer" />
+	<input type="submit" class="bouton" name="imprimerpresence" value="Imprimer" />
 	
 	</fieldset>
         </div>   

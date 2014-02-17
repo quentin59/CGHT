@@ -9,4 +9,7 @@ $(document).ready(function() {
 		{
 		$(".menuLateral").css("height",hauteur-$("#header").height()-96);
 		}
+	var largeur=$(document).width();
+	var largeurMenuLateral=$(".menuLateral").width();
+	$(".contenuPage").css("width",largeur-largeurMenuLateral-96);
 });
