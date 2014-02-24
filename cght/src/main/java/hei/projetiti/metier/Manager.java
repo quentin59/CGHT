@@ -39,4 +39,8 @@ public class Manager {
 	public List<Annonce> listerAnnonces(){
 		return annoncedao.listerAnnonces();
 	}
+	
+	public void AjouterAdherent(Adherent adherent){
+		adherentdao.AjouterAdherent(adherent);
+	}
 }

@@ -1,6 +1,8 @@
 package hei.projetiti.dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,7 +19,7 @@ public class AdherentDaoImpl implements AdherentDao{
 		List<Adherent> listeAdherents = new ArrayList<Adherent>();
 		
 		try {
-			//Cr�er une nouvelle connexion � la BDD
+			//Crï¿½er une nouvelle connexion ï¿½ la BDD
 			Connection connection = DataSourceProvider.getDataSource().getConnection();
 			
 			//Utiliser la connexion
@@ -40,5 +42,30 @@ public class AdherentDaoImpl implements AdherentDao{
         }
         return listeAdherents;
 		}
+
+	@Override
+	public void AjouterAdherent(Adherent adherent) {
+		// CrÃ©er une nouvelle connexion Ã  la BDD
+	    try {
+	        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = connection.prepareStatement(
+	                  "INSERT INTO `adherent`(`nom`, `prenom`, `dateNaissance`, `numLicence`, `classement`, `telephone`) VALUES(?, ?, ?, ?, ?, ?)");
+	        stmt.setString(1, adherent.getNom());
+	        stmt.setString(2, adherent.getPrenom());
+	        stmt.setDate(3, new Date(adherent.getDateNaissance().getTime()));
+	        stmt.setString(4,adherent.getLicence());
+	        stmt.setString(5,adherent.getClassement());
+	        stmt.setString(6,adherent.getTelephone());
+	        stmt.executeUpdate();
+
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		
+	}
 	
 }

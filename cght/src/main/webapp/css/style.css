@@ -205,28 +205,6 @@ div.box p
 	padding-left:30px;
 }
 
-
-/*** Contenu page ***/
-
-.contenuPage
-{
-	position:absolute;
-	margin-top:-16px;
-	margin-left:195px;
-	padding:20px;
-	border: 1px solid red;
-}
-
-article.actualite, article.annonce
-{
-	background:rgb(220,220,220);
-	border-radius:10px;
-	padding:10px;
-	border: 1px solid black;
-	margin-bottom:10px;
-}
-
-
 /*** Page d'inscription ***/
 
 .inscription
@@ -419,4 +397,43 @@ article.actualite, article.annonce
 .col tr td input
 {
 	width:200px;
+}
+
+/*** Contenu page ***/
+
+.contenuPage
+{
+	position:absolute;
+	margin-top:-16px;
+	margin-left:195px;
+	padding:20px;
+	border: 1px solid red;
+}
+
+article.actualite, article.annonce
+{
+	background:rgb(220,220,220);
+	border-radius:10px;
+	padding:10px;
+	border: 1px solid black;
+	margin-bottom:10px;
+	min-height: 210px;
+}
+
+.photoannonce
+{
+	position:absolute;
+	right:30px;
+	max-height: 200px;
+}
+
+.contenuannonce
+{
+	min-height:200px;
+}
+
+.photoannonce, .contenuannonce
+{
+	display:inline-block;
+	vertical-align:top;
 }

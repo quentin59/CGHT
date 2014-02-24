@@ -43,10 +43,17 @@
    <div class="contenuPage">
     	<c:forEach var="annonce" items="${annonces}" >
 			<article class="annonce">
-				<h2>${annonce.titre}</h2>
-				<p>${annonce.contenu}</p>
-				<p>${annonce.licence}</p>
-				<p>${annonce.dateAnnonce}</p>
+				<div class="contenuannonce">
+					<h2>${annonce.titre}</h2>
+					<p>${annonce.categorie}</p>
+					<c:if test="${annonce.categorie==\"Vente de matériel\"}" >
+					<p>${annonce.prix} €</p>
+					</c:if>
+					<p class="dateannonce">${annonce.dateAnnonce}</p>
+				</div>
+				<div class="photoannonce"> 
+					<img src="img/filet.jpg" alt= "filet.jpg" height="200px"/>
+				</div>
 			</article>								
 		</c:forEach> 
 	</div>	

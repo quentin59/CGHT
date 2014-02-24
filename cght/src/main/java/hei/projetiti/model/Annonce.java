@@ -10,14 +10,18 @@ public class Annonce {
 	private String coordonnees;
 	private String licence;
 	private Date dateAnnonce;
+	private String categorie;
+	private float prix;
 	
-	public Annonce(Integer idAnnonce, String titre, String contenu, String coordonnees, String licence, Date dateAnnonce){
+	public Annonce(Integer idAnnonce, String titre, String contenu, String coordonnees, String licence, Date dateAnnonce, String categorie, float prix){
 		this.idAnnonce=idAnnonce;
 		this.titre=titre;
 		this.contenu=contenu;
 		this.coordonnees=coordonnees;
 		this.licence=licence;
 		this.dateAnnonce=dateAnnonce;
+		this.categorie=categorie;
+		this.prix=prix;
 	}
 	
 	public Integer getIdAnnonce() {
@@ -57,6 +61,22 @@ public class Annonce {
 		this.dateAnnonce = dateAnnonce;
 	}
 	
+	public String getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
+	}
+
+	public float getPrix() {
+		return prix;
+	}
+
+	public void setPrix(float prix) {
+		this.prix = prix;
+	}
+
 public String moisLettre(int chiffre){
 		
 		String mois="";

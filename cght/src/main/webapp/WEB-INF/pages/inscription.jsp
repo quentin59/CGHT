@@ -34,7 +34,7 @@
     	
     	<!-- Corps de la page -->
     	<div class="contenuPage">
-			<form id="inscription">
+			<form id="inscription" method="post" action="inscription">
 	
 		<fieldset class="inscription">
 		<legend>Nouvel adhérent</legend>
@@ -44,13 +44,13 @@
 						<label for="nom">Nom</label>
 					</td>
 					<td>
-						<input id="nom" type="text" placeholder="Nom"/>
+						<input id="nom" type="text" name="nom" placeholder="Nom"/>
 					</td>
 					<td>
 						<label for="prenom">Prénom</label>
 					</td>
 					<td>
-						<input id="prenom" type="text" placeholder="Prénom"/>
+						<input id="prenom" type="text" name="prenom" placeholder="Prénom"/>
 					</td>
 				</tr>
 			</table>
@@ -64,19 +64,19 @@
 						<label for="datenaissance">Date de naissance</label>
 					</td>
 					<td>
-						<select name="Jour">
+						<select name="jour">
 							<c:forEach var="i" begin="1" end="31">
 								<option value="${i}">${i}</option>
 							</c:forEach>
 						</select>
-						<select name="Mois">
+						<select name="mois">
 							<c:forEach var="j" begin="1" end="12">
 								<option value="${j}">${j}</option>
 							</c:forEach>
 						</select>
-						<select name="Année">
-							<c:forEach var="k" begin="1914" end="2014">
-								<option value="${k}">${k}</option>
+						<select name="annee">
+							<c:forEach var="k" begin="0" end="100">
+								<option value="${2014-k}">${2014-k}</option>
 							</c:forEach>
 						</select>
 					</td>
@@ -84,7 +84,7 @@
 						<label for="telfixe">Téléphone fixe</label>
 					</td>
 					<td>
-						<input id="telfixe" type="text" placeholder="Téléphone fixe"/>
+						<input id="telfixe" type="text" name="telfixe" placeholder="Téléphone fixe"/>
 					</td>
 				</tr>
 				<tr>
@@ -92,13 +92,13 @@
 						<label for="adresse">Adresse</label>
 					</td>
 					<td>
-						<input id="adresse" type="text" placeholder="Adresse"/>
+						<input id="adresse" type="text" name="adresse" placeholder="Adresse"/>
 					</td>
 					<td>
 						<label for="telmobile">Téléphone mobile</label>
 					</td>
 					<td>
-						<input id="telmobile" type="text" placeholder="Téléphone mobile"/>
+						<input id="telmobile" type="text" name="telmobile" placeholder="Téléphone mobile"/>
 					</td>
 				</tr>
 				<tr>
@@ -106,13 +106,13 @@
 						<label for="codepostal">Code postal</label>
 					</td>
 					<td>
-						<input id="codepostal" type="text" placeholder="Code postal"/>
+						<input id="codepostal" type="text" name="codepostal" placeholder="Code postal"/>
 					</td>
 					<td>
 						<label for="mail">Adresse mail</label>
 					</td>
 					<td>
-						<input id="mail" type="text" placeholder="Adresse mail"/>
+						<input id="mail" type="text" name="mail" placeholder="Adresse mail"/>
 					</td>
 				</tr>
 				<tr>
@@ -120,7 +120,7 @@
 						<label for="ville">Ville</label>
 					</td>
 					<td>
-						<input id="ville" type="text" placeholder="Ville"/>
+						<input id="ville" type="text" name="ville" placeholder="Ville"/>
 					</td>
 				</tr>
 			</table>
@@ -134,7 +134,7 @@
 						<label for="licence">Licence</label>
 					</td>
 					<td>
-						<input id="licence" type="text" placeholder="Licence"/>
+						<input id="licence" type="text" name="licence" placeholder="Licence"/>
 					</td>
 					<td>
 					</td>
@@ -146,8 +146,8 @@
 						<label for="classement">Classement</label>
 					</td>
 					<td>
-						<select name="ligne"> 
-							<option value="NC3">NC</option>
+						<select name="classement"> 
+							<option value="NC">NC</option>
 							<option value="40">40</option>
 							<option value="30/5">30/5</option>
 							<option value="30/4">30/4</option>
@@ -178,10 +178,10 @@
 						<label for="numpass">Numéro de pass</label>
 					</td>
 					<td>
-						<input id="numpass" type="text" placeholder="Numéro de pass"/>
+						<input id="numpass" type="text" name="numpass" placeholder="Numéro de pass"/>
 					</td>
 					<td colspan="2">
-						<input type="checkbox" name="prendrephotos" value="prendrephotos"> Autorisation de prendre des photos</input>
+						<input type="checkbox" name="prendrePhoto" value="prendrePhoto"> Autorisation de prendre des photos</input>
 					</td>
 				</tr>
 				<tr>
@@ -192,7 +192,7 @@
 						<input id="nbrecours" type="text" placeholder="Nombre de cours"/>
 					</td>
 					<td colspan="2">
-						<input type="checkbox" name="publierphotos" value="publierphotos"> Autorisation de publier des photos</input>
+						<input type="checkbox" name="publierPhoto" value="publierPhoto"> Autorisation de publier des photos</input>
 					</td>
 				</tr>
 				<tr>

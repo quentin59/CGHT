@@ -50,4 +50,20 @@ public class AnnoncesServlet extends HttpServlet{
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/annonces.jsp");
 		view.forward(request, response);
 	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+
+		if(req.getParameter("pageSelectionnee").equals("index"))
+		{
+			
+		}
+		
+		
+		super.doPost(req, resp);
+	}
+	
+	
+	
 }

@@ -29,7 +29,9 @@ public class AnnonceDaoImpl implements AnnonceDao{
                            results.getString("contenu"),
                            results.getString("coordonnees"),
                            results.getString("numLicence"),
-                results.getDate("dateAnnonce"));
+                           results.getDate("dateAnnonce"),
+                           results.getString("categorie"),
+                           results.getFloat("prix"));
                 listeAnnonces.add(annonce);
             }
             
