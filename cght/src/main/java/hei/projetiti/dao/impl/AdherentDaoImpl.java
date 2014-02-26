@@ -67,5 +67,57 @@ public class AdherentDaoImpl implements AdherentDao{
 	    }
 		
 	}
+
+	@Override
+	public List<Adherent> listerIdentifiantsAdherents() {
+		
+		List<Adherent> listeIdentifiantsAdherents = new ArrayList<Adherent>();
+		
+		try {
+			//Crï¿½er une nouvelle connexion ï¿½ la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			Statement stmt = connection.createStatement();
+            ResultSet results = stmt.executeQuery("SELECT * FROM `adherent`");
+            while (results.next()) {
+                Adherent adherent = new Adherent(results.getString("nom"), 
+                           results.getString("prenom")); 
+                          
+                listeIdentifiantsAdherents.add(adherent);
+            }
+            
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listeIdentifiantsAdherents;
+	}
+
+	@Override
+	public boolean adherentExiste(String nom, String prenom) {
+		
+		try {
+	        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = connection.prepareStatement(
+	                  "SELECT * FROM `adherent` WHERE `nom`=? and `prenom`=?");
+	        stmt.setString(1, nom);
+	        stmt.setString(2, prenom);
+	        ResultSet results = stmt.executeQuery();
+            if (results.first())
+            {
+            	return true;
+            }
+
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		return false;
+	}
 	
 }

@@ -43,4 +43,12 @@ public class Manager {
 	public void AjouterAdherent(Adherent adherent){
 		adherentdao.AjouterAdherent(adherent);
 	}
+	
+	public List<Adherent> listerIdentifiantsAdherents(){
+		return adherentdao.listerIdentifiantsAdherents();
+	}
+	
+	public boolean adherentExiste(String nom, String prenom){
+		return adherentdao.adherentExiste(nom, prenom);
+	}
 }

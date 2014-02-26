@@ -15,6 +15,7 @@ public class Adherent {
 	private String numPass;
 	private String telephone;
 	private String mail;
+	private String password;
 	private boolean certif;
 	private boolean prendrePhoto;
 	private boolean publierPhoto;
@@ -30,7 +31,28 @@ public class Adherent {
 		this.telephone=telephone;
 	}
 	
+	public Adherent(String nom, String prenom)
+	{
+		this.nom=nom;
+		this.prenom=prenom;
+	}
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getStatut() {
+		return statut;
+	}
+
+	public void setStatut(String statut) {
+		this.statut = statut;
+	}
+
 	public String getNom() {
 		return nom;
 	}

@@ -8,5 +8,9 @@ public interface AdherentDao {
 
 	public List<Adherent> listerAdherents();
 	
+	public List<Adherent> listerIdentifiantsAdherents();
+	
 	public void AjouterAdherent(Adherent adherent);
+	
+	public boolean adherentExiste(String nom, String prenom);
 }
