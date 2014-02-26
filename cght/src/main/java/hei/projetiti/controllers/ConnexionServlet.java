@@ -44,6 +44,8 @@ public class ConnexionServlet extends HttpServlet{
 		String passwordRecup = request.getParameter("password");
 		if (Manager.getInstance().adherentExiste(loginRecup, passwordRecup)) {
 			HttpSession session = request.getSession(true);
+			session.setAttribute("nom", loginRecup);
+			session.setAttribute("prenom", passwordRecup);
 			session.setAttribute("adherentConnecte", new Adherent(loginRecup, passwordRecup));
 			redirectIndex(response);
 		}

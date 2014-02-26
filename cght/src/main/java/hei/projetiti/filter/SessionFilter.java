@@ -25,19 +25,17 @@ public class SessionFilter implements Filter{
             testIfAdherentConnecte(req,resp,chain);
         }
         else
-        {
+        {	      
         	chain.doFilter(request, response);
         }
-        
     }
   
-   
     private void testIfAdherentConnecte(HttpServletRequest req,    HttpServletResponse resp,FilterChain chain) throws IOException, ServletException {
         Adherent adherentConnecte = getAdherentConnecte(req);
         if(adherentConnecte==null){
-            resp.sendRedirect(req.getServletContext().getContextPath()+"/");
+            resp.sendRedirect(req.getServletContext().getContextPath()+"/connexion");
         }else{
-            chain.doFilter(req, resp);
+        chain.doFilter(req, resp);
         }
     }
     private Adherent getAdherentConnecte(HttpServletRequest req) {

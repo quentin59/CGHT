@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class AccueilServlet extends HttpServlet {
 
@@ -47,6 +48,7 @@ public class AccueilServlet extends HttpServlet {
 		
 		request.setAttribute("mois", moisParAn);
 		request.setAttribute("annees", anneeListe);
+		
 		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/index.jsp");
 		view.forward(request, response);
