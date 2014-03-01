@@ -15,4 +15,6 @@ public interface AdherentDao {
 	public boolean adherentExiste(String nom, String prenom);
 	
 	public Adherent getAdherent(String licence);
+	
+	public String getLicenceAdherent(String nom, String prenom);
 }

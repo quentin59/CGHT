@@ -55,4 +55,8 @@ public class Manager {
 	public Adherent getAdherent(String licence){
 		return adherentdao.getAdherent(licence);
 	}
+	
+	public String getLicenceAdherent(String nom, String prenom){
+		return adherentdao.getLicenceAdherent(nom, prenom);
+	}
 }

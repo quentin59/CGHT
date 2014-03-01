@@ -151,5 +151,29 @@ public class AdherentDaoImpl implements AdherentDao{
 	    }
 	    return adherent;
 	}
+
+	@Override
+	public String getLicenceAdherent(String nom, String prenom) {
+		
+		String licence=null;
+		try {
+	        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = connection.prepareStatement(
+	                  "SELECT `numLicence` FROM `adherent` WHERE `nom`=? and `prenom`=?");
+	        stmt.setString(1, nom);
+	        stmt.setString(2, prenom);
+	        ResultSet results = stmt.executeQuery();
+	        results.next();
+	        licence=results.getString("numLicence");
+
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		return licence;
+	}
 	
 }
