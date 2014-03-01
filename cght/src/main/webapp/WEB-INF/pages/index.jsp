@@ -1,11 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="hei.projetiti.model.*" %>
-<%@page import="hei.projetiti.metier.*" %>
-<% String licence= (String) request.getSession().getAttribute("licence"); %>
-<%!  Adherent adherent; %>
-<%  adherent = (Adherent) Manager.getInstance().getAdherent(licence); %>
 
 
 <!DOCTYPE html>
@@ -40,7 +35,7 @@
     
     <div class="menuLateral">  
     <ul>
-    	<li>Accueil  <%=adherent.getNom() %></li>
+    	<li>Accueil</li>
     <c:forEach var="annee" items="${annees}" varStatus="listeAnnee" >
 			<li>${annee}</li>
 					<ul><c:forEach var="mois" items="${mois[listeAnnee.index]}">
