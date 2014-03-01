@@ -51,4 +51,8 @@ public class Manager {
 	public boolean adherentExiste(String nom, String prenom){
 		return adherentdao.adherentExiste(nom, prenom);
 	}
+	
+	public Adherent getAdherent(String licence){
+		return adherentdao.getAdherent(licence);
+	}
 }

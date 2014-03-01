@@ -119,5 +119,37 @@ public class AdherentDaoImpl implements AdherentDao{
 	    }
 		return false;
 	}
+
+	@Override
+	public Adherent getAdherent(String licence) {
+		
+		Adherent adherent=null;
+		// Créer une nouvelle connexion à la BDD
+	    try {
+	        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = connection.prepareStatement(
+	                  "SELECT * FROM `adherent` WHERE `numLicence`=?");
+	        stmt.setString(1,licence);
+	        ResultSet results = stmt.executeQuery();
+	        results.next();
+	        adherent = new Adherent(results.getString("nom"),
+	        		results.getString("prenom"), results.getDate("dateNaissance"),
+	        		results.getString("adresse"), results.getInt("codePostal"),
+	        		results.getString("ville"), results.getString("numLicence"),
+	        		results.getString("classement"), results.getString("numPass"),
+	        		results.getString("telephone"), results.getString("portable"),
+	        		results.getString("mail"), results.getString("password"),
+	        		results.getBoolean("certif"), results.getBoolean("prendrePhoto"),
+	        		results.getBoolean("publierPhoto"), results.getString("statut"));
+	            
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return adherent;
+	}
 	
 }

@@ -14,12 +14,35 @@ public class Adherent {
 	private String classement;
 	private String numPass;
 	private String telephone;
+	private String portable;
 	private String mail;
 	private String password;
 	private boolean certif;
 	private boolean prendrePhoto;
 	private boolean publierPhoto;
 	private String statut;
+	
+	public Adherent (String nom, String prenom, Date dateNaissance, String adresse, Integer codePostal, String ville, 
+			String licence, String classement, String numPass, String telephone, String portable, String mail, 
+			String password, boolean certif, boolean prendrePhoto, boolean publierPhoto, String statut){
+		this.nom=nom;
+		this.prenom=prenom;
+		this.dateNaissance=dateNaissance;
+		this.adresse=adresse;
+		this.codePostal=codePostal;
+		this.ville=ville;
+		this.licence=licence;
+		this.classement=classement;
+		this.numPass=numPass;
+		this.telephone=telephone;
+		this.portable=portable;
+		this.mail=mail;
+		this.password=password;
+		this.certif=certif;
+		this.prendrePhoto=prendrePhoto;
+		this.publierPhoto=publierPhoto;
+		this.statut=statut;
+	}
 	
 	public Adherent (String nom, String prenom, Date dateNaissance, String licence, String classement, String telephone) 
 	{
@@ -36,6 +59,7 @@ public class Adherent {
 		this.nom=nom;
 		this.prenom=prenom;
 	}
+	
 	
 	public String getPassword() {
 		return password;
@@ -112,6 +136,13 @@ public class Adherent {
 	}
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+	public String getPortable() {
+		return portable;
+	}
+
+	public void setPortable(String portable) {
+		this.portable = portable;
 	}
 	public String getMail() {
 		return mail;
