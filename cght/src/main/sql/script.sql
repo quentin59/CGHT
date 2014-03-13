@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: 127.0.0.1
--- Généré le: Sam 01 Mars 2014 à 19:30
+-- Généré le: Jeu 13 Mars 2014 à 18:00
 -- Version du serveur: 5.5.27-log
 -- Version de PHP: 5.4.6
 
@@ -80,6 +80,7 @@ CREATE TABLE IF NOT EXISTS `adherent` (
 
 INSERT INTO `adherent` (`numLicence`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `ville`, `telephone`, `portable`, `mail`, `numPass`, `classement`, `certif`, `statut`, `prendrePhoto`, `publierPhoto`, `password`) VALUES
 ('12345678', 'Vendeville', 'Quentin', '1992-08-06', '11 allée du Talisman', '59650', 'Villeneuve d''Ascq', '0320916554', '0678987694', 'quentin.vendeville@hei.Fr', '3456', 'NC', 1, 'administrateur', 1, 1, 'azertyuiop'),
+('23456789', 'Dupond', 'Jean', '2014-03-03', NULL, NULL, NULL, '', NULL, NULL, NULL, '40', NULL, 'adherent', NULL, NULL, 'adazdazdazdadzada'),
 ('9876543F', 'Thibault', 'Damien', '1990-10-10', NULL, NULL, NULL, '0320032003', NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
@@ -117,11 +118,11 @@ INSERT INTO `annonce` (`idAnnonce`, `titre`, `contenu`, `coordonnees`, `numLicen
 
 CREATE TABLE IF NOT EXISTS `cours` (
   `idCours` int(11) NOT NULL AUTO_INCREMENT,
-  `jour` varchar(10) NOT NULL,
-  `heure` varchar(10) NOT NULL,
-  `numLicence` varchar(8) NOT NULL,
-  PRIMARY KEY (`idCours`),
-  KEY `numLicence` (`numLicence`)
+  `heureDebut` int(11) NOT NULL,
+  `minuteDebut` int(11) NOT NULL,
+  `heureFin` int(11) NOT NULL,
+  `minuteFin` int(11) NOT NULL,
+  PRIMARY KEY (`idCours`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -156,12 +157,6 @@ ALTER TABLE `actualite`
 --
 ALTER TABLE `annonce`
   ADD CONSTRAINT `annonce_ibfk_1` FOREIGN KEY (`numLicence`) REFERENCES `adherent` (`numLicence`) ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `cours`
---
-ALTER TABLE `cours`
-  ADD CONSTRAINT `cours_ibfk_1` FOREIGN KEY (`numLicence`) REFERENCES `adherent` (`numLicence`) ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `paiement`

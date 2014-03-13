@@ -89,6 +89,7 @@
 						<option value="jeudi">Jeudi</option>
 						<option value="vendredi">Vendredi</option>
 						<option value="samedi">Samedi</option>
+						<option value="dimanche">Dimanche</option>
 					</select>
 				</td>
 			</tr>
@@ -98,26 +99,14 @@
 				</td>
 				<td>
 					<select name="heuredebut"> 
-						<option value="08">08</option>
-						<option value="09">09</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
-						<option value="13">13</option>
-						<option value="14">14</option>
-						<option value="15">15</option>
-						<option value="16">16</option>
-						<option value="17">17</option>
-						<option value="18">18</option>
-						<option value="19">19</option>
-						<option value="20">20</option>
-						<option value="21">21</option>
-						<option value="22">22</option>
+						<c:forEach var="i" begin="8" end="22" >
+							<option value="<fmt:formatNumber pattern="00" value="${i}"/>"><fmt:formatNumber pattern="00" value="${i}"/></option>
+						</c:forEach>
 					</select>
 					h
 					<select name="minutedebut">
 						<c:forEach var="i" begin="00" end="55" step="5">
-								<option value="${i}">${i}</option>
+								<option value="<fmt:formatNumber pattern="00" value="${i}"/>"><fmt:formatNumber pattern="00" value="${i}"/></option>
 						</c:forEach>
 					</select>
 				</td>
@@ -126,26 +115,14 @@
 				<td>Heure de fin</td>
 				<td>
 					<select name="heurefin"> 
-						<option value="08">08</option>
-						<option value="09">09</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
-						<option value="13">13</option>
-						<option value="14">14</option>
-						<option value="15">15</option>
-						<option value="16">16</option>
-						<option value="17">17</option>
-						<option value="18">18</option>
-						<option value="19">19</option>
-						<option value="20">20</option>
-						<option value="21">21</option>
-						<option value="22">22</option>
+						<c:forEach var="i" begin="8" end="22" >
+							<option value="<fmt:formatNumber pattern="00" value="${i}"/>"><fmt:formatNumber pattern="00" value="${i}"/></option>
+						</c:forEach>
 					</select>
 					h
 					<select name="minutefin">
-						<c:forEach var="j" begin="00" end="55" step="5">
-								<option value="${j}">${j}</option>
+						<c:forEach var="i" begin="00" end="55" step="5">
+								<option value="<fmt:formatNumber pattern="00" value="${i}"/>"><fmt:formatNumber pattern="00" value="${i}"/></option>
 						</c:forEach>
 					</select>
 				</td>
