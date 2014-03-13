@@ -62,6 +62,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-name>Erreur</servlet-name>
     <servlet-class>hei.projetiti.controllers.ErreurServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Article</servlet-name>
+    <servlet-class>hei.projetiti.controllers.ArticleServlet</servlet-class>
+  </servlet>
 
   
   
@@ -114,6 +118,11 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-name>Erreur</servlet-name>
     <url-pattern>/erreur</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Article</servlet-name>
+    <url-pattern>/article</url-pattern>
+  </servlet-mapping>
+  
   <filter-mapping>
 		<filter-name>SessionFilter</filter-name>
 		<url-pattern>/*</url-pattern>
