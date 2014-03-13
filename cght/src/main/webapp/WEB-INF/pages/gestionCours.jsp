@@ -9,17 +9,23 @@
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Administration</title>
-		<link rel="stylesheet" href="css/style.css"/>
-		<link rel="icon" type="image/jpg" href="img/cght.jpg" />
+		<link rel="stylesheet" href="../css/style.css"/>
+		<link rel="icon" type="image/jpg" href="../img/cght.jpg" />
 		<!-- JQuery -->
-	<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
 	<!-- Javascript spécifique -->
-	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="../js/menu.js"></script>
     </head>
     
     <body>
     <!-- Header -->
-    	<jsp:include page="header.jsp"/>
+    	<header>
+	<img id="header" src="../img/bandeau.jpg" alt= "bandeau.jpg" class="header"/>
+	<div id="identifiant">
+		<h3>${prenom} ${nom}</h3>
+		<a id="boutonDeconnexion" href="/mawebapp/connexion?logout">Déconnexion</a>
+	</div>
+</header>
     
     
     	<!-- Menu de navigation -->
@@ -28,7 +34,7 @@
 		</jsp:include>
     	
     	<!-- Menu d'administration -->
-    	<jsp:include page="adminMenu.jsp">
+    	<jsp:include page="adminMenu.jsp"> 
     	<jsp:param name="pageAdminSelectionnee" value="gestionCours"/>
 		</jsp:include>
     	

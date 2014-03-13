@@ -23,7 +23,7 @@ public class ParametresServlet extends HttpServlet{
 		List<Adherent> listeAdherents = Manager.getInstance().listerAdherents();
 		request.setAttribute("adherents", listeAdherents);
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/parametres.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/parametres.jsp");
 		view.forward(request, response);
 	}
 }

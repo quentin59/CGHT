@@ -23,7 +23,7 @@ public class GestionComptesServlet extends HttpServlet{
 		List<Adherent> listeAdherents = Manager.getInstance().listerAdherents();
 		request.setAttribute("adherents", listeAdherents);
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/gestionComptes.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/gestionComptes.jsp");
 		view.forward(request, response);
 	}
 }

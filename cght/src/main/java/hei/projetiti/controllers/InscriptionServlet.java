@@ -21,7 +21,7 @@ public class InscriptionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/inscription.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/inscription.jsp");
 		view.forward(request, response);
 	}
 
@@ -86,7 +86,7 @@ public class InscriptionServlet extends HttpServlet {
 		Adherent nouveladherent = new Adherent(nom, prenom, cal.getTime(), licence, classement, telfixe);
 		Manager.getInstance().AjouterAdherent(nouveladherent);
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/inscription.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/inscription.jsp");
 		view.forward(request, response);
 	}
 

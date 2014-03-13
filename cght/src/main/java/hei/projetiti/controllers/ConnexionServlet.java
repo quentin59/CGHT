@@ -33,7 +33,7 @@ public class ConnexionServlet extends HttpServlet{
        	 session.invalidate();
        }
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/connexion.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
 		view.forward(request, response);
 	}
 	
@@ -49,12 +49,13 @@ public class ConnexionServlet extends HttpServlet{
 			session.setAttribute("prenom", passwordRecup);
 			session.setAttribute("licence", licence);
 			session.setAttribute("adherentConnecte", new Adherent(loginRecup, passwordRecup));
+			session.setAttribute("statut",Manager.getInstance().getAdherent(licence).getStatut());
 			redirectIndex(response);
 		}
 		else
 		{
 			request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valide.");
-		    RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/connexion.jsp");
+		    RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
 			view.forward(request, response);
 		}
 	}

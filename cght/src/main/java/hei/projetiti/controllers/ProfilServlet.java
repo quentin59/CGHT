@@ -26,7 +26,7 @@ public class ProfilServlet extends HttpServlet{
 		request.setAttribute("adherent", adherent);
 
 
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/profil.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/profil.jsp");
 		view.forward(request, response);
 	}
 }

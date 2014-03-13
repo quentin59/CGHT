@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  
+  
+  <filter>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>hei.projetiti.filter.SessionFilter</filter-class>
+  </filter>
+  <filter>
+		<filter-name>AdminFilter</filter-name>
+		<filter-class>hei.projetiti.filter.AdminFilter</filter-class>
+  </filter>
+ 
   
   <servlet>
     <servlet-name>Accueil</servlet-name>
@@ -45,11 +58,12 @@
     <servlet-name>Parametres</servlet-name>
     <servlet-class>hei.projetiti.controllers.ParametresServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Erreur</servlet-name>
+    <servlet-class>hei.projetiti.controllers.ErreurServlet</servlet-class>
+  </servlet>
+
   
-  <filter>
-		<filter-name>SessionFilter</filter-name>
-		<filter-class>hei.projetiti.filter.SessionFilter</filter-class>
-  </filter>
   
   
   <servlet-mapping>
@@ -74,32 +88,41 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Administration</servlet-name>
-    <url-pattern>/administration</url-pattern>
+    <url-pattern>/admin/administration</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>GestionComptes</servlet-name>
-    <url-pattern>/gestion-comptes</url-pattern>
+    <url-pattern>/admin/gestion-comptes</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>GestionCours</servlet-name>
-    <url-pattern>/gestion-cours</url-pattern>
+    <url-pattern>/admin/gestion-cours</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Inscription</servlet-name>
-    <url-pattern>/inscription</url-pattern>
+    <url-pattern>/admin/inscription</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Impression</servlet-name>
-    <url-pattern>/impression</url-pattern>
+    <url-pattern>/admin/impression</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Parametres</servlet-name>
     <url-pattern>/parametres</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Erreur</servlet-name>
+    <url-pattern>/erreur</url-pattern>
+  </servlet-mapping>
   <filter-mapping>
 		<filter-name>SessionFilter</filter-name>
 		<url-pattern>/*</url-pattern>
   </filter-mapping>
+  <filter-mapping>
+		<filter-name>AdminFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+  </filter-mapping>
+  
   
 
 

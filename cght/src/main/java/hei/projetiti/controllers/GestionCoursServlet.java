@@ -23,7 +23,7 @@ public class GestionCoursServlet extends HttpServlet{
 		List<Adherent> listeAdherents = Manager.getInstance().listerAdherents();
 		request.setAttribute("adherents", listeAdherents);
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/gestionCours.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/gestionCours.jsp");
 		view.forward(request, response);
 	}
 }

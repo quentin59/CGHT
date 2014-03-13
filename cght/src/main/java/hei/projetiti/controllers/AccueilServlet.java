@@ -50,7 +50,7 @@ public class AccueilServlet extends HttpServlet {
 		request.setAttribute("annees", anneeListe);
 		
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/index.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/index.jsp");
 		view.forward(request, response);
 	}
 

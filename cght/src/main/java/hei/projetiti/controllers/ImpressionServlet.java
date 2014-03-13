@@ -23,7 +23,7 @@ public class ImpressionServlet extends HttpServlet{
 		List<Adherent> listeAdherents = Manager.getInstance().listerAdherents();
 		request.setAttribute("adherents", listeAdherents);
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/impression.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/impression.jsp");
 		view.forward(request, response);
 	}
 }
