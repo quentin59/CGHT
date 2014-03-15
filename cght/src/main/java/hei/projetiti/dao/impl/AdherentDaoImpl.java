@@ -60,7 +60,7 @@ public class AdherentDaoImpl implements AdherentDao{
 	        stmt.setDate(3, new Date(adherent.getDateNaissance().getTime()));
 	        stmt.setString(4,adherent.getLicence());
 	        stmt.setString(5,adherent.getAdresse());
-	        stmt.setInt(6,adherent.getCodePostal());
+	        stmt.setString(6,adherent.getCodePostal());
 	        stmt.setString(7,adherent.getVille());
 	        stmt.setString(8,adherent.getTelephone());
 	        stmt.setString(9,adherent.getPortable());
@@ -151,7 +151,7 @@ public class AdherentDaoImpl implements AdherentDao{
 	        results.next();
 	        adherent = new Adherent(results.getString("nom"),
 	        		results.getString("prenom"), results.getDate("dateNaissance"),
-	        		results.getString("adresse"), results.getInt("codePostal"),
+	        		results.getString("adresse"), results.getString("codePostal"),
 	        		results.getString("ville"), results.getString("numLicence"),
 	        		results.getString("classement"), results.getString("numPass"),
 	        		results.getString("telephone"), results.getString("portable"),

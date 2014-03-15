@@ -45,7 +45,7 @@ public class InscriptionServlet extends HttpServlet {
 		String telephone = request.getParameter("telfixe");
 		String portable = request.getParameter("telmobile");
 		String adresse = request.getParameter("adresse");
-		Integer codePostal = Integer.parseInt(request.getParameter("codepostal"));
+		String codePostal = request.getParameter("codepostal");
 		String mail = request.getParameter("mail");
 		String ville = request.getParameter("ville");
 		String licence = request.getParameter("licence");

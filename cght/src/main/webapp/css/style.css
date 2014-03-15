@@ -399,6 +399,12 @@ div.box p
 	width:200px;
 }
 
+.col tr td input[type="checkbox"]
+{
+	width:20px;
+}
+
+
 /*** Contenu page ***/
 
 .contenuPage

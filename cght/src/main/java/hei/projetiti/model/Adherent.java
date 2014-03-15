@@ -8,7 +8,7 @@ public class Adherent {
 	private String prenom;
 	private Date dateNaissance;
 	private String adresse;
-	private Integer codePostal;
+	private String codePostal;
 	private String ville;
 	private String licence;
 	private String classement;
@@ -22,7 +22,7 @@ public class Adherent {
 	private boolean publierPhoto;
 	private String statut;
 	
-	public Adherent (String nom, String prenom, Date dateNaissance, String adresse, Integer codePostal, String ville, 
+	public Adherent (String nom, String prenom, Date dateNaissance, String adresse, String codePostal, String ville, 
 			String licence, String classement, String numPass, String telephone, String portable, String mail, 
 			String password, boolean certif, boolean prendrePhoto, boolean publierPhoto, String statut){
 		this.nom=nom;
@@ -101,10 +101,10 @@ public class Adherent {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public Integer getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
-	public void setCodePostal(Integer codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 	public String getVille() {
