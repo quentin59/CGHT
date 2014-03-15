@@ -66,9 +66,6 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-name>Article</servlet-name>
     <servlet-class>hei.projetiti.controllers.ArticleServlet</servlet-class>
   </servlet>
-
-  
-  
   
   <servlet-mapping>
     <servlet-name>Accueil</servlet-name>

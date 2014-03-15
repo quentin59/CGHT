@@ -56,24 +56,27 @@
 				<label for="supprimer">Supprimer</label>
 			</td>
 		</tr>
+		<c:forEach var="cours" items="${cours}" >
 		<tr>
 			<td>
-				Mercredi
+				${cours.jourCours}
 			</td>
 			<td>
-				18h
+				<fmt:formatNumber pattern="00" value="${cours.heureDebut}"/>h<fmt:formatNumber pattern="00" value="${cours.minuteDebut}"/>
 			</td>
 			<td>
-				19h30
+				<fmt:formatNumber pattern="00" value="${cours.heureFin}"/>h<fmt:formatNumber pattern="00" value="${cours.minuteFin}"/>
 			</td>
 			<td>
 				<input type="checkbox" name="supprimercours" value="supprimercours"></input>
 			</td>
 		</tr>
+		</c:forEach>
 	</table>
 	
 	<input type="submit" class="bouton" name="supprimercours" value="Supprimer"/>
 	
+	<form action="gestion-cours" method="post">
 	<fieldset class="cours">
 	<legend>Nouveau cours</legend>
 		<table id="ajoutercours">
@@ -130,7 +133,9 @@
 		</table>
 	</fieldset>
 	
+	
 	<input type="submit" class="bouton" name="ajoutercours" value="Ajouter un cours"/>
+	</form>
         </div>   
 		
     </body>

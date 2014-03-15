@@ -42,10 +42,10 @@ public class InscriptionServlet extends HttpServlet {
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
 		
-		String telfixe = request.getParameter("telfixe");
-		String telmobile = request.getParameter("telmobile");
+		String telephone = request.getParameter("telfixe");
+		String portable = request.getParameter("telmobile");
 		String adresse = request.getParameter("adresse");
-		Integer codepostal = Integer.parseInt(request.getParameter("codepostal"));
+		Integer codePostal = Integer.parseInt(request.getParameter("codepostal"));
 		String mail = request.getParameter("mail");
 		String ville = request.getParameter("ville");
 		String licence = request.getParameter("licence");
@@ -53,37 +53,38 @@ public class InscriptionServlet extends HttpServlet {
 		boolean certif;
 		if (request.getParameter("certificat")!=null)
 		{
-			certif=false;
+			certif=true;
 		}
 		else
 		{
-			certif=true;
+			certif=false;
 		}
-		String numPassString = request.getParameter("numpass");
+		String numPass = request.getParameter("numpass");
 		
 		boolean prendrePhoto;
 		if (request.getParameter("prendrePhoto")!=null)
 		{
-			prendrePhoto=false;
+			prendrePhoto=true;
 		}
 		else
 		{
-			prendrePhoto=true;
+			prendrePhoto=false;
 		}
 		
 		boolean publierPhoto;
 		if (request.getParameter("publierPhoto")!=null)
 		{
-			publierPhoto=false;
+			publierPhoto=true;
 		}
 		else
 		{
-			publierPhoto=true;
+			publierPhoto=false;
 		}
-		
+		String password = "123456";
 		String statut = request.getParameter("statut");
+		/*Adherent nouveladherent = new Adherent(nom, prenom, cal.getTime(), licence, classement, telfixe);*/
+		Adherent nouveladherent = new Adherent(nom, prenom, cal.getTime(), adresse, codePostal, ville, licence, classement, numPass, telephone, portable, mail, password, certif, prendrePhoto, publierPhoto, statut);
 		
-		Adherent nouveladherent = new Adherent(nom, prenom, cal.getTime(), licence, classement, telfixe);
 		Manager.getInstance().AjouterAdherent(nouveladherent);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/inscription.jsp");

@@ -51,13 +51,28 @@ public class AdherentDaoImpl implements AdherentDao{
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = connection.prepareStatement(
-	                  "INSERT INTO `adherent`(`nom`, `prenom`, `dateNaissance`, `numLicence`, `classement`, `telephone`) VALUES(?, ?, ?, ?, ?, ?)");
+	                  "INSERT INTO `adherent`(`nom`, `prenom`, `dateNaissance`, `numLicence`, `adresse`, "
+	                  + "`codePostal`, `ville`, `telephone`, `portable`, `mail`, `numPass`, "
+	                  + "`classement`, `certif`, `statut`, `prendrePhoto`, `publierPhoto`, `password`) "
+	                  + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 	        stmt.setString(1, adherent.getNom());
 	        stmt.setString(2, adherent.getPrenom());
 	        stmt.setDate(3, new Date(adherent.getDateNaissance().getTime()));
 	        stmt.setString(4,adherent.getLicence());
-	        stmt.setString(5,adherent.getClassement());
-	        stmt.setString(6,adherent.getTelephone());
+	        stmt.setString(5,adherent.getAdresse());
+	        stmt.setInt(6,adherent.getCodePostal());
+	        stmt.setString(7,adherent.getVille());
+	        stmt.setString(8,adherent.getTelephone());
+	        stmt.setString(9,adherent.getPortable());
+	        stmt.setString(10,adherent.getMail());
+	        stmt.setString(11,adherent.getNumPass());
+	        stmt.setString(12,adherent.getClassement());
+	        stmt.setBoolean(13,adherent.isCertif());
+	        stmt.setString(14,adherent.getStatut());
+	        stmt.setBoolean(15,adherent.isPrendrePhoto());
+	        stmt.setBoolean(16,adherent.isPublierPhoto());
+	        stmt.setString(17,adherent.getPassword());
+	        
 	        stmt.executeUpdate();
 
 	        // Fermer la connexion

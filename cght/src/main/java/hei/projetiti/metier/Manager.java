@@ -4,12 +4,15 @@ import hei.projetiti.metier.Manager;
 import hei.projetiti.dao.ActualiteDao;
 import hei.projetiti.dao.AdherentDao;
 import hei.projetiti.dao.AnnonceDao;
+import hei.projetiti.dao.CoursDao;
 import hei.projetiti.dao.impl.ActualiteDaoImpl;
 import hei.projetiti.dao.impl.AdherentDaoImpl;
 import hei.projetiti.dao.impl.AnnonceDaoImpl;
+import hei.projetiti.dao.impl.CoursDaoImpl;
 import hei.projetiti.model.Actualite;
 import hei.projetiti.model.Adherent;
 import hei.projetiti.model.Annonce;
+import hei.projetiti.model.Cours;
 
 import java.util.List;
 
@@ -19,6 +22,7 @@ public class Manager {
 	private AdherentDao adherentdao = new AdherentDaoImpl();
 	private ActualiteDao actualitedao = new ActualiteDaoImpl();
 	private AnnonceDao annoncedao = new AnnonceDaoImpl();
+	private CoursDao coursdao = new CoursDaoImpl();
 	
 	
 	public static Manager getInstance() {
@@ -58,5 +62,17 @@ public class Manager {
 	
 	public String getLicenceAdherent(String nom, String prenom){
 		return adherentdao.getLicenceAdherent(nom, prenom);
+	}
+	
+	public List<Cours> listerCours(){
+		return coursdao.listerCours();
+	}
+	
+	public void ajouterCours (Cours cours){
+		coursdao.ajouterCours(cours);
+	}
+	
+	public void supprimerCours (Cours cours){
+		coursdao.supprimerCours(cours);
 	}
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: 127.0.0.1
--- Généré le: Jeu 13 Mars 2014 à 18:00
+-- Généré le: Sam 15 Mars 2014 à 10:37
 -- Version du serveur: 5.5.27-log
 -- Version de PHP: 5.4.6
 
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `adherent` (
   `statut` varchar(15) DEFAULT NULL,
   `prendrePhoto` tinyint(1) DEFAULT NULL,
   `publierPhoto` tinyint(1) DEFAULT NULL,
-  `password` varchar(100) NOT NULL,
+  `password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`numLicence`),
   KEY `numLicence` (`numLicence`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -80,6 +80,8 @@ CREATE TABLE IF NOT EXISTS `adherent` (
 
 INSERT INTO `adherent` (`numLicence`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `ville`, `telephone`, `portable`, `mail`, `numPass`, `classement`, `certif`, `statut`, `prendrePhoto`, `publierPhoto`, `password`) VALUES
 ('12345678', 'Vendeville', 'Quentin', '1992-08-06', '11 allée du Talisman', '59650', 'Villeneuve d''Ascq', '0320916554', '0678987694', 'quentin.vendeville@hei.Fr', '3456', 'NC', 1, 'administrateur', 1, 1, 'azertyuiop'),
+('1500000J', 'Regolle', 'Lisa', '1992-11-03', NULL, NULL, NULL, '0808080808', NULL, NULL, NULL, '15/3', NULL, NULL, NULL, NULL, NULL),
+('1500001J', 'Descamps', 'Stanislas', '1991-07-03', '5 rue de la pluie', '6000', 'Nice', '0707070707', '0505050505', 'stan.descamps@hei.Fr', '56789', '30/5', 0, 'adherent', 0, 1, '123456'),
 ('23456789', 'Dupond', 'Jean', '2014-03-03', NULL, NULL, NULL, '', NULL, NULL, NULL, '40', NULL, 'adherent', NULL, NULL, 'adazdazdazdadzada'),
 ('9876543F', 'Thibault', 'Damien', '1990-10-10', NULL, NULL, NULL, '0320032003', NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, '');
 
@@ -118,12 +120,21 @@ INSERT INTO `annonce` (`idAnnonce`, `titre`, `contenu`, `coordonnees`, `numLicen
 
 CREATE TABLE IF NOT EXISTS `cours` (
   `idCours` int(11) NOT NULL AUTO_INCREMENT,
+  `jourCours` varchar(15) NOT NULL,
   `heureDebut` int(11) NOT NULL,
   `minuteDebut` int(11) NOT NULL,
   `heureFin` int(11) NOT NULL,
   `minuteFin` int(11) NOT NULL,
   PRIMARY KEY (`idCours`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `cours`
+--
+
+INSERT INTO `cours` (`idCours`, `jourCours`, `heureDebut`, `minuteDebut`, `heureFin`, `minuteFin`) VALUES
+(1, 'lundi', 19, 5, 21, 15),
+(2, 'lundi', 19, 5, 21, 15);
 
 -- --------------------------------------------------------
 
