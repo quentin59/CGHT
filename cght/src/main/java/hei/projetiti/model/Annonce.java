@@ -95,7 +95,7 @@ public String moisLettre(int chiffre){
                  break;
         case 7:  mois = "Juillet";
                  break;
-        case 8:  mois = "Ao�t";
+        case 8:  mois = "Août";
                  break;
         case 9:  mois = "Septembre";
                  break;
