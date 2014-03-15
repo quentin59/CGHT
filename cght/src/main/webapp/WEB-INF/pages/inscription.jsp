@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
 	<!-- Javascript spécifique -->
 	<script type="text/javascript" src="../js/menu.js"></script>
+	<script type="text/javascript" src="../js/inscription.js"></script>
     </head>
     
     <body>
@@ -40,7 +41,7 @@
     	
     	<!-- Corps de la page -->
     	<div class="contenuPage">
-			<form id="inscription" method="post" action="inscription">
+		<form id="inscription" method="post" action="inscription">
 	
 		<fieldset class="inscription">
 		<legend>Nouvel adhérent</legend>
