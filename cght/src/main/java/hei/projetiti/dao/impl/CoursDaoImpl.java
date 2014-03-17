@@ -72,5 +72,37 @@ public class CoursDaoImpl implements CoursDao{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public List<Cours> listerCours(String jour) {
+		
+		List<Cours> listeCours= new ArrayList<Cours>();
+		
+		try {
+			//Créer une nouvelle connexion à la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `cours` WHERE jourCours=?");
+			stmt.setString(1, jour);
+			ResultSet results = stmt.executeQuery();
+            while (results.next()) {
+                Cours cours = new Cours(results.getInt("idCours"), 
+                           results.getString("jourCours"), 
+                           results.getInt("heureDebut"),
+                           results.getInt("minuteDebut"),
+                           results.getInt("heureFin"),
+						   results.getInt("minuteFin"));
+                listeCours.add(cours);
+            }
+            
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listeCours;
+	}
 	
 }

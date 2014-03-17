@@ -8,6 +8,8 @@ public interface CoursDao {
 
 	public List<Cours> listerCours();
 	
+	public List<Cours> listerCours(String jour);
+	
 	public void ajouterCours (Cours cours);
 	
 	public void supprimerCours (Cours cours);

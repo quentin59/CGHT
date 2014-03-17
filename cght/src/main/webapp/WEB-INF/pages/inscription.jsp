@@ -204,26 +204,20 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
-						Cours i
-					</td>
+					<td>Cours 1</td>
 					<td>
 						<select name="Cours">
-							<%--<c:forEach var="jour">
-								<option value="jour">Jour</option>
-							</c:forEach>--%>
+								<option value="vide"></option>
+							<c:forEach var="cours" items="${cours}" >
+								<option value="${cours.jourCours}">${cours.jourCours}</option>
+							</c:forEach>
 						</select>
 					</td>
 				</tr>
 				<tr>
+					<td>Horaire</td>
 					<td>
-						Horaires i
-					</td>
-					<td>
-						<select name="Horaires">
-							<%-- <c:forEach var="horaires">
-								<option value="horaires">Horaires</option>
-							</c:forEach>--%>
+						<select name="Horaires" id="horaires">
 						</select>
 					</td>
 				</tr>

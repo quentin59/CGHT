@@ -2,10 +2,12 @@ package hei.projetiti.controllers;
 
 import hei.projetiti.metier.Manager;
 import hei.projetiti.model.Adherent;
+import hei.projetiti.model.Cours;
 
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,6 +22,9 @@ public class InscriptionServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		List<Cours> listeCours = Manager.getInstance().listerCours();
+		request.setAttribute("cours", listeCours);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/inscription.jsp");
 		view.forward(request, response);

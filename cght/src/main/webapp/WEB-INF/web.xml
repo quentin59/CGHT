@@ -4,7 +4,7 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   
   
-  <filter>
+<filter>
 		<filter-name>SessionFilter</filter-name>
 		<filter-class>hei.projetiti.filter.SessionFilter</filter-class>
   </filter>
@@ -66,6 +66,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-name>Article</servlet-name>
     <servlet-class>hei.projetiti.controllers.ArticleServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AjouterCours</servlet-name>
+    <servlet-class>hei.projetiti.controllers.AjouterCoursServlet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>Accueil</servlet-name>
@@ -119,6 +123,11 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-name>Article</servlet-name>
     <url-pattern>/article</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AjouterCours</servlet-name>
+    <url-pattern>/admin/ajoutercours</url-pattern>
+  </servlet-mapping>
+  
   
   <filter-mapping>
 		<filter-name>SessionFilter</filter-name>
@@ -128,7 +137,6 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 		<filter-name>AdminFilter</filter-name>
 		<url-pattern>/admin/*</url-pattern>
   </filter-mapping>
-  
   
 
 

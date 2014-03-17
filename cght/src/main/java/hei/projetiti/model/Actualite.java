@@ -65,8 +65,7 @@ public class Actualite {
 		switch (chiffre) {
         case 1:  mois = "Janvier";
                  break;
-        case 2:  String mois1 = "Février";
-        mois = new String(mois1.getBytes(),Charset.forName("UTF-8"));
+        case 2:  mois = "Février";
                  break;
         case 3:  mois = "Mars";
                  break;
