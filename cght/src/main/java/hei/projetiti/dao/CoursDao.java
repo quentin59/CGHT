@@ -12,5 +12,5 @@ public interface CoursDao {
 	
 	public void ajouterCours (Cours cours);
 	
-	public void supprimerCours (Cours cours);
+	public void supprimerCours (Integer id);
 }

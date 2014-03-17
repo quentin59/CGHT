@@ -46,6 +46,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-name>GestionCours</servlet-name>
     <servlet-class>hei.projetiti.controllers.GestionCoursServlet</servlet-class>
   </servlet>
+    <servlet>
+    <servlet-name>SupprimerCours</servlet-name>
+    <servlet-class>hei.projetiti.controllers.SupprimerCoursServlet</servlet-class>
+  </servlet>
   <servlet>
     <servlet-name>Inscription</servlet-name>
     <servlet-class>hei.projetiti.controllers.InscriptionServlet</servlet-class>
@@ -102,6 +106,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   <servlet-mapping>
     <servlet-name>GestionCours</servlet-name>
     <url-pattern>/admin/gestion-cours</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>SupprimerCours</servlet-name>
+    <url-pattern>/admin/supprimer-cours</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Inscription</servlet-name>

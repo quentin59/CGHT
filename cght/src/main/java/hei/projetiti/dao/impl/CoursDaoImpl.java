@@ -68,8 +68,22 @@ public class CoursDaoImpl implements CoursDao{
 	}
 
 	@Override
-	public void supprimerCours(Cours cours) {
-		// TODO Auto-generated method stub
+	public void supprimerCours(Integer id) {
+		// Créer une nouvelle connexion Ã  la BDD
+	    try {
+	        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = connection.prepareStatement(
+	                  "DELETE `cours` WHERE 'idCours=?");
+	        stmt.setInt(1,id);
+	        stmt.executeUpdate();
+
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 		
 	}
 
