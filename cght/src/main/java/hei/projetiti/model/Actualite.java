@@ -1,5 +1,6 @@
 package hei.projetiti.model;
 
+import java.nio.charset.Charset;
 import java.util.Date;
 
 public class Actualite {
@@ -64,7 +65,8 @@ public class Actualite {
 		switch (chiffre) {
         case 1:  mois = "Janvier";
                  break;
-        case 2:  mois = "Février";
+        case 2:  String mois1 = "FÃ©vrier";
+        mois = new String(mois1.getBytes(),Charset.forName("UTF-8"));
                  break;
         case 3:  mois = "Mars";
                  break;
@@ -76,7 +78,7 @@ public class Actualite {
                  break;
         case 7:  mois = "Juillet";
                  break;
-        case 8:  mois = "Août";
+        case 8:  mois = "Aoï¿½t";
                  break;
         case 9:  mois = "Septembre";
                  break;
@@ -84,7 +86,7 @@ public class Actualite {
                  break;
         case 11: mois = "Novembre";
                  break;
-        case 12: mois = "Décembre";
+        case 12: mois = "Dï¿½cembre";
                  break;
 		}
 		return mois;

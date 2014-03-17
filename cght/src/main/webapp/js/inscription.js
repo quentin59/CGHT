@@ -7,7 +7,7 @@ $(document).ready(function() {
 		var regex = new RegExp(/([A-Za-z])/);
 		if (licence.length!=8 || isNaN(licence1) || !regex.test(licence2))
 			{
-			alert("le numéro de licence n'est pas correct");
+			$(".licenceIncorrecte").slideDown();
 			event.preventDefault();
 			}
 		});

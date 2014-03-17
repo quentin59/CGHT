@@ -92,7 +92,7 @@
 					</td>
 					<td>
 						<input id="telfixe" type="text" name="telfixe" placeholder="Téléphone fixe"/>
-					</td>
+					</td> 
 				</tr>
 				<tr>
 					<td>
@@ -137,6 +137,7 @@
 		<legend>Informations tennis</legend>
 			<table class="col">
 				<tr>
+				<div class="licenceIncorrecte">Le numéro de licence n'existe pas.</div>
 					<td>
 						<label for="licence">Licence</label>
 					</td>
@@ -256,7 +257,7 @@
 		<input type="submit" id="ajouteradherent" name="ajouteradherent" value="Ajouter un adherent"/>
 		
 	</form>
-        </div>   
+       </div>   
 		
     </body>
 </html>
