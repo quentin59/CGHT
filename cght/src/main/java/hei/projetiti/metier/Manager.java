@@ -76,7 +76,7 @@ public class Manager {
 		coursdao.ajouterCours(cours);
 	}
 	
-	public void supprimerCours (Cours cours){
-		coursdao.supprimerCours(cours);
+	public void supprimerCours (Integer idCours){
+		coursdao.supprimerCours(idCours);
 	}
 }
