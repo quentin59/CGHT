@@ -24,7 +24,8 @@ public class CoursDaoImpl implements CoursDao{
 			
 			//Utiliser la connexion
 			Statement stmt = connection.createStatement();
-            ResultSet results = stmt.executeQuery("SELECT * FROM `cours`");
+            ResultSet results = stmt.executeQuery("SELECT * FROM `cours` ORDER BY CASE `jourCours` "
+            		+ "WHEN 'lundi' THEN 1 WHEN 'mardi' THEN 2 WHEN 'mercredi' THEN 3 WHEN 'jeudi' THEN 4 WHEN 'vendredi' THEN 5 WHEN 'samedi' THEN 6 WHEN 'dimanche' THEN 7 END, `heureDebut` ASC, `minuteDebut`");
             while (results.next()) {
                 Cours cours = new Cours(results.getInt("idCours"), 
                            results.getString("jourCours"), 
@@ -75,7 +76,7 @@ public class CoursDaoImpl implements CoursDao{
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = connection.prepareStatement(
-	                  "DELETE `cours` WHERE 'idCours=?");
+	                  "DELETE FROM `cours` WHERE `idCours`=?");
 	        stmt.setInt(1,id);
 	        stmt.executeUpdate();
 

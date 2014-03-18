@@ -36,9 +36,11 @@ public class GestionCoursServlet extends HttpServlet{
 		Integer heureFin = Integer.parseInt(request.getParameter("heurefin"));
 		Integer minuteFin = Integer.parseInt(request.getParameter("minutefin"));
 		
-		System.out.println(jourCours+ heureDebut+ minuteDebut+ heureFin+ minuteFin);
 		Cours nouveaucours = new Cours(null, jourCours, heureDebut, minuteDebut, heureFin, minuteFin);
 		Manager.getInstance().ajouterCours(nouveaucours);
+		
+		List<Cours> listeCours = Manager.getInstance().listerCours();
+		request.setAttribute("cours", listeCours);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/gestionCours.jsp");
 		view.forward(request, response);

@@ -30,8 +30,8 @@
      <nav class="menuLateral" id="menuProfil">
 		<ul>
 			<li><a href="profil">Profil</a></li>
-			<li>Informations personnelles</li>
-			<li>Paramètres</li>
+			<li><a href="profil"><b>Informations personnelles</b></a></li>
+			<li><a href="parametres">Paramètres</a></li>
 		</ul>
 	</nav>
     	<!-- Corps de la page -->
@@ -116,7 +116,7 @@
 						<label for="licence">Licence</label>
 					</td>
 					<td>
-						<input id="licence" type="text" name="licence" placeholder="Licence"/>
+						<input id="licence" type="text" name="licence" placeholder="Licence" disabled/>
 					</td>
 					<td>
 					</td>
@@ -128,7 +128,7 @@
 						<label for="classement">Classement</label>
 					</td>
 					<td>
-						<select name="classement"> 
+						<select name="classement" disabled> 
 							<option value="NC">NC</option>
 							<option value="40">40</option>
 							<option value="30/5">30/5</option>
@@ -152,7 +152,7 @@
 						</select>
 					</td>
 					<td colspan="2">
-						<input type="checkbox" name="certificat" value="certificat"> Certificat médical</input>
+						<input type="checkbox" name="certificat" value="certificat" disabled> Certificat médical</input>
 					</td>
 				</tr>
 				<tr>
@@ -160,10 +160,10 @@
 						<label for="numpass">Numéro de pass</label>
 					</td>
 					<td>
-						<input id="numpass" type="text" name="numpass" placeholder="Numéro de pass"/>
+						<input id="numpass" type="text" name="numpass" placeholder="Numéro de pass" disabled/>
 					</td>
 					<td colspan="2">
-						<input type="checkbox" name="prendrePhoto" value="prendrePhoto"> Autorisation de prendre des photos</input>
+						<input type="checkbox" name="prendrePhoto" value="prendrePhoto" disabled> Autorisation de prendre des photos</input>
 					</td>
 				</tr>
 				<tr>
@@ -171,10 +171,10 @@
 						<label for="nbrecours">Nombre de cours</label>
 					</td>
 					<td>
-						<input id="nbrecours" type="text" placeholder="Nombre de cours"/>
+						<input id="nbrecours" type="text" placeholder="Nombre de cours" disabled/>
 					</td>
 					<td colspan="2">
-						<input type="checkbox" name="publierPhoto" value="publierPhoto"> Autorisation de publier des photos</input>
+						<input type="checkbox" name="publierPhoto" value="publierPhoto" disabled> Autorisation de publier des photos</input>
 					</td>
 				</tr>
 				<tr>
@@ -217,7 +217,7 @@
 			</table>
 		</fieldset>
 		
-		<input type="submit" id="ajouteradherent" name="ajouteradherent" value="Modifier les valeurs"/>
+		<input type="submit" id="ajouteradherent" name="ajouteradherent" value="Enregistrer les modifications"/>
 		
 	</form>
         </div>  

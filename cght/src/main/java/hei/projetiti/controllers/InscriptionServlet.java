@@ -87,7 +87,6 @@ public class InscriptionServlet extends HttpServlet {
 		}
 		String password = "123456";
 		String statut = request.getParameter("statut");
-		/*Adherent nouveladherent = new Adherent(nom, prenom, cal.getTime(), licence, classement, telfixe);*/
 		Adherent nouveladherent = new Adherent(nom, prenom, cal.getTime(), adresse, codePostal, ville, licence, classement, numPass, telephone, portable, mail, password, certif, prendrePhoto, publierPhoto, statut);
 		
 		Manager.getInstance().AjouterAdherent(nouveladherent);

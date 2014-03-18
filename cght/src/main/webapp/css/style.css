@@ -287,6 +287,16 @@ div.box p
 	color:red;
 }
 
+.valider
+{
+	position:relative;
+  	padding: 4px 12px;
+  	cursor: pointer;
+  	background-color: rgb(240,240,240);
+	border: 1px solid rgb(150,150,150);
+	border-radius:5px;
+}
+
 /*** Gestion des cours ***/
 
 #tablecours
@@ -407,6 +417,13 @@ div.box p
 .col tr td input[type="checkbox"]
 {
 	width:20px;
+}
+
+#modifierInformations
+{
+	display:block;
+	margin-right:auto;
+	margin-left:auto;
 }
 
 

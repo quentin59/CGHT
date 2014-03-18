@@ -20,7 +20,21 @@ public class SupprimerCoursServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt("idCours");
+		
+		
+		List<Cours> listeCours = Manager.getInstance().listerCours();
+		for (int i=0;i<listeCours.size();i++) {
+			if (request.getParameter("supprimercours"+listeCours.get(i).getIdCours())!=null)
+			{
+				Manager.getInstance().supprimerCours(listeCours.get(i).getIdCours());
+			}
+		}
+		
+		List<Cours> listCours = Manager.getInstance().listerCours();
+		request.setAttribute("cours", listCours);
+		
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/gestionCours.jsp");
+		view.forward(request, response);
 		
 	}
 	

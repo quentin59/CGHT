@@ -24,60 +24,20 @@
     
     	<!-- Menu de navigation -->
     	<jsp:include page="menu.jsp">
-    	<jsp:param name="pageSelectionnee" value="administration"/>
+    	<jsp:param name="pageSelectionnee" value="profil"/>
 		</jsp:include>
     	
     	 <nav class="menuLateral" id="menuProfil">
 		<ul>
-			<li>Profil</li>
-			<li>Informations personnelles</li>
-			<li><b>Paramètres</b></li>
+			<li><a href="profil">Profil</a></li>
+			<li><a href="profil">Informations personnelles</a></li>
+			<li><a href="parametres"><b>Paramètres</b></a></li>
 		</ul>
 	</nav>
     	
     	<!-- Corps de la page -->
     	<div class="contenuPage">
 			<form id="profil">
-		<fieldset class="profil">
-		<legend>Adhérent</legend>
-			<table class="col">
-				<tr>
-					<td>
-						<label for="nom">Nom</label>
-					</td>
-					<td>
-						<input id="nom" type="text" placeholder="Nom"/>
-					</td>
-					<td>
-						<label for="prenom">Prénom</label>
-					</td>
-					<td>
-						<input id="prenom" type="text" placeholder="Prénom"/>
-					</td>
-				</tr>
-			</table>
-		</fieldset>
-		
-		<fieldset class="profil">
-		<legend>Paramètres de connnexion</legend>
-			<table class="col">
-				<tr>
-					<td>
-						<label for="id">Identifiant</label>
-					</td>
-					<td>
-						<input id="id" type="text" placeholder="Identifiant"/>
-					</td>
-					<td>
-						<label for="mdp">Mot de passe actuel</label>
-					</td>
-					<td>
-						<input id="mdp" type="password" placeholder="Mot de passe actuel"/>
-					</td>
-				</tr>
-			</table>
-		</fieldset>
-		
 		<fieldset class="profil">
 		<legend>Modifier mes paramètres de connnexion</legend>
 			<table class="col">
@@ -126,6 +86,7 @@
 			</table>
 		</fieldset>
 		
+		<input type="submit" id="modifierInformations" name="modifierInformations" value="Enregistrer les modifications"/>
 	</form>
         </div>   
 		

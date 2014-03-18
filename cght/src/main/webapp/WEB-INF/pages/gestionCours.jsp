@@ -41,6 +41,7 @@
     	<!-- Corps de la page -->
     	<div class="contenuPage">
     	<h1>Gestion des cours</h1>
+    	<form action="supprimer-cours" method="post">
 			<table id="tablecours">
 		<tr>
 			<td>
@@ -68,13 +69,14 @@
 				<fmt:formatNumber pattern="00" value="${cours.heureFin}"/>h<fmt:formatNumber pattern="00" value="${cours.minuteFin}"/>
 			</td>
 			<td>
-				<input type="checkbox" name="supprimercours" value="supprimercours"></input>
+				<input type="checkbox" name="supprimercours${cours.idCours}" value="supprimercours${cours.idCours}" id="cours${cours.idCours}"/>
 			</td>
 		</tr>
 		</c:forEach>
 	</table>
 	
-	<input type="submit" class="bouton" name="supprimercours" value="Supprimer"/>
+	<input type="submit" class="bouton" name="supprimercours" value="Supprimer" />
+	</form>
 	
 	<form action="gestion-cours" method="post">
 	<fieldset class="cours">

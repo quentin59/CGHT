@@ -14,7 +14,6 @@ $(document).ready(function() {
 	
 	$("select[name='Cours']").change(function(event) {
 		var coursSelectionne = $("select[name='Cours'] > option:selected").val();
-		alert(coursSelectionne);
 		$.post("ajoutercours", {cours:coursSelectionne}).done(function(data){
 			for (var i=0;i<data.length;i++)
 			{
@@ -25,6 +24,11 @@ $(document).ready(function() {
 			alert("un truc foire !");		
 		});
 	});
+	
+	$("#ajoutercours").click(function(event) {
+	$("table#informationTennis").append('<tr> <td>Cours 1</td> <td> <select name="Cours"> <option value="vide"></option> <c:forEach var="cours" items="${cours}" > <option value="${cours.jourCours}">${cours.jourCours}</option> </c:forEach> </select> <select name="Horaires" id="horaires"> </select> </td> </tr>');
+	});
+	
 	
 	function formater(temps){
 		

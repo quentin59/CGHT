@@ -51,13 +51,13 @@
 						<label for="nom">Nom</label>
 					</td>
 					<td>
-						<input id="nom" type="text" name="nom" placeholder="Nom"/>
+						<input id="nom" type="text" name="nom" placeholder="Nom" required/>
 					</td>
 					<td>
 						<label for="prenom">Prénom</label>
 					</td>
 					<td>
-						<input id="prenom" type="text" name="prenom" placeholder="Prénom"/>
+						<input id="prenom" type="text" name="prenom" placeholder="Prénom" required/>
 					</td>
 				</tr>
 			</table>
@@ -72,16 +72,19 @@
 					</td>
 					<td>
 						<select name="jour">
+								<option value="jour">Jour</option>
 							<c:forEach var="i" begin="1" end="31">
 								<option value="${i}">${i}</option>
 							</c:forEach>
 						</select>
 						<select name="mois">
+								<option value="mois">Mois</option>
 							<c:forEach var="j" begin="1" end="12">
 								<option value="${j}">${j}</option>
 							</c:forEach>
 						</select>
 						<select name="annee">
+							<option value="annee">Année</option>
 							<c:forEach var="k" begin="0" end="100">
 								<option value="${2014-k}">${2014-k}</option>
 							</c:forEach>
@@ -99,7 +102,7 @@
 						<label for="adresse">Adresse</label>
 					</td>
 					<td>
-						<input id="adresse" type="text" name="adresse" placeholder="Adresse"/>
+						<input id="adresse" type="text" name="adresse" placeholder="Adresse" />
 					</td>
 					<td>
 						<label for="telmobile">Téléphone mobile</label>
@@ -119,7 +122,7 @@
 						<label for="mail">Adresse mail</label>
 					</td>
 					<td>
-						<input id="mail" type="text" name="mail" placeholder="Adresse mail"/>
+						<input id="mail" type="text" name="mail" placeholder="Adresse mail" required/>
 					</td>
 				</tr>
 				<tr>
@@ -135,9 +138,9 @@
 		
 		<fieldset class="inscription">
 		<legend>Informations tennis</legend>
-			<table class="col">
+			<table id="informationTennis" class="col">
 				<tr>
-				<div class="licenceIncorrecte">Le numéro de licence n'existe pas.</div>
+				<div class="licenceIncorrecte">Le numéro de licence est incorrect.</div>
 					<td>
 						<label for="licence">Licence</label>
 					</td>
@@ -193,17 +196,6 @@
 					</td>
 				</tr>
 				<tr>
-					<td>	
-						<label for="nbrecours">Nombre de cours</label>
-					</td>
-					<td>
-						<input id="nbrecours" type="text" placeholder="Nombre de cours"/>
-					</td>
-					<td colspan="2">
-						<input type="checkbox" name="publierPhoto" value="publierPhoto"> Autorisation de publier des photos</input>
-					</td>
-				</tr>
-				<tr>
 					<td>Cours 1</td>
 					<td>
 						<select name="Cours">
@@ -212,18 +204,17 @@
 								<option value="${cours.jourCours}">${cours.jourCours}</option>
 							</c:forEach>
 						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>Horaire</td>
-					<td>
 						<select name="Horaires" id="horaires">
 						</select>
 					</td>
+					<td colspan="2">
+						<input type="checkbox" name="publierPhoto" value="publierPhoto"> Autorisation de publier des photos</input>
+					</td>
 				</tr>
+
 				<tr>
 					<td>
-						<input type="submit" name="ajoutercours" value="Ajouter un cours"/>
+						<input type="text" class="valider" id="ajoutercours" name="ajoutercours" value="Ajouter un cours"/>
 					</td>
 				</tr>
 			</table>
@@ -244,7 +235,7 @@
 		
 		<fieldset class="inscription" id="statut">
 		<legend>Statut</legend>
-			<input type= "radio" name="statut" value="adherent">Adhérent</input>
+			<input type= "radio" name="statut" value="adherent" checked >Adhérent</input>
 			<input type= "radio" name="statut" value="administrateur">Administrateur</input>
 		</fieldset>
 		
