@@ -297,6 +297,16 @@ div.box p
 	border-radius:5px;
 }
 
+.hidden
+{
+	display:none;
+}
+
+#erreur-nombrecours
+{
+	color:red;
+}
+
 /*** Gestion des cours ***/
 
 #tablecours

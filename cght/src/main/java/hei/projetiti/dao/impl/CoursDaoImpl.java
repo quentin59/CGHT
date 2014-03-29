@@ -119,5 +119,32 @@ public class CoursDaoImpl implements CoursDao{
         }
         return listeCours;
 	}
+
+	@Override
+	public List<String> listerJoursCours() {
+		
+		List<String> listeJoursCours= new ArrayList<String>();
+		
+		try {
+			//Créer une nouvelle connexion à la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			
+			Statement stmt = connection.createStatement();
+            ResultSet results = stmt.executeQuery("SELECT DISTINCT `jourCours` FROM `cours` ORDER BY CASE `jourCours` "
+            		+ "WHEN 'lundi' THEN 1 WHEN 'mardi' THEN 2 WHEN 'mercredi' THEN 3 WHEN 'jeudi' THEN 4 WHEN 'vendredi' THEN 5 WHEN 'samedi' THEN 6 WHEN 'dimanche' THEN 7 END ");
+            while (results.next()) {
+                String cours = results.getString("jourCours");
+                listeJoursCours.add(cours);
+            }
+            
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listeJoursCours;
+	}
 	
 }

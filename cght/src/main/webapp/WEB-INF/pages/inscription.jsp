@@ -198,20 +198,48 @@
 				<tr>
 					<td>Cours 1</td>
 					<td>
-						<select name="Cours">
+						<select name="Cours-1">
 								<option value="vide"></option>
-							<c:forEach var="cours" items="${cours}" >
-								<option value="${cours.jourCours}">${cours.jourCours}</option>
+							<c:forEach var="cours" items="${jourscours}" >
+								<option value="${cours}">${cours}</option>
 							</c:forEach>
 						</select>
-						<select name="Horaires" id="horaires">
+						<select name="Horaires-1" id="horaires-1">
 						</select>
 					</td>
 					<td colspan="2">
 						<input type="checkbox" name="publierPhoto" value="publierPhoto"> Autorisation de publier des photos</input>
 					</td>
 				</tr>
-
+				<tr class="hidden" id="cours-hidden-2">
+					<td>Cours 2</td>
+					<td>
+						<select name="Cours-2">
+								<option value="vide"></option>
+							<c:forEach var="cours" items="${jourscours}" >
+								<option value="${cours}">${cours}</option>
+							</c:forEach>
+						</select>
+						<select name="Horaires-2" id="horaires-2">
+						</select>
+					</td>
+				</tr> 
+				<tr class="hidden" id="cours-hidden-3">
+					<td>Cours 3</td>
+					<td>
+						<select name="Cours-3">
+								<option value="vide"></option>
+							<c:forEach var="cours" items="${jourscours}" >
+								<option value="${cours}">${cours}</option>
+							</c:forEach>
+						</select>
+						<select name="Horaires-3" id="horaires-3">
+						</select>
+					</td>
+				</tr>
+				<tr class="hidden" id="erreur-nombrecours">
+					<td colspan="2">Vous ne pouvez pas prendre plus de 3 cours.</td>
+				</tr>
 				<tr>
 					<td>
 						<input type="text" class="valider" id="ajoutercours" name="ajoutercours" value="Ajouter un cours"/>

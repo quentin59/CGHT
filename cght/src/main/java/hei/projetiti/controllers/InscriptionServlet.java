@@ -23,8 +23,8 @@ public class InscriptionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		List<Cours> listeCours = Manager.getInstance().listerCours();
-		request.setAttribute("cours", listeCours);
+		List<String> listeJoursCours = Manager.getInstance().listerJoursCours();
+		request.setAttribute("jourscours", listeJoursCours);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/inscription.jsp");
 		view.forward(request, response);

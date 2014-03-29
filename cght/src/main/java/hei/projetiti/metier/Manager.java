@@ -72,6 +72,10 @@ public class Manager {
 		return coursdao.listerCours(jour);
 	}
 	
+	public List<String> listerJoursCours(){
+		return coursdao.listerJoursCours();
+	}
+	
 	public void ajouterCours (Cours cours){
 		coursdao.ajouterCours(cours);
 	}

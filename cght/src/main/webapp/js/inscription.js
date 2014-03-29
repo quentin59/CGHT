@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	
+	var compteurAjouterCours=0;
+	
 	$("#inscription").submit(function(event) {
 		var licence = $("#licence").val();
 		var licence1 = licence.substring(0,7);
@@ -12,21 +14,63 @@ $(document).ready(function() {
 			}
 		});
 	
-	$("select[name='Cours']").change(function(event) {
-		var coursSelectionne = $("select[name='Cours'] > option:selected").val();
+	$("select[name='Cours-1']").change(function(event) {
+		$("#horaires-1").empty();
+		var coursSelectionne = $("select[name='Cours-1'] > option:selected").val();
 		$.post("ajoutercours", {cours:coursSelectionne}).done(function(data){
+			
 			for (var i=0;i<data.length;i++)
 			{
-				$("#horaires").append('<option value="'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'">'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'</option>');
+				$("#horaires-1").append('<option value="'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'">'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'</option>');
 			}
+		}).fail(function(){
+			alert("un truc foire !");		
+		});
+	});
+	
+	$("select[name='Cours-2']").change(function(event) {
+		$("#horaires-2").empty();
+		var coursSelectionne = $("select[name='Cours-2'] > option:selected").val();
+		$.post("ajoutercours", {cours:coursSelectionne}).done(function(data){
 			
+			for (var i=0;i<data.length;i++)
+			{
+				$("#horaires-2").append('<option value="'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'">'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'</option>');
+			}
+		}).fail(function(){
+			alert("un truc foire !");		
+		});
+	});
+	
+	$("select[name='Cours-3']").change(function(event) {
+		$("#horaires-3").empty();
+		var coursSelectionne = $("select[name='Cours-3'] > option:selected").val();
+		$.post("ajoutercours", {cours:coursSelectionne}).done(function(data){
+			
+			for (var i=0;i<data.length;i++)
+			{
+				$("#horaires-3").append('<option value="'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'">'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'</option>');
+			}
 		}).fail(function(){
 			alert("un truc foire !");		
 		});
 	});
 	
 	$("#ajoutercours").click(function(event) {
-	$("table#informationTennis").append('<tr> <td>Cours 1</td> <td> <select name="Cours"> <option value="vide"></option> <c:forEach var="cours" items="${cours}" > <option value="${cours.jourCours}">${cours.jourCours}</option> </c:forEach> </select> <select name="Horaires" id="horaires"> </select> </td> </tr>');
+		compteurAjouterCours++;
+		if (compteurAjouterCours==1)
+		{
+			$("#cours-hidden-2").show();
+		}
+		else if (compteurAjouterCours==2)
+		{
+			$("#cours-hidden-3").show();
+		}
+		else
+		{
+			$("#erreur-nombrecours").show();
+		}
+		
 	});
 	
 	
