@@ -91,4 +91,12 @@ public class Manager {
 	public Cours trouverCours (String jour, int heureDebut, int minuteDebut, int heureFin, int minuteFin){
 		return coursdao.trouverCours(jour, heureDebut, minuteDebut, heureFin, minuteFin);
 	}
+	
+	public List<Cours> listerCoursparAdherent(String numLicence){
+		return coursdao.listerCoursparAdherent(numLicence);
+	}
+	
+	public void supprimerCoursAdherent(Integer idCours, String numLicence){
+		coursdao.supprimerCoursAdherent(idCours, numLicence);
+	}
 }

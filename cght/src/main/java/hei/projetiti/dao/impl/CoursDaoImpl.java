@@ -203,5 +203,58 @@ public class CoursDaoImpl implements CoursDao{
         }
         return cours;
 	}
+
+	@Override
+	public List<Cours> listerCoursparAdherent(String numLicence) {
+		
+		List<Cours> listeCours= new ArrayList<Cours>();
+		
+		try {
+			//Créer une nouvelle connexion à la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `cours` INNER JOIN `participer` ON cours.idCours = participer.idCours WHERE participer.numLicence = ? ORDER BY CASE `jourCours` "
+            		+ "WHEN 'lundi' THEN 1 WHEN 'mardi' THEN 2 WHEN 'mercredi' THEN 3 WHEN 'jeudi' THEN 4 WHEN 'vendredi' THEN 5 WHEN 'samedi' THEN 6 WHEN 'dimanche' THEN 7 END, `heureDebut` ASC, `minuteDebut`");
+			stmt.setString(1, numLicence);
+			ResultSet results = stmt.executeQuery();
+            while (results.next()) {
+                Cours cours = new Cours(results.getInt("idCours"), 
+                           results.getString("jourCours"), 
+                           results.getInt("heureDebut"),
+                           results.getInt("minuteDebut"),
+                           results.getInt("heureFin"),
+						   results.getInt("minuteFin"));
+                listeCours.add(cours);
+            }
+            
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listeCours;
+	}
+
+	@Override
+	public void supprimerCoursAdherent(Integer idCours, String numLicence) {
+
+		 try {
+		        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+		        // Utiliser la connexion
+		        PreparedStatement stmt = connection.prepareStatement(
+		                  "DELETE FROM `participer` WHERE `idCours`=? AND `numLicence`=?");
+		        stmt.setInt(1,idCours);
+		        stmt.setString(2, numLicence);
+		        stmt.executeUpdate();
+
+		        // Fermer la connexion
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		
+	}
 	
 }

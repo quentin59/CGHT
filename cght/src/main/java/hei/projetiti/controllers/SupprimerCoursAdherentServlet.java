@@ -13,22 +13,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ModificationAdherentServlet extends HttpServlet {
-
-	private static final long serialVersionUID = 5033062409008471038L;
+public class SupprimerCoursAdherentServlet extends HttpServlet{
+	
+	private static final long serialVersionUID = 6682297944195128797L;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		String numLicence = request.getParameter("licence");
+		List<Cours> listeCours = Manager.getInstance().listerCours();
+		for (int i=0;i<listeCours.size();i++) {
+			if (request.getParameter("supprimercours"+listeCours.get(i).getIdCours())!=null)
+			{
+				Manager.getInstance().supprimerCoursAdherent(listeCours.get(i).getIdCours(), numLicence);
+			}
+		}
+		
+		List<Cours> listCours = Manager.getInstance().listerCoursparAdherent(numLicence);
+		request.setAttribute("cours", listCours);
+		
 		Adherent adherent = Manager.getInstance().getAdherent(numLicence);
 		request.setAttribute("adherent", adherent);
 		
-		List<Cours> listeCours = Manager.getInstance().listerCoursparAdherent(numLicence);
-		request.setAttribute("cours", listeCours);
-		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/modifAdherent.jsp");
 		view.forward(request, response);
+		
 	}
+	
 }

@@ -41,18 +41,19 @@
     	
     	<!-- Corps de la page -->
     	<div class="contenuPage">
+    	<h1>Gestion des comptes</h1>
 		<section>	
 			<div class="caracteristiques">	
-				<table class="table table-hover">
+				<table id="comptes">
 					<thead>
 						<tr>
 							<th>Nom</th>
-							<th>Prenom</th>
+							<th>Prénom</th>
 							<th>Date de naissance</th>
 							<th>Numéro de licence</th>
 							<th>Classement</th>
 							<th>Téléphone</th>
-							<th>Supprimer</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>

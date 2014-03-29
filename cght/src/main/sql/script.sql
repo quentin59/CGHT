@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: 127.0.0.1
--- Généré le: Sam 29 Mars 2014 à 16:58
+-- Généré le: Sam 29 Mars 2014 à 19:26
 -- Version du serveur: 5.5.27-log
 -- Version de PHP: 5.4.6
 
@@ -82,7 +82,7 @@ INSERT INTO `adherent` (`numLicence`, `nom`, `prenom`, `dateNaissance`, `adresse
 ('12345678', 'Vendeville', 'Quentin', '1992-08-06', '11 allée du Talisman', '59650', 'Villeneuve d''Ascq', '0320916554', '0678987694', 'quentin.vendeville@hei.Fr', '3456', 'NC', 1, 'administrateur', 1, 1, 'azertyuiop'),
 ('1300000G', 'Poillot', 'Thomas', '1992-12-28', '', '', 'Chéreng', '', '', 'thom.poillot@gmail.com', '', '40', 1, 'adherent', 1, 1, '123456'),
 ('1500000J', 'Regolle', 'Lisa', '1992-11-03', NULL, NULL, NULL, '0808080808', NULL, NULL, NULL, '15/3', NULL, NULL, NULL, NULL, NULL),
-('1500001J', 'Descamps', 'Stanislas', '1991-07-03', '5 rue de la pluie', '6000', 'Nice', '0707070707', '0505050505', 'stan.descamps@hei.Fr', '56789', '30/5', 0, 'adherent', 0, 1, '123456'),
+('1500001J', 'Descamps', 'Stanislas', '1991-07-03', '5 rue de la pluie', '06000', 'Nice', '0707070707', '0505050505', 'stan.descamps@hei.Fr', '56789', '30/5', 0, 'adherent', 0, 1, '123456'),
 ('23456789', 'Dupond', 'Jean', '2014-03-03', NULL, NULL, NULL, '', NULL, NULL, NULL, '40', NULL, 'adherent', NULL, NULL, 'adazdazdazdadzada'),
 ('9876543F', 'Thibault', 'Damien', '1990-10-10', NULL, NULL, NULL, '0320032003', NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, '');
 
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `participer` (
 
 INSERT INTO `participer` (`numLicence`, `idCours`) VALUES
 ('1300000G', 1),
-('1300000G', 5);
+('1300000G', 3);
 
 --
 -- Contraintes pour les tables exportées

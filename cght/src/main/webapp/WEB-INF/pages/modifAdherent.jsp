@@ -41,7 +41,7 @@
     	
     	<!-- Corps de la page -->
 		<div class="contenuPage">
-			<form id="inscription" method="post" action="inscription">
+			<form id="modif" method="post" action="inscription">
 	
 		<fieldset class="inscription">
 		<legend>Identité</legend>
@@ -116,16 +116,17 @@
 		<fieldset class="inscription">
 		<legend>Informations tennis</legend>
 			<table class="col">
+			<tr><td></td><td></td><td></td><td></td></tr>
 				<tr>
 					<td>
 						<label for="licence">Licence</label>
 					</td>
 					<td>
-						<input id="licence" type="text" name="licence" placeholder="Licence" />
+						<input id="licence" type="text" name="licence" value="${adherent.licence}" />
 					</td>
-					<td>
-					</td>
-					<td>
+					<td colspan="2">
+					<c:set var="certif" scope="page" value="${adherent.certif}"/>
+						<input type="checkbox" name="certificat" value="certificat" <c:if test="${certif}">checked</c:if>> Certificat médical</input>
 					</td>
 				</tr>
 				<tr>
@@ -134,6 +135,7 @@
 					</td>
 					<td>
 						<select name="classement"> 
+							<option value="${adherent.classement}" selected>${adherent.classement}</option>
 							<option value="NC">NC</option>
 							<option value="40">40</option>
 							<option value="30/5">30/5</option>
@@ -157,7 +159,8 @@
 						</select>
 					</td>
 					<td colspan="2">
-						<input type="checkbox" name="certificat" value="certificat" > Certificat médical</input>
+					<c:set var="prendrePhoto" scope="page" value="${adherent.prendrePhoto}"/>
+						<input type="checkbox" name="prendrePhoto" value="prendrePhoto" <c:if test="${prendrePhoto}">checked</c:if>> Autorisation de prendre des photos</input>
 					</td>
 				</tr>
 				<tr>
@@ -168,46 +171,15 @@
 						<input id="numpass" type="text" name="numpass" placeholder="Numéro de pass" />
 					</td>
 					<td colspan="2">
-						<input type="checkbox" name="prendrePhoto" value="prendrePhoto" > Autorisation de prendre des photos</input>
-					</td>
-				</tr>
-				<tr>
-					<td>	
-						<label for="nbrecours">Nombre de cours</label>
-					</td>
-					<td>
-						<input id="nbrecours" type="text" placeholder="Nombre de cours" />
-					</td>
-					<td colspan="2">
-						<input type="checkbox" name="publierPhoto" value="publierPhoto" > Autorisation de publier des photos</input>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Cours i
-					</td>
-					<td>
-						<select name="Cours">
-							<%--<c:forEach var="jour">
-								<option value="jour">Jour</option>
-							</c:forEach>--%>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Horaires i
-					</td>
-					<td>
-						<select name="Horaires">
-							<%-- <c:forEach var="horaires">
-								<option value="horaires">Horaires</option>
-							</c:forEach>--%>
-						</select>
+						<c:set var="publierPhoto" scope="page" value="${adherent.publierPhoto}"/>
+						<input type="checkbox" name="publierPhoto" value="publierPhoto" <c:if test="${publierPhoto}">checked</c:if>> Autorisation de publier des photos</input>
 					</td>
 				</tr>
 			</table>
 		</fieldset>
+		<input type="submit" id="ajouteradherent" name="ajouteradherent" value="Enregistrer les modifications"/>
+		
+	</form>
 		
 		<fieldset class="inscription">
 		<legend>Paiements</legend>
@@ -222,9 +194,46 @@
 			</table>
 		</fieldset>
 		
-		<input type="submit" id="ajouteradherent" name="ajouteradherent" value="Enregistrer les modifications"/>
-		
+		<fieldset class="inscription">
+		<legend>Cours de ${adherent.prenom} ${adherent.nom}</legend>
+	<form action="supprimer-cours-adherent" method="post">
+	<input style="display:none;" id="licence" type="text" name="licence" value="${adherent.licence}"/>
+			<table id="tablecours">
+		<tr>
+			<td>
+				<label for="jour">Jour</label>
+			</td>
+			<td>
+				<label for="heuredebut">Heure de début</label>
+			</td>
+			<td>
+				<label for="heurefin">Heure de fin</label>
+			</td>
+			<td>
+				<label for="supprimer">Supprimer</label>
+			</td>
+		</tr>
+		<c:forEach var="cours" items="${cours}" >
+		<tr>
+			<td>
+				${cours.jourCours}
+			</td>
+			<td>
+				<fmt:formatNumber pattern="00" value="${cours.heureDebut}"/>h<fmt:formatNumber pattern="00" value="${cours.minuteDebut}"/>
+			</td>
+			<td>
+				<fmt:formatNumber pattern="00" value="${cours.heureFin}"/>h<fmt:formatNumber pattern="00" value="${cours.minuteFin}"/>
+			</td>
+			<td>
+				<input type="checkbox" name="supprimercours${cours.idCours}" value="supprimercours${cours.idCours}" id="cours${cours.idCours}"/>
+			</td>
+		</tr>
+		</c:forEach>
+	</table>
+	
+	<input type="submit" class="bouton" name="supprimercours" value="Supprimer" />
 	</form>
+	</fieldset>
 		</div>
 		
     </body>

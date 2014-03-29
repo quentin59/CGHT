@@ -20,4 +20,8 @@ public interface CoursDao {
 	public void ajouterAdherentauCours(Adherent adherent, Cours cours);
 	
 	public Cours trouverCours (String jour, int heureDebut, int minuteDebut, int heureFin, int minuteFin);
+	
+	public List<Cours> listerCoursparAdherent(String numLicence);
+	
+	public void supprimerCoursAdherent(Integer idCours, String numLicence);
 }
