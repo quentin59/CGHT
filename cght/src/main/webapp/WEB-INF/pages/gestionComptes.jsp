@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
 	<!-- Javascript spécifique -->
 	<script type="text/javascript" src="../js/menu.js"></script>
+	<script type="text/javascript" src="../js/modifiercompte.js"></script>
     </head>
     
     <body>
@@ -59,11 +60,11 @@
 							<tr>
 								<td>${adherent.nom}</td>
 								<td>${adherent.prenom}</td>
-								<td><fmt:formatDate value="${adherent.dateNaissance}" pattern="dd MMMM yyyy"/></td>
+								<td>${adherent.dateNaissance}</td>
 								<td>${adherent.licence}</td>
 								<td>${adherent.classement}</td>
 								<td>${adherent.telephone}</td>
-								<td><input class="supprimer" id="${adherent.licence}" type="reset" value="Supprimer"/></td>
+								<td><form method="get" action="modifieradherent"><input type="hidden" value="${adherent.licence}" name="licence"></input><input class="modifier" id="${adherent.licence}" type="submit" value="Détails"/></form></td>
 							</tr>
 							</c:forEach>
 					</tbody>

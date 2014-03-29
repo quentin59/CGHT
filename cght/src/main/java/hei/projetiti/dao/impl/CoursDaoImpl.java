@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hei.projetiti.dao.CoursDao;
+import hei.projetiti.model.Adherent;
 import hei.projetiti.model.Cours;
 
 public class CoursDaoImpl implements CoursDao{
@@ -145,6 +146,62 @@ public class CoursDaoImpl implements CoursDao{
             e.printStackTrace();
         }
         return listeJoursCours;
+	}
+
+	@Override
+	public void ajouterAdherentauCours(Adherent adherent, Cours cours) {
+		
+		try {
+	        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = connection.prepareStatement(
+	                  "INSERT INTO `participer`(`numLicence`, `idCours`) VALUES(?, ?)");
+	        stmt.setString(1, adherent.getLicence());
+	        stmt.setInt(2, cours.getIdCours());
+	        stmt.executeUpdate();
+
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		
+	}
+
+	@Override
+	public Cours trouverCours(String jour, int heureDebut, int minuteDebut,
+			int heureFin, int minuteFin) {
+		
+		Cours cours=null;
+		try {
+			//Créer une nouvelle connexion à la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `cours` WHERE `jourCours`=? AND `heureDebut`=? AND `minuteDebut`=? AND `heureFin`=? AND `minuteFin`=? ");
+			stmt.setString(1, jour);
+			stmt.setInt(2, heureDebut);
+			stmt.setInt(3, minuteDebut);
+			stmt.setInt(4, heureFin);
+			stmt.setInt(5, minuteFin);
+			
+			ResultSet results = stmt.executeQuery();
+            results.next();
+            cours = new Cours(results.getInt("idCours"), 
+                           results.getString("jourCours"), 
+                           results.getInt("heureDebut"),
+                           results.getInt("minuteDebut"),
+                           results.getInt("heureFin"),
+						   results.getInt("minuteFin"));
+            
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cours;
 	}
 	
 }

@@ -83,4 +83,12 @@ public class Manager {
 	public void supprimerCours (Integer idCours){
 		coursdao.supprimerCours(idCours);
 	}
+	
+	public void ajouterAdherentauCours(Adherent adherent, Cours cours){
+		coursdao.ajouterAdherentauCours(adherent, cours);
+	}
+	
+	public Cours trouverCours (String jour, int heureDebut, int minuteDebut, int heureFin, int minuteFin){
+		return coursdao.trouverCours(jour, heureDebut, minuteDebut, heureFin, minuteFin);
+	}
 }

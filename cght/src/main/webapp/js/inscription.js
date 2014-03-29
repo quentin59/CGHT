@@ -7,6 +7,13 @@ $(document).ready(function() {
 		var licence1 = licence.substring(0,7);
 		var licence2 = licence.substring(7);
 		var regex = new RegExp(/([A-Za-z])/);
+		var jour = $("select[name='jour'] > option:selected").val();
+		var mois = $("select[name='mois'] > option:selected").val();
+		var annee = $("select[name='annee'] > option:selected").val();
+		if (jour=="jour" || mois=="mois" || annee=="annee")
+		{
+		event.preventDefault();
+		}
 		if (licence.length!=8 || isNaN(licence1) || !regex.test(licence2))
 			{
 			$(".licenceIncorrecte").slideDown();
@@ -77,7 +84,7 @@ $(document).ready(function() {
 	function formater(temps){
 		
 		var tempsFormate = temps;
-		if (temps==5 || temps==0 )
+		if (temps<10)
 			{
 			tempsFormate='0'+temps;
 			}

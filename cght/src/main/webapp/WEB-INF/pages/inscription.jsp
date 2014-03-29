@@ -204,7 +204,7 @@
 								<option value="${cours}">${cours}</option>
 							</c:forEach>
 						</select>
-						<select name="Horaires-1" id="horaires-1">
+						<select name="horaires-1" id="horaires-1">
 						</select>
 					</td>
 					<td colspan="2">
@@ -220,7 +220,7 @@
 								<option value="${cours}">${cours}</option>
 							</c:forEach>
 						</select>
-						<select name="Horaires-2" id="horaires-2">
+						<select name="horaires-2" id="horaires-2">
 						</select>
 					</td>
 				</tr> 
@@ -233,7 +233,7 @@
 								<option value="${cours}">${cours}</option>
 							</c:forEach>
 						</select>
-						<select name="Horaires-3" id="horaires-3">
+						<select name="horaires-3" id="horaires-3">
 						</select>
 					</td>
 				</tr>

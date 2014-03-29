@@ -16,6 +16,7 @@ public class DataSourceProvider {
 			dataSource.setDatabaseName("projetiti");
 			dataSource.setUser("root");
 			dataSource.setPassword("");
+			dataSource.setEncoding("UTF-8");
 		}
 		return dataSource;
 	}

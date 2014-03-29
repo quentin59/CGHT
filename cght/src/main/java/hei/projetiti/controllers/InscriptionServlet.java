@@ -32,6 +32,8 @@ public class InscriptionServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		
@@ -90,6 +92,50 @@ public class InscriptionServlet extends HttpServlet {
 		Adherent nouveladherent = new Adherent(nom, prenom, cal.getTime(), adresse, codePostal, ville, licence, classement, numPass, telephone, portable, mail, password, certif, prendrePhoto, publierPhoto, statut);
 		
 		Manager.getInstance().AjouterAdherent(nouveladherent);
+		
+		
+		String jourCours1 = request.getParameter("Cours-1");
+		String horairesCours1 = request.getParameter("horaires-1");
+		
+		if (jourCours1!=null && horairesCours1!=null)
+		{
+			int heureDebut = Integer.parseInt(horairesCours1.substring(0, 2));
+			int minuteDebut = Integer.parseInt(horairesCours1.substring(3, 5));
+			int heureFin = Integer.parseInt(horairesCours1.substring(8, 10));
+			int minuteFin = Integer.parseInt(horairesCours1.substring(11, 13));
+			Cours cours = Manager.getInstance().trouverCours(jourCours1, heureDebut, minuteDebut, heureFin, minuteFin);
+			Manager.getInstance().ajouterAdherentauCours(nouveladherent, cours);
+		}
+		
+		String jourCours2 = request.getParameter("Cours-2");
+		String horairesCours2 = request.getParameter("horaires-2");
+		
+		if (jourCours2!=null && horairesCours2!=null)
+		{
+			int heureDebut = Integer.parseInt(horairesCours2.substring(0, 2));
+			int minuteDebut = Integer.parseInt(horairesCours2.substring(3, 5));
+			int heureFin = Integer.parseInt(horairesCours2.substring(8, 10));
+			int minuteFin = Integer.parseInt(horairesCours2.substring(11, 13));
+			Cours cours = Manager.getInstance().trouverCours(jourCours2, heureDebut, minuteDebut, heureFin, minuteFin);
+			Manager.getInstance().ajouterAdherentauCours(nouveladherent, cours);
+		}
+		
+		String jourCours3 = request.getParameter("Cours-3");
+		String horairesCours3 = request.getParameter("horaires-3");
+		
+		if (jourCours3!=null && horairesCours3!=null)
+		{
+			int heureDebut = Integer.parseInt(horairesCours3.substring(0, 2));
+			int minuteDebut = Integer.parseInt(horairesCours3.substring(3, 5));
+			int heureFin = Integer.parseInt(horairesCours3.substring(8, 10));
+			int minuteFin = Integer.parseInt(horairesCours3.substring(11, 13));
+			Cours cours = Manager.getInstance().trouverCours(jourCours3, heureDebut, minuteDebut, heureFin, minuteFin);
+			Manager.getInstance().ajouterAdherentauCours(nouveladherent, cours);
+		}
+		
+		
+		
+		
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/inscription.jsp");
 		view.forward(request, response);
