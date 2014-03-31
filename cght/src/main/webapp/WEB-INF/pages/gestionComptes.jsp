@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
 	<!-- Javascript spécifique -->
 	<script type="text/javascript" src="../js/menu.js"></script>
-	<script type="text/javascript" src="../js/modifiercompte.js"></script>
+	<script type="text/javascript" src="../js/gestionComptes.js"></script>
     </head>
     
     <body>
@@ -53,7 +53,8 @@
 							<th>Numéro de licence</th>
 							<th>Classement</th>
 							<th>Téléphone</th>
-							<th></th>
+							<th>Détails</th>
+							<th>Supprimer</br><input type="submit" id="toutselectionner" value="Tout sélectionner"/></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -66,6 +67,7 @@
 								<td>${adherent.classement}</td>
 								<td>${adherent.telephone}</td>
 								<td><form method="get" action="modifieradherent"><input type="hidden" value="${adherent.licence}" name="licence"></input><input class="modifier" id="${adherent.licence}" type="submit" value="Détails"/></form></td>
+								<td><form method="post" action="supprimeradherent"><input type="hidden" value="${adherent.licence}" name="licence"></input><input class="supprimer" id="${adherent.licence}" type="checkbox" value=""/></form>
 							</tr>
 							</c:forEach>
 					</tbody>

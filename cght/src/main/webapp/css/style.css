@@ -479,16 +479,31 @@ article.actualite, article.annonce
 	min-height: 210px;
 }
 
+article.actualite p, article.annonce p, article.actualite h2, article.annonce h2
+{
+	margin-left:15px;
+}
+article.actualite .boutonsadmin, article.annonce .boutonsadmin
+{
+	float:right;
+}
+
 .photoannonce
 {
 	position:absolute;
-	right:30px;
+	right:150px;
 	max-height: 200px;
 }
 
 .contenuannonce
 {
 	min-height:200px;
+	max-width:600px;
+}
+
+article.annonce .contenuannonce .teteannonce h2, article.annonce .contenuannonce .teteannonce p
+{
+	display:inline;
 }
 
 .photoannonce, .contenuannonce

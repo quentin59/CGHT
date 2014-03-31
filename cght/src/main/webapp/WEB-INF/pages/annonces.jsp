@@ -28,30 +28,36 @@
 		</jsp:include>
 		
 		<div class="menuLateral">  
-    <ul>
-    	<li>Accueil</li>
-    <c:forEach var="annee" items="${annees}" varStatus="listeAnnee" >
-			<li>${annee}</li>
-					<ul><c:forEach var="mois" items="${mois[listeAnnee.index]}">
-						<li> ${mois}</li>						
-					</c:forEach> 
-					</ul>
-		</c:forEach>
-	</ul>
+		    <ul>
+		    	<li>Accueil</li>
+		    <c:forEach var="annee" items="${annees}" varStatus="listeAnnee" >
+					<li>${annee}</li>
+							<ul><c:forEach var="mois" items="${mois[listeAnnee.index]}">
+								<li> ${mois}</li>						
+							</c:forEach> 
+							</ul>
+				</c:forEach>
+			</ul>
     </div>
    <div class="contenuPage">
     	<c:forEach var="annonce" items="${annonces}" >
 			<article class="annonce">
+			<div class="boutonsadmin" style="float:right;">
+						<% if (request.getSession().getAttribute("statut").equals("administrateur")) {%>
+						<a href="#" ><img alt="modifer" src="img/modifier.jpg" height="50" width="50"/></a>
+						<a href="#" ><img alt="supprimer" src="img/supprimer.png" height="52" width="52"/></a>
+						<%} %>
+					</div>
 				<div class="contenuannonce">
-					<h2>${annonce.titre}</h2>
-					<p>${annonce.categorie}</p>
+					<div class="teteannonce"><h2>${annonce.titre}</h2><p>(<fmt:formatDate value="${annonce.dateAnnonce}" pattern="dd MMMM yyy"/>)</p></div>
+					<p>Catégorie : ${annonce.categorie}</p>
 					<c:if test="${annonce.categorie==\"Vente de matériel\"}" >
 					<p>${annonce.prix} €</p>
 					</c:if>
-					<p class="dateannonce">${annonce.dateAnnonce}</p>
+					<p>${annonce.contenu}</p>
 				</div>
 				<div class="photoannonce"> 
-					<img src="img/filet.jpg" alt= "filet.jpg" height="200px"/>
+					<img src="img/1024.png" alt= "filet.jpg" height="200px"/>
 				</div>
 			</article>								
 		</c:forEach> 

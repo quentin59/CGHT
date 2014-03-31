@@ -54,7 +54,7 @@ public class ConnexionServlet extends HttpServlet{
 		}
 		else
 		{
-			request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valide.");
+			request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valides.");
 		    RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
 			view.forward(request, response);
 		}

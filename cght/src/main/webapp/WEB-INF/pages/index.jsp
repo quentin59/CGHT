@@ -48,10 +48,19 @@
     <div class="contenuPage">
     	<c:forEach var="actualite" items="${actualites}">
 			<article class="actualite">
+			
+			<div class="boutonsadmin">
+				<% if (request.getSession().getAttribute("statut").equals("administrateur")) {%>
+				<a href="#" ><img alt="modifer" src="img/modifier.jpg" height="50" width="50"/></a>
+				<a href="#" ><img alt="supprimer" src="img/supprimer.png" height="52" width="52"/></a>
+				<%} %>
+				</div>
+				<p style="float:right;
+				margin-right:15px;"><fmt:formatDate value="${actualite.dateActualite}" pattern="dd MMMM yyy"/></p>
 				<h2>${actualite.titre}</h2>
 				<p>${actualite.contenu}</p>
 				<p>${actualite.licence}</p>
-				<p>${actualite.dateActualite}</p>
+				
 			</article>								
 		</c:forEach> 
 	</div>	
