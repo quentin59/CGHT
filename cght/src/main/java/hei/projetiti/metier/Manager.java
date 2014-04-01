@@ -64,6 +64,18 @@ public class Manager {
 		return adherentdao.getLicenceAdherent(nom, prenom);
 	}
 	
+	public void mettreAJourCoordonneesAdherent(Adherent adherent){
+		adherentdao.mettreAJourCoordonneesAdherent(adherent);
+	}
+	
+	public String crypterPassword(String password) throws Exception{
+		return adherentdao.crypterPassword(password);
+	}
+	
+	public void mettreAJourIdentifiantsAdherent(Adherent adherent){
+		adherentdao.mettreAJourIdentifiantsAdherent(adherent);
+	}
+	
 	public List<Cours> listerCours(){
 		return coursdao.listerCours();
 	}

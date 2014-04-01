@@ -36,7 +36,6 @@
 	</nav>
     	<!-- Corps de la page -->
 		<div class="contenuPage">
-			<form id="inscription" method="post" action="inscription">
 	
 		<fieldset class="inscription">
 		<legend>Identité</legend>
@@ -66,6 +65,7 @@
 			</table>
 		</fieldset>
 		
+		<form method="post" action="profil">
 		<fieldset class="inscription">
 		<legend>Informations générales</legend>
 			<table class="col">
@@ -81,7 +81,7 @@
 					</td>
 					<td>
 						<input id="telfixe" type="text" name="telfixe" value="${adherent.telephone}"/>
-					</td>
+					</td> 
 				</tr>
 				<tr>
 					<td>
@@ -106,6 +106,9 @@
 					</td>
 				</tr>
 			</table>
+			<input type="submit" id="ajouteradherent" name="ajouteradherent" value="Enregistrer les modifications"/>
+		
+		</form>
 		</fieldset>
 		
 		<fieldset class="inscription">
@@ -177,34 +180,10 @@
 						<input type="checkbox" name="publierPhoto" value="publierPhoto" disabled> Autorisation de publier des photos</input>
 					</td>
 				</tr>
-				<tr>
-					<td>
-						Cours i
-					</td>
-					<td>
-						<select name="Cours">
-							<%--<c:forEach var="jour">
-								<option value="jour">Jour</option>
-							</c:forEach>--%>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Horaires i
-					</td>
-					<td>
-						<select name="Horaires">
-							<%-- <c:forEach var="horaires">
-								<option value="horaires">Horaires</option>
-							</c:forEach>--%>
-						</select>
-					</td>
-				</tr>
 			</table>
 		</fieldset>
 		
-		<fieldset class="inscription">
+	<fieldset class="inscription">
 		<legend>Paiements</legend>
 			<table id="tablepaiements">
 				<tr>
@@ -215,11 +194,36 @@
 					<td>Montant</td>
 				</tr>
 			</table>
-		</fieldset>
-		
-		<input type="submit" id="ajouteradherent" name="ajouteradherent" value="Enregistrer les modifications"/>
-		
-	</form>
+	</fieldset>
+	<fieldset class="inscription">
+		<legend>Mes cours</legend>
+			<table id="tablecours">
+				<tr>
+					<td>
+						<label for="jour">Jour</label>
+					</td>
+					<td>
+						<label for="heuredebut">Heure de début</label>
+					</td>
+					<td>
+						<label for="heurefin">Heure de fin</label>
+					</td>
+				</tr>
+				<c:forEach var="cours" items="${cours}" >
+				<tr>
+					<td>
+						${cours.jourCours}
+					</td>
+					<td>
+						<fmt:formatNumber pattern="00" value="${cours.heureDebut}"/>h<fmt:formatNumber pattern="00" value="${cours.minuteDebut}"/>
+					</td>
+					<td>
+						<fmt:formatNumber pattern="00" value="${cours.heureFin}"/>h<fmt:formatNumber pattern="00" value="${cours.minuteFin}"/>
+					</td>
+				<tr>
+				</c:forEach>
+			</table>
+	</fieldset>
         </div>  
 		
     </body>

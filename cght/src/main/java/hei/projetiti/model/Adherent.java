@@ -54,12 +54,28 @@ public class Adherent {
 		this.telephone=telephone;
 	}
 	
+	public Adherent (String licence, String adresse, String codePostal, String ville, String telephone, String portable) 
+	{
+		this.licence=licence;
+		this.adresse=adresse;
+		this.codePostal=codePostal;
+		this.ville=ville;
+		this.telephone=telephone;
+		this.portable=portable;
+	}
+	
 	public Adherent(String nom, String prenom)
 	{
 		this.nom=nom;
 		this.prenom=prenom;
 	}
 	
+	public Adherent(String licence, String mail, String password)
+	{
+		this.licence=licence;
+		this.mail=mail;
+		this.password=password;
+	}
 	
 	public String getPassword() {
 		return password;

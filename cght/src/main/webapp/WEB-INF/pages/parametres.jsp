@@ -8,7 +8,7 @@
 	<!-- En-tête de la page -->
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Paramètre</title>
+        <title>Paramètres</title>
 		<link rel="stylesheet" href="css/style.css"/>
 		<link rel="icon" type="image/jpg" href="img/cght.jpg" />
 		<!-- JQuery -->
@@ -37,7 +37,7 @@
     	
     	<!-- Corps de la page -->
     	<div class="contenuPage">
-			<form id="profil">
+			<form action="parametres" method="post">
 		<fieldset class="profil">
 		<legend>Modifier mes paramètres de connnexion</legend>
 			<table class="col">
@@ -46,27 +46,27 @@
 						<label for="vieuxmail">Ancienne adresse mail</label>
 					</td>
 					<td>
-						<input id="vieuxmail" type="text" placeholder="Ancienne adresse mail"/>
+						<input id="vieuxmail" name="vieuxmail" type="text" placeholder="Ancienne adresse mail"/>
 					</td>
 					<td>
 						<label for="vieuxmdp">Ancien mot de passe</label>
 					</td>
 					<td>
-						<input id="vieuxmdp" type="password" placeholder="Ancien mot de passe"/>
+						<input id="vieuxmdp" name="vieuxmdp" type="password" placeholder="Ancien mot de passe"/>
 					</td>
 				</tr>
-				<tr>		
+				<tr>
 					<td>
 						<label for="newmail">Nouvelle adresse mail</label>
 					</td>
 					<td>
-						<input id="newmail" type="text" placeholder="Nouvelle adresse mail"/>
+						<input id="newmail" name="newmail" type="text" placeholder="Nouvelle adresse mail"/>
 					</td>
 					<td>
 						<label for="newmdp">Nouveau mot de passe</label>
 					</td>
 					<td>
-						<input id="newmdp" type="password" placeholder="Nouveau mot de passe"/>
+						<input id="newmdp" name="newmdp" type="password" placeholder="Nouveau mot de passe"/>
 					</td>
 				</tr>
 				<tr>		
@@ -74,13 +74,13 @@
 						<label for="newmail2">Retapez votre nouvelle adresse mail</label>
 					</td>
 					<td>
-						<input id="newmail2" type="text" placeholder="Nouvelle adresse mail"/>
+						<input id="newmail2" name="newmail2" type="text" placeholder="Nouvelle adresse mail"/>
 					</td>
 					<td>
 						<label for="newmdp2">Retapez votre nouveau mot de passe</label>
 					</td>
 					<td>
-						<input id="newmdp2" type="password" placeholder="Nouveau mot de passe"/>
+						<input id="newmdp2" name="newmdp2" type="password" placeholder="Nouveau mot de passe"/>
 					</td>
 				</tr>
 			</table>

@@ -1,5 +1,7 @@
 package hei.projetiti.dao.impl;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -189,6 +191,78 @@ public class AdherentDaoImpl implements AdherentDao{
 	        e.printStackTrace();
 	    }
 		return licence;
+	}
+
+	@Override
+	public void mettreAJourCoordonneesAdherent(Adherent adherent) {
+		
+		 try {
+		        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+		        // Utiliser la connexion
+		        PreparedStatement stmt = connection.prepareStatement(
+		                  "UPDATE `adherent` SET `adresse`=?, `ville`=?, `codePostal`=?, `telephone`=?, `portable`=? "
+		                  + "WHERE `numLicence`=?");
+		        stmt.setString(1, adherent.getAdresse());
+		        stmt.setString(2, adherent.getVille());
+		        stmt.setString(3, adherent.getCodePostal());
+		        stmt.setString(4,adherent.getTelephone());
+		        stmt.setString(5,adherent.getPortable());
+		        stmt.setString(6,adherent.getLicence());
+		    
+		        
+		        stmt.executeUpdate();
+
+		        // Fermer la connexion
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		
+	}
+
+	@Override
+	public String crypterPassword(String password) throws Exception {
+		
+			for(int a = 0; a < 3; a++){
+				MessageDigest md = MessageDigest.getInstance("MD5");
+				md.update(password.getBytes());
+
+				byte byteData[] = md.digest();
+
+				StringBuffer sb = new StringBuffer();
+				for (int i = 0; i < byteData.length; i++) {
+					sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+				}
+
+				password = sb.toString();
+			}
+
+			return password;
+			//Renvoi un varchar(32)
+
+	}
+
+	@Override
+	public void mettreAJourIdentifiantsAdherent(Adherent adherent) {
+
+		try {
+	        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = connection.prepareStatement(
+	                  "UPDATE `adherent` SET `mail`=?, `password`=? "
+	                  + "WHERE `numLicence`=?");
+	        stmt.setString(1, adherent.getMail());
+	        stmt.setString(2, adherent.getPassword());
+	        stmt.setString(3, adherent.getLicence());	        
+	        stmt.executeUpdate();
+
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
 	
 }

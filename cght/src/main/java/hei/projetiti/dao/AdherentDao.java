@@ -17,4 +17,10 @@ public interface AdherentDao {
 	public Adherent getAdherent(String licence);
 	
 	public String getLicenceAdherent(String nom, String prenom);
+	
+	public void mettreAJourCoordonneesAdherent(Adherent adherent);
+	
+	public String crypterPassword(String password) throws Exception;
+	
+	public void mettreAJourIdentifiantsAdherent(Adherent adherent);
 }
