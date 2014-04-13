@@ -25,10 +25,26 @@ public class ParametresServlet extends HttpServlet{
 		String licence= (String) session.getAttribute("licence");
 		String newmail=request.getParameter("newmail");
 		String newmdp=request.getParameter("newmdp");
+		String vieuxmail=request.getParameter("vieuxmail");
+		String vieuxmdp=request.getParameter("vieuxmdp");
 		
 		try {
-			Adherent adherent= new Adherent (licence, newmail, Manager.getInstance().crypterPassword(newmdp));
-			Manager.getInstance().mettreAJourIdentifiantsAdherent(adherent);
+			if (Manager.getInstance().adherentExiste(vieuxmail, Manager.getInstance().crypterPassword(vieuxmdp)))
+			{
+				try {
+					Adherent adherent= new Adherent (licence, newmail, Manager.getInstance().crypterPassword(newmdp));
+					Manager.getInstance().mettreAJourIdentifiantsAdherent(adherent);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			else
+			{
+				request.setAttribute("identifiantsErreur", "Identifiants actuels mauvais !!!");
+			}
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

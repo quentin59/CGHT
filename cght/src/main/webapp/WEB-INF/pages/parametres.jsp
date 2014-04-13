@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
 	<!-- Javascript spécifique -->
 	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="js/parametres.js"></script>
     </head>
     
     <body>
@@ -37,7 +38,7 @@
     	
     	<!-- Corps de la page -->
     	<div class="contenuPage">
-			<form action="parametres" method="post">
+		<form id="formParametres" action="parametres" method="post">
 		<fieldset class="profil">
 		<legend>Modifier mes paramètres de connnexion</legend>
 			<table class="col">
@@ -69,6 +70,8 @@
 						<input id="newmdp" name="newmdp" type="password" placeholder="Nouveau mot de passe"/>
 					</td>
 				</tr>
+				<tr>
+				</tr>
 				<tr>		
 					<td>
 						<label for="newmail2">Retapez votre nouvelle adresse mail</label>
@@ -83,6 +86,12 @@
 						<input id="newmdp2" name="newmdp2" type="password" placeholder="Nouveau mot de passe"/>
 					</td>
 				</tr>
+				<tr><td colspan="3"><div id="erreurMail" class="hidden" style="color:red;" >Les nouvelles adresses mails sont différentes.</div></td></tr>
+				<tr><td colspan="3"><div id="erreurPassword" class="hidden" style="color:red;" >Les nouveaux mots de passe sont différents.</div></td></tr>
+				<tr><td colspan="3"><%
+       if(request.getAttribute("identifiantsErreur")!=null) {
+           out.print((String)request.getAttribute("identifiantsErreur"));
+       }%></td></tr>
 			</table>
 		</fieldset>
 		
