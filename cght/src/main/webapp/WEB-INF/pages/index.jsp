@@ -37,9 +37,9 @@
     <ul>
     	<li>Accueil</li>
     <c:forEach var="annee" items="${annees}" varStatus="listeAnnee" >
-			<li>${annee}</li>
+			<li><a href="index?annee=${annee}"> ${annee}</a></li>
 					<ul><c:forEach var="mois" items="${mois[listeAnnee.index]}">
-						<li> ${mois}</li>						
+						<li><a href="index?annee=${annee}&mois=${mois}"> ${mois}</a></li>						
 					</c:forEach> 
 					</ul>
 		</c:forEach>

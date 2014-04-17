@@ -7,4 +7,6 @@ import java.util.List;
 public interface ActualiteDao {
 
 	public List<Actualite> listerActualites();
+	
+	public List<Actualite> listerActualites(String annee);
 }

@@ -25,12 +25,22 @@ public class AccueilServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		List<Actualite> listeActualites = Manager.getInstance().listerActualites();
-		request.setAttribute("actualites", listeActualites);
+		
+		List<Actualite> listeActualites;
+		List<Actualite> listeTotaleActualites = Manager.getInstance().listerActualites();
+		if (request.getParameter("annee") == null)
+		{	
+			request.setAttribute("actualites", listeTotaleActualites);
+		}
+		else
+		{
+			listeActualites = Manager.getInstance().listerActualites(request.getParameter("annee"));
+			request.setAttribute("actualites", listeActualites);
+		}
 		List<Integer> anneeListe = new ArrayList<Integer>();
 		List<List<String>> moisParAn= new ArrayList<List<String>>();
 		int compteur=0;
-		for (Actualite actualite : listeActualites) {
+		for (Actualite actualite : listeTotaleActualites) {
 			
 			int annee = actualite.getDateActualite().getYear()+1900;
 			int mois = actualite.getDateActualite().getMonth()+1;

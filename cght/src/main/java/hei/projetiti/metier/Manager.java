@@ -44,6 +44,10 @@ public class Manager {
 		return actualitedao.listerActualites();
 	}
 	
+	public List<Actualite> listerActualites(String annee) {
+		return actualitedao.listerActualites(annee);
+	}
+	
 	public List<Annonce> listerAnnonces(){
 		return annoncedao.listerAnnonces();
 	}
