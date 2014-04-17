@@ -31,7 +31,42 @@
     	<!-- Corps de la page -->
 		
 		<div class="contenuPage">
-			<h2>Contact</h2>
+			<form id="contact" action="contact" method="post">
+				<h2>Formulaire de contact</h2>
+				<table>
+					<tr>
+						<td>
+							<label for="nom">Nom</label>
+						</td>
+						<td>
+							<input type="text" id="nom" name="nom" required />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="prenom">Prénom</label>
+						</td>
+						<td>
+							<input type="text" id="prenom" name="prenom" required />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="mail">E-mail</label>
+						</td>
+						<td>
+							<input type="email" id="mail" name="mail" required />
+						</td>
+					</tr>
+				</table><br>
+				
+				
+				<label for="sujet">Sujet :</label></br>
+				<input type="text" id="sujet" name="sujet" required size="37" /></br></br>
+				<label for="message">Message :</label></br>
+				<textarea id="message" name="message" cols="35" rows="5" required></textarea></br></br>
+				<input type="submit" value="Envoyer"/>
+			</form>
         </div>   
 		
     </body>

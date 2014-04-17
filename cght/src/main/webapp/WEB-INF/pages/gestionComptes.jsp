@@ -43,7 +43,8 @@
     	<div class="contenuPage">
     	<h1>Gestion des comptes</h1>
 		<section>	
-			<div class="caracteristiques">	
+			<div class="caracteristiques">
+			<form method="post" action="gestion-comptes">	
 				<table id="comptes">
 					<thead>
 						<tr>
@@ -66,12 +67,14 @@
 								<td>${adherent.licence}</td>
 								<td>${adherent.classement}</td>
 								<td>${adherent.telephone}</td>
-								<td><form method="get" action="modifieradherent"><input type="hidden" value="${adherent.licence}" name="licence"></input><input class="modifier" id="${adherent.licence}" type="submit" value="Détails"/></form></td>
-								<td><form method="post" action="supprimeradherent"><input type="hidden" value="${adherent.licence}" name="licence"></input><input class="supprimer" id="${adherent.licence}" type="checkbox" value=""/></form>
+								<td><a href="modifieradherent?licence=${adherent.licence}"><input class="modifier" id="${adherent.licence}" type="submit" value="Détails"/></a></td>
+								<td><input class="supprimer" id="supprimer${adherent.licence}" name="supprimer${adherent.licence}" type="checkbox" value=""/></td>
 							</tr>
 							</c:forEach>
 					</tbody>
 				</table>
+				<input class="bouton" value="Supprimer" type="submit"/>
+				</form>
 			</div>	
 		</section>
         </div>   

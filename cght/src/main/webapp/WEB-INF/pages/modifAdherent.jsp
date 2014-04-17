@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
 	<!-- Javascript spécifique -->
 	<script type="text/javascript" src="../js/menu.js"></script>
+	<script type="text/javascript" src="../js/modifAdherent.js"></script>
     </head>
     
     <body>
@@ -41,7 +42,7 @@
     	
     	<!-- Corps de la page -->
 		<div class="contenuPage">
-			<form id="modif" method="post" action="inscription">
+			<form id="modif" method="post" action="modifieradherent">
 	
 		<fieldset class="inscription">
 		<legend>Identité</legend>
@@ -109,8 +110,17 @@
 					<td>
 						<input id="ville" type="text" name="ville" value="${adherent.ville}"/>
 					</td>
+					<td>
+						<label for="mail">Mail</label>
+					</td>
+					<td>
+						<input id="mail" type="text" name="mail" value="${adherent.mail}" />
+					</td>	
 				</tr>
-			</table>
+			</table><br>
+			<c:set var="admin" scope="page" value="${adherent.statut}"/>
+			<input type= "radio" name="statut" value="adherent" <c:if test="${adherent.statut=='adherent'}">checked</c:if> >Adhérent</input>
+			<input type= "radio" name="statut" value="administrateur" <c:if test="${adherent.statut=='administrateur'}">checked</c:if> >Administrateur</input>
 		</fieldset>
 		
 		<fieldset class="inscription">
@@ -168,7 +178,7 @@
 						<label for="numpass">Numéro de pass</label>
 					</td>
 					<td>
-						<input id="numpass" type="text" name="numpass" placeholder="Numéro de pass" />
+						<input id="numpass" type="text" name="numpass" value="${adherent.numPass}" />
 					</td>
 					<td colspan="2">
 						<c:set var="publierPhoto" scope="page" value="${adherent.publierPhoto}"/>
@@ -183,6 +193,8 @@
 		
 		<fieldset class="inscription">
 		<legend>Paiements</legend>
+		<form action="ajouter-paiement-adherent" method="post">
+			<input style="display:none;" id="licence" type="text" name="licence" value="${adherent.licence}"/>
 			<table id="tablepaiements">
 				<tr>
 					<td>Payé</td>
@@ -191,7 +203,21 @@
 					<td>Echéance</td>
 					<td>Montant</td>
 				</tr>
+				<c:forEach var="paiement" items="${paiements}" >
+				<tr>
+					<td><input type="checkbox" name="encaisserpaiement${paiement.idPaiement}" value="encaisserpaiement${paiement.idPaiement}" id="paiement${paiement.idPaiement}" <c:if test="${paiement.payer==true}">checked</c:if> /></td>
+					<td>${paiement.banque}</td>
+					<td>${paiement.numCheque}</td>
+					<td>${paiement.echeance}</td>
+					<td>${paiement.montant}€</td>
+				</tr>
+				</c:forEach>
 			</table>
+			<input class="hidden" type="text" id="compteurCheque" name="compteurCheque" value="0" /><br>
+			<input type="text" class="valider" id="ajoutercheque" name="ajoutercheque" value="Ajouter un paiement"/>
+			
+			<input type="submit" class="bouton" name="ajouterpaiement" value="Enregistrer" />
+		</form>
 		</fieldset>
 		
 		<fieldset class="inscription">
@@ -229,6 +255,7 @@
 			</td>
 		</tr>
 		</c:forEach>
+		
 	</table>
 	
 	<input type="submit" class="bouton" name="supprimercours" value="Supprimer" />

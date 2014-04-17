@@ -88,7 +88,7 @@
 				</tr>
 				<tr><td colspan="3"><div id="erreurMail" class="hidden" style="color:red;" >Les nouvelles adresses mails sont différentes.</div></td></tr>
 				<tr><td colspan="3"><div id="erreurPassword" class="hidden" style="color:red;" >Les nouveaux mots de passe sont différents.</div></td></tr>
-				<tr><td colspan="3"><%
+				<tr style="color:red;"><td colspan="3"><%
        if(request.getAttribute("identifiantsErreur")!=null) {
            out.print((String)request.getAttribute("identifiantsErreur"));
        }%></td></tr>

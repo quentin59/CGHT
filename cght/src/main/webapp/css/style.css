@@ -511,3 +511,18 @@ article.annonce .contenuannonce .teteannonce h2, article.annonce .contenuannonce
 	display:inline-block;
 	vertical-align:top;
 }
+
+
+/*** Contact ***/
+
+form#contact h2
+{
+	text-align:left;
+	margin-left:70px;
+}
+
+form#contact input[type="submit"]
+{
+	display:block;
+	margin-left:100px;
+}

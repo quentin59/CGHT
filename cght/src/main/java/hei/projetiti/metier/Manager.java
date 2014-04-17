@@ -5,14 +5,17 @@ import hei.projetiti.dao.ActualiteDao;
 import hei.projetiti.dao.AdherentDao;
 import hei.projetiti.dao.AnnonceDao;
 import hei.projetiti.dao.CoursDao;
+import hei.projetiti.dao.PaiementDao;
 import hei.projetiti.dao.impl.ActualiteDaoImpl;
 import hei.projetiti.dao.impl.AdherentDaoImpl;
 import hei.projetiti.dao.impl.AnnonceDaoImpl;
 import hei.projetiti.dao.impl.CoursDaoImpl;
+import hei.projetiti.dao.impl.PaiementDaoImpl;
 import hei.projetiti.model.Actualite;
 import hei.projetiti.model.Adherent;
 import hei.projetiti.model.Annonce;
 import hei.projetiti.model.Cours;
+import hei.projetiti.model.Paiement;
 
 import java.util.List;
 
@@ -23,6 +26,7 @@ public class Manager {
 	private ActualiteDao actualitedao = new ActualiteDaoImpl();
 	private AnnonceDao annoncedao = new AnnonceDaoImpl();
 	private CoursDao coursdao = new CoursDaoImpl();
+	private PaiementDao paiementdao = new PaiementDaoImpl();
 	
 	
 	public static Manager getInstance() {
@@ -76,6 +80,14 @@ public class Manager {
 		adherentdao.mettreAJourIdentifiantsAdherent(adherent);
 	}
 	
+	public void mettreAJourAdherentCoteAdmin(Adherent adherent){
+		adherentdao.mettreAJourAdherentCoteAdmin(adherent);
+	}
+	
+	public void supprimerAdherent(Adherent adherent){
+		adherentdao.supprimerAdherent(adherent);
+	}
+	
 	public List<Cours> listerCours(){
 		return coursdao.listerCours();
 	}
@@ -110,5 +122,21 @@ public class Manager {
 	
 	public void supprimerCoursAdherent(Integer idCours, String numLicence){
 		coursdao.supprimerCoursAdherent(idCours, numLicence);
+	}
+	
+	public List<Paiement> listerPaiements(Adherent adherent){
+		return paiementdao.listerPaiements(adherent);
+	}
+	
+	public void ajouterPaiement(Adherent adherent, Paiement paiement){
+		paiementdao.ajouterPaiement(adherent, paiement);
+	}
+	
+	public void encaisserPaiement(Integer idPaiement){
+		paiementdao.encaisserPaiement(idPaiement);
+	}
+	
+	public void nePasEncaisserPaiement(Integer idPaiement){
+		paiementdao.nePasEncaisserPaiement(idPaiement);
 	}
 }

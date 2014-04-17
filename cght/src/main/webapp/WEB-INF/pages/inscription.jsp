@@ -258,7 +258,16 @@
 					<td>Echéance</td>
 					<td>Montant</td>
 				</tr>
-			</table>
+				<tr>
+					<td><input type="checkbox" name="payer1" id="payer1" /></td>
+					<td><input type="text" id="banque1" name="banque1" /></td>
+					<td><input type="text" id="numCheque1" name="numCheque1" /></td>
+					<td><input type="text" id="echeance1" name="echeance1" /></td>
+					<td><input type="number" id="montant1" name="montant1" /></td>
+				</tr>
+				<input class="hidden" type="text" id="compteurCheque" name="compteurCheque" value="0" />
+			</table><br>
+			<input type="text" class="valider" id="ajoutercheque" name="ajoutercheque" value="Ajouter un paiement"/>
 		</fieldset>
 		
 		<fieldset class="inscription" id="statut">

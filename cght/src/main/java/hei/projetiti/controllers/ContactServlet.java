@@ -18,4 +18,16 @@ public class ContactServlet extends HttpServlet{
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/contact.jsp");
 		view.forward(request, response);
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String nom=request.getParameter("nom");
+		String prenom=request.getParameter("prenom");
+		String mail=request.getParameter("mail");
+		String sujet=request.getParameter("sujet");
+		String message=request.getParameter("message");
+		
+		
+	}
 }

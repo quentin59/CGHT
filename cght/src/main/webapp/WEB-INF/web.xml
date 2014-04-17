@@ -82,6 +82,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-name>SupprimerCoursAdherent</servlet-name>
     <servlet-class>hei.projetiti.controllers.SupprimerCoursAdherentServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AjouterPaiementAdherent</servlet-name>
+    <servlet-class>hei.projetiti.controllers.AjouterPaiementAdherentServlet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>Accueil</servlet-name>
@@ -150,6 +154,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   <servlet-mapping>
     <servlet-name>SupprimerCoursAdherent</servlet-name>
     <url-pattern>/admin/supprimer-cours-adherent</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AjouterPaiementAdherent</servlet-name>
+    <url-pattern>/admin/ajouter-paiement-adherent</url-pattern>
   </servlet-mapping>
   
   

@@ -31,6 +31,7 @@ public class ParametresServlet extends HttpServlet{
 		try {
 			if (Manager.getInstance().adherentExiste(vieuxmail, Manager.getInstance().crypterPassword(vieuxmdp)))
 			{
+				/* Pour le moment on se connecter avec Nom, Prénom, donc le changement des paramètres ne marche pas!!!*/
 				try {
 					Adherent adherent= new Adherent (licence, newmail, Manager.getInstance().crypterPassword(newmdp));
 					Manager.getInstance().mettreAJourIdentifiantsAdherent(adherent);

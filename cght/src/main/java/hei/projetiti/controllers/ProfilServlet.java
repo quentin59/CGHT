@@ -2,8 +2,11 @@ package hei.projetiti.controllers;
 
 import hei.projetiti.metier.Manager;
 import hei.projetiti.model.Adherent;
+import hei.projetiti.model.Cours;
+import hei.projetiti.model.Paiement;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,6 +39,12 @@ public class ProfilServlet extends HttpServlet{
 		Adherent adherentComplet = Manager.getInstance().getAdherent(licence);
 		request.setAttribute("adherent", adherentComplet);
 		
+		List<Paiement> listePaiements = Manager.getInstance().listerPaiements(adherent);
+		request.setAttribute("paiements", listePaiements);
+		
+		List<Cours> listeCours = Manager.getInstance().listerCoursparAdherent(licence);
+		request.setAttribute("cours", listeCours);
+		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/profil.jsp");
 		view.forward(request, response);
 	}
@@ -49,6 +58,11 @@ public class ProfilServlet extends HttpServlet{
 		Adherent adherent = Manager.getInstance().getAdherent(licence);
 		request.setAttribute("adherent", adherent);
 
+		List<Paiement> listePaiements = Manager.getInstance().listerPaiements(adherent);
+		request.setAttribute("paiements", listePaiements);
+		
+		List<Cours> listeCours = Manager.getInstance().listerCoursparAdherent(licence);
+		request.setAttribute("cours", listeCours);
 
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/profil.jsp");
 		view.forward(request, response);

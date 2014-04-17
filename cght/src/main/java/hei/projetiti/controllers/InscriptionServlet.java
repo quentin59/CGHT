@@ -3,9 +3,14 @@ package hei.projetiti.controllers;
 import hei.projetiti.metier.Manager;
 import hei.projetiti.model.Adherent;
 import hei.projetiti.model.Cours;
+import hei.projetiti.model.Paiement;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -18,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 public class InscriptionServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -8830849795476708949L;
+	private static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -133,9 +139,37 @@ public class InscriptionServlet extends HttpServlet {
 			Manager.getInstance().ajouterAdherentauCours(nouveladherent, cours);
 		}
 		
+		int compteurCheque = Integer.parseInt(request.getParameter("compteurCheque"));
 		
-		
-		
+		int i;
+		for (i=1;i<=compteurCheque;i++)
+		{
+			
+			boolean payer;
+			if (request.getParameter("payer"+i)!=null)
+			{
+				payer=true;
+			}
+			else
+			{
+				payer=false;
+			}
+			String banque = request.getParameter("banque"+i);
+			String numCheque = request.getParameter("numCheque"+i);
+			float montant = Integer.parseInt(request.getParameter("montant"+i));
+			
+			
+			Date echeance = null;
+			try {
+				echeance = dateFormat.parse(request.getParameter("echeance"+i));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			
+			
+			Paiement paiement = new Paiement(payer,banque,numCheque,echeance,montant);
+			Manager.getInstance().ajouterPaiement(nouveladherent, paiement);
+		}
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/inscription.jsp");
 		view.forward(request, response);

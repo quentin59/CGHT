@@ -264,5 +264,118 @@ public class AdherentDaoImpl implements AdherentDao{
 	        e.printStackTrace();
 	    }
 	}
+
+	@Override
+	public void mettreAJourAdherentCoteAdmin(Adherent adherent) {
+		// TODO Auto-generated method stub
+		try {
+	        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = connection.prepareStatement(
+	                  "UPDATE `adherent` SET `nom`=?, `prenom`=?, `dateNaissance`=?, `adresse`=?, "
+	                  + "`codePostal`=?, `ville`=?, `telephone`=?, `portable`=?, `mail`=?, `numPass`=?, "
+	                  + "`classement`=?, `certif`=?, `statut`=?, `prendrePhoto`=?, `publierPhoto`=? WHERE `numLicence`=?");
+	        stmt.setString(1, adherent.getNom());
+	        stmt.setString(2, adherent.getPrenom());
+	        stmt.setDate(3, new Date(adherent.getDateNaissance().getTime()));
+	        stmt.setString(4,adherent.getAdresse());
+	        stmt.setString(5,adherent.getCodePostal());
+	        stmt.setString(6,adherent.getVille());
+	        stmt.setString(7,adherent.getTelephone());
+	        stmt.setString(8,adherent.getPortable());
+	        stmt.setString(9,adherent.getMail());
+	        stmt.setString(10,adherent.getNumPass());
+	        stmt.setString(11,adherent.getClassement());
+	        stmt.setBoolean(12,adherent.isCertif());
+	        stmt.setString(13,adherent.getStatut());
+	        stmt.setBoolean(14,adherent.isPrendrePhoto());
+	        stmt.setBoolean(15,adherent.isPublierPhoto());
+	        stmt.setString(16,adherent.getLicence());
+	        
+	        stmt.executeUpdate();
+
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
+
+	@Override
+	public void supprimerAdherent(Adherent adherent) {
+		// TODO Auto-generated method stub
+		 try {
+		        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+		        // Utiliser la connexion
+		        PreparedStatement stmt = connection.prepareStatement(
+		                  "DELETE FROM `participer` WHERE `numLicence`=?");
+		        stmt.setString(1,adherent.getLicence());
+		        stmt.executeUpdate();
+
+		        // Fermer la connexion
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		 
+		 try {
+		        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+		        // Utiliser la connexion
+		        PreparedStatement stmt = connection.prepareStatement(
+		                  "DELETE FROM `annonce` WHERE `numLicence`=?");
+		        stmt.setString(1,adherent.getLicence());
+		        stmt.executeUpdate();
+
+		        // Fermer la connexion
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		 try {
+		        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+		        // Utiliser la connexion
+		        PreparedStatement stmt = connection.prepareStatement(
+		                  "DELETE FROM `article` WHERE `numLicence`=?");
+		        stmt.setString(1,adherent.getLicence());
+		        stmt.executeUpdate();
+
+		        // Fermer la connexion
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		 try {
+		        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+		        // Utiliser la connexion
+		        PreparedStatement stmt = connection.prepareStatement(
+		                  "DELETE FROM `paiement` WHERE `numLicence`=?");
+		        stmt.setString(1,adherent.getLicence());
+		        stmt.executeUpdate();
+
+		        // Fermer la connexion
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		 try {
+		        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+		        // Utiliser la connexion
+		        PreparedStatement stmt = connection.prepareStatement(
+		                  "DELETE FROM `adherent` WHERE `numLicence`=?");
+		        stmt.setString(1,adherent.getLicence());
+		        stmt.executeUpdate();
+
+		        // Fermer la connexion
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+	}
 	
 }

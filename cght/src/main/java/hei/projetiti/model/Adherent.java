@@ -44,6 +44,26 @@ public class Adherent {
 		this.statut=statut;
 	}
 	
+	public Adherent (String nom, String prenom, Date dateNaissance, String adresse, String codePostal, String ville, 
+			String licence, String classement, String numPass, String telephone, String portable, String mail, boolean certif, boolean prendrePhoto, boolean publierPhoto, String statut){
+		this.nom=nom;
+		this.prenom=prenom;
+		this.dateNaissance=dateNaissance;
+		this.adresse=adresse;
+		this.codePostal=codePostal;
+		this.ville=ville;
+		this.licence=licence;
+		this.classement=classement;
+		this.numPass=numPass;
+		this.telephone=telephone;
+		this.portable=portable;
+		this.mail=mail;
+		this.certif=certif;
+		this.prendrePhoto=prendrePhoto;
+		this.publierPhoto=publierPhoto;
+		this.statut=statut;
+	}
+	
 	public Adherent (String nom, String prenom, Date dateNaissance, String licence, String classement, String telephone) 
 	{
 		this.nom=nom;

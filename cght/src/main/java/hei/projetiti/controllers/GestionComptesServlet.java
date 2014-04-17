@@ -23,6 +23,33 @@ public class GestionComptesServlet extends HttpServlet{
 		List<Adherent> listeAdherents = Manager.getInstance().listerAdherents();
 		request.setAttribute("adherents", listeAdherents);
 		
+		for (int i=0;i<listeAdherents.size();i++) {
+			if (request.getParameter("supprimer"+listeAdherents.get(i).getLicence())!=null)
+			{
+				Manager.getInstance().supprimerAdherent(listeAdherents.get(i));
+			}
+		}
+		
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/gestionComptes.jsp");
+		view.forward(request, response);
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		System.out.println("j'arrive");
+		List<Adherent> listeAdherents = Manager.getInstance().listerAdherents();
+		
+		int i;
+		for (i=0;i<listeAdherents.size();i++) {
+			if (request.getParameter("supprimer"+listeAdherents.get(i).getLicence())!=null)
+			{
+				Manager.getInstance().supprimerAdherent(listeAdherents.get(i));
+			}
+		}
+		
+		List<Adherent> listAdherents = Manager.getInstance().listerAdherents();
+		request.setAttribute("adherents", listAdherents);
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/gestionComptes.jsp");
 		view.forward(request, response);
 	}

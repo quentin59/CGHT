@@ -193,6 +193,15 @@
 					<td>Echéance</td>
 					<td>Montant</td>
 				</tr>
+				<c:forEach var="paiement" items="${paiements}" >
+				<tr>
+					<td><input type="checkbox"  <c:if test="${paiement.payer==true}">checked</c:if> disabled/></td>
+					<td>${paiement.banque}</td>
+					<td>${paiement.numCheque}</td>
+					<td>${paiement.echeance}</td>
+					<td>${paiement.montant}€</td>
+				</tr>
+				</c:forEach>
 			</table>
 	</fieldset>
 	<fieldset class="inscription">
