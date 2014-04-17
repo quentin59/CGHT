@@ -1,15 +1,17 @@
 $(document).ready(function() {
 	
-	$("#toutselectionner").click(function(event){
-		alert($(".supprimer:checked").size());
-		if ($(".supprimer:checked").size()!=6)
-			{
-			$(".supprimer").attr("checked","checked");
-			}
-		else
-			{
-			$(".supprimer").removeAttr("checked");
-			}
-		
-	});
+	$("#toutselectionner").click(selection);
 });
+
+
+var selection = function(){
+	
+	if ($(".supprimer:checked").size()!=$("tr").size()-1)
+	{
+	$(".supprimer").attr("checked",true);
+	}
+else
+	{
+	$(".supprimer").attr("checked",false);
+	}
+};

@@ -55,7 +55,7 @@
 							<th>Classement</th>
 							<th>Téléphone</th>
 							<th>Détails</th>
-							<th>Supprimer</br><input type="submit" id="toutselectionner" value="Tout sélectionner"/></th>
+							<th>Supprimer</br><input type="button" id="toutselectionner" value="Tout sélectionner"/></th>
 						</tr>
 					</thead>
 					<tbody>
