@@ -38,7 +38,7 @@
     	<li><a href="index">Accueil</a></li>
     	
     	<% if (request.getSession().getAttribute("statut").equals("administrateur")) {%>
-    	<li id="ajouter-actualite"><a href="article">Ajouter une actualité</a></li>
+    	<li id="ajouter-contenu"><a href="article">Ajouter une actualité</a></li>
     	<%} %>
     	
     	<c:set var="i" value="0" />

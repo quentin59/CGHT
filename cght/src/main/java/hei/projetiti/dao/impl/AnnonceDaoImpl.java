@@ -1,6 +1,7 @@
 package hei.projetiti.dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -127,6 +128,31 @@ List<Annonce> listeAnnonces = new ArrayList<Annonce>();
             e.printStackTrace();
         }
         return listeAnnonces;
+	}
+
+	@Override
+	public void ajouterAnnonce(Annonce annonce) {
+		// TODO Auto-generated method stub
+		 try {
+		        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+		        // Utiliser la connexion
+		        PreparedStatement stmt = connection.prepareStatement(
+		                  "INSERT INTO `annonce`(`titre`, `contenu`, `coordonnees`, `numLicence`, `dateAnnonce`, `categorie`, `prix`) VALUES(?, ?, ?, ?, ?, ?, ?)");
+		        stmt.setString(1, annonce.getTitre());
+		        stmt.setString(2, annonce.getContenu());
+		        stmt.setString(3, annonce.getCoordonnees());
+		        stmt.setString(4,annonce.getLicence());
+		        stmt.setDate(5, new Date(annonce.getDateAnnonce().getTime()));
+		        stmt.setString(6, annonce.getCategorie());
+		        stmt.setFloat(7, annonce.getPrix());
+		        stmt.executeUpdate();
+
+		        // Fermer la connexion
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
 	}
 
 	

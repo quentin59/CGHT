@@ -30,6 +30,8 @@
 		<div class="menuLateral">  
 		    <ul>
 		    	<li><a href="annonces">Annonces</a></li>
+		    	
+		    	<li id="ajouter-contenu"><a href="poster-annonce">Ajouter une annonce</a></li>
 		    	<c:set var="i" value="0" />
 		    <c:forEach var="annee" items="${annees}" varStatus="listeAnnee" >
 					<li><a href="annonces?annee=${annee}"> ${annee}</a></li>

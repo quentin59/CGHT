@@ -80,6 +80,10 @@ public class Manager {
 		annoncedao.supprimerAnnonce(idAnnonce);
 	}
 	
+	public void ajouterAnnonce(Annonce annonce){
+		annoncedao.ajouterAnnonce(annonce);
+	}
+	
 	public void ajouterAdherent(Adherent adherent){
 		adherentdao.ajouterAdherent(adherent);
 	}

@@ -86,6 +86,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-name>AjouterPaiementAdherent</servlet-name>
     <servlet-class>hei.projetiti.controllers.AjouterPaiementAdherentServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>PosterAnnonce</servlet-name>
+    <servlet-class>hei.projetiti.controllers.PosterAnnonceServlet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>Accueil</servlet-name>
@@ -158,6 +162,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   <servlet-mapping>
     <servlet-name>AjouterPaiementAdherent</servlet-name>
     <url-pattern>/admin/ajouter-paiement-adherent</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PosterAnnonce</servlet-name>
+    <url-pattern>/poster-annonce</url-pattern>
   </servlet-mapping>
   
   
