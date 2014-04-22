@@ -23,11 +23,15 @@ public class PosterAnnonceServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		
 		if(request.getParameter("id") != null){
-			/*Actualite actualite = Manager.getInstance().getActualite(Integer.parseInt(request.getParameter("id")));
-			request.setAttribute("titre", actualite.getTitre());
-			request.setAttribute("contenu", actualite.getContenu());
-			request.setAttribute("id", request.getParameter("id"));*/
+			Annonce annonce = Manager.getInstance().getAnnonce(Integer.parseInt(request.getParameter("id")));
+			request.setAttribute("titre", annonce.getTitre());
+			request.setAttribute("contenu", annonce.getContenu());
+			request.setAttribute("categorie", annonce.getCategorie());
+			request.setAttribute("coordonnees", annonce.getCoordonnees());
+			request.setAttribute("prix", annonce.getPrix());
+			request.setAttribute("id", request.getParameter("id"));
 		}
 		else
 		{
@@ -50,12 +54,17 @@ public class PosterAnnonceServlet extends HttpServlet {
 		String licence= (String) session.getAttribute("licence");
 		String categorie = request.getParameter("categorie");
 		String coordonnees = request.getParameter("coordonnees");
-		float prix = Integer.parseInt(request.getParameter("prix"));
+		Float prix=(float) 0;
+		if (categorie.equals("Vente de matériel"))
+		{
+			prix = (float) Integer.parseInt(request.getParameter("prix"));
+		}
+		
 		Annonce annonce = new Annonce(null, titre, texte,coordonnees, licence, cal.getTime(), categorie, prix);
 		Manager.getInstance().ajouterAnnonce(annonce);
 		
 		if(request.getParameter("id") != null){
-			/*Manager.getInstance().supprimerActualite(Integer.parseInt(request.getParameter("id")));*/
+			Manager.getInstance().supprimerAnnonce(Integer.parseInt(request.getParameter("id")));
 		}
 		
 		AnnoncesServlet page = new AnnoncesServlet();

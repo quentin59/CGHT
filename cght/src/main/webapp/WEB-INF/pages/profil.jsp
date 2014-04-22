@@ -114,16 +114,17 @@
 		<fieldset class="inscription">
 		<legend>Informations tennis</legend>
 			<table class="col">
+			<tr><td></td><td></td><td></td><td></td></tr>
 				<tr>
 					<td>
 						<label for="licence">Licence</label>
 					</td>
 					<td>
-						<input id="licence" type="text" name="licence" placeholder="Licence" disabled/>
+						<input id="licence" type="text" name="licence" value="${adherent.licence}" disabled />
 					</td>
-					<td>
-					</td>
-					<td>
+					<td colspan="2">
+					<c:set var="certif" scope="page" value="${adherent.certif}"/>
+						<input type="checkbox" name="certificat" value="certificat" <c:if test="${certif}">checked</c:if> disabled > Certificat médical</input>
 					</td>
 				</tr>
 				<tr>
@@ -131,7 +132,8 @@
 						<label for="classement">Classement</label>
 					</td>
 					<td>
-						<select name="classement" disabled> 
+						<select name="classement" disabled > 
+							<option value="${adherent.classement}" selected>${adherent.classement}</option>
 							<option value="NC">NC</option>
 							<option value="40">40</option>
 							<option value="30/5">30/5</option>
@@ -155,7 +157,8 @@
 						</select>
 					</td>
 					<td colspan="2">
-						<input type="checkbox" name="certificat" value="certificat" disabled> Certificat médical</input>
+					<c:set var="prendrePhoto" scope="page" value="${adherent.prendrePhoto}"/>
+						<input type="checkbox" name="prendrePhoto" value="prendrePhoto" <c:if test="${prendrePhoto}">checked</c:if> disabled > Autorisation de prendre des photos</input>
 					</td>
 				</tr>
 				<tr>
@@ -163,21 +166,11 @@
 						<label for="numpass">Numéro de pass</label>
 					</td>
 					<td>
-						<input id="numpass" type="text" name="numpass" placeholder="Numéro de pass" disabled/>
+						<input id="numpass" type="text" name="numpass" value="${adherent.numPass}" disabled />
 					</td>
 					<td colspan="2">
-						<input type="checkbox" name="prendrePhoto" value="prendrePhoto" disabled> Autorisation de prendre des photos</input>
-					</td>
-				</tr>
-				<tr>
-					<td>	
-						<label for="nbrecours">Nombre de cours</label>
-					</td>
-					<td>
-						<input id="nbrecours" type="text" placeholder="Nombre de cours" disabled/>
-					</td>
-					<td colspan="2">
-						<input type="checkbox" name="publierPhoto" value="publierPhoto" disabled> Autorisation de publier des photos</input>
+						<c:set var="publierPhoto" scope="page" value="${adherent.publierPhoto}"/>
+						<input type="checkbox" name="publierPhoto" value="publierPhoto" <c:if test="${publierPhoto}">checked</c:if> disabled > Autorisation de publier des photos</input>
 					</td>
 				</tr>
 			</table>

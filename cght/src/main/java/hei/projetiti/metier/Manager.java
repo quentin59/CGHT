@@ -84,6 +84,10 @@ public class Manager {
 		annoncedao.ajouterAnnonce(annonce);
 	}
 	
+	public Annonce getAnnonce(Integer idAnnonce) {
+		return annoncedao.getAnnonce(idAnnonce);
+	}
+	
 	public void ajouterAdherent(Adherent adherent){
 		adherentdao.ajouterAdherent(adherent);
 	}

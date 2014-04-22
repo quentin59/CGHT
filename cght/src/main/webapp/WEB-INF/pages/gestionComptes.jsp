@@ -67,7 +67,7 @@
 								<td>${adherent.licence}</td>
 								<td>${adherent.classement}</td>
 								<td>${adherent.telephone}</td>
-								<td><a href="modifieradherent?licence=${adherent.licence}"><input class="modifier" id="${adherent.licence}" type="submit" value="Détails"/></a></td>
+								<td><a href="modifieradherent?licence=${adherent.licence}"><input class="modifier" id="${adherent.licence}" type="button" value="Détails"/></a></td>
 								<td><input class="supprimer" id="supprimer${adherent.licence}" name="supprimer${adherent.licence}" type="checkbox" value=""/></td>
 							</tr>
 							</c:forEach>

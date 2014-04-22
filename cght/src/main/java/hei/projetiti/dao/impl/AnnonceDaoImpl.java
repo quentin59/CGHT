@@ -25,7 +25,7 @@ public class AnnonceDaoImpl implements AnnonceDao{
 			
 			//Utiliser la connexion
 			Statement stmt = connection.createStatement();
-            ResultSet results = stmt.executeQuery("SELECT * FROM `annonce`");
+            ResultSet results = stmt.executeQuery("SELECT * FROM `annonce` ORDER BY `dateAnnonce` DESC");
             while (results.next()) {
                 Annonce annonce = new Annonce(results.getInt("idAnnonce"), 
                            results.getString("titre"), 
@@ -153,6 +153,39 @@ List<Annonce> listeAnnonces = new ArrayList<Annonce>();
 		    } catch (SQLException e) {
 		        e.printStackTrace();
 		    }
+	}
+
+	@Override
+	public Annonce getAnnonce(Integer idAnnonce) {
+		// TODO Auto-generated method stub
+		Annonce annonce=null;
+		try {
+			//Cr�er une nouvelle connexion � la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `annonce` WHERE `idAnnonce`=? ");
+			stmt.setInt(1, idAnnonce);
+			ResultSet results = stmt.executeQuery();
+			results.next();
+                Annonce newannonce = new Annonce(results.getInt("idAnnonce"), 
+                           results.getString("titre"), 
+                           results.getString("contenu"),
+                           results.getString("coordonnees"),
+                           results.getString("numLicence"),
+                           results.getDate("dateAnnonce"),
+                           results.getString("categorie"),
+                           results.getFloat("prix"));
+                annonce=newannonce;
+          
+            
+            
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return annonce;
 	}
 
 	

@@ -37,7 +37,6 @@ public class GestionComptesServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		System.out.println("j'arrive");
 		List<Adherent> listeAdherents = Manager.getInstance().listerAdherents();
 		
 		int i;

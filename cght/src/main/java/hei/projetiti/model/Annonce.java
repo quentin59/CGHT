@@ -11,9 +11,9 @@ public class Annonce {
 	private String licence;
 	private Date dateAnnonce;
 	private String categorie;
-	private float prix;
+	private Float prix;
 	
-	public Annonce(Integer idAnnonce, String titre, String contenu, String coordonnees, String licence, Date dateAnnonce, String categorie, float prix){
+	public Annonce(Integer idAnnonce, String titre, String contenu, String coordonnees, String licence, Date dateAnnonce, String categorie, Float prix){
 		this.idAnnonce=idAnnonce;
 		this.titre=titre;
 		this.contenu=contenu;
@@ -69,11 +69,11 @@ public class Annonce {
 		this.categorie = categorie;
 	}
 
-	public float getPrix() {
+	public Float getPrix() {
 		return prix;
 	}
 
-	public void setPrix(float prix) {
+	public void setPrix(Float prix) {
 		this.prix = prix;
 	}
 

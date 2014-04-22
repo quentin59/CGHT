@@ -1,6 +1,5 @@
 package hei.projetiti.dao;
 
-import hei.projetiti.model.Actualite;
 import hei.projetiti.model.Annonce;
 
 import java.util.List;
@@ -16,4 +15,6 @@ public interface AnnonceDao {
 	public void supprimerAnnonce(Integer idAnnonce);
 	
 	public void ajouterAnnonce(Annonce annonce);
+	
+	public Annonce getAnnonce(Integer idAnnonce);
 }

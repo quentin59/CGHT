@@ -47,7 +47,7 @@
 			<article class="annonce">
 			<div class="boutonsadmin" style="float:right;">
 						<% if (request.getSession().getAttribute("statut").equals("administrateur")) {%>
-						<a href="#" ><img alt="modifer" src="img/modifier.jpg" height="50" width="50"/></a>
+						<a href="poster-annonce?id=${annonce.idAnnonce}" ><img alt="modifer" src="img/modifier.jpg" height="50" width="50"/></a>
 						<a href="annonces?supprimer=${annonce.idAnnonce}" ><img alt="supprimer" src="img/supprimer.png" height="52" width="52"/></a>
 						<%} %>
 					</div>

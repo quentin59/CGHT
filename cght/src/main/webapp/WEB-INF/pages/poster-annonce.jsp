@@ -65,17 +65,19 @@
     	<label for="titre">Titre</label>
     	<input type="text" name="titre" id="titre" style="width:400px;" value="${titre}"/><br>
     	<label for="categorie">Catégorie</label>
-    	<select name="categorie">
-    		<option value="Vente de matériel">Vente de matériel</option>
-    		<option value="Recherche de matériel">Recherche de matériel</option>
-    		<option value="Recherche de partenaire de jeu">Recherche de partenaire de jeu</option>
+    	<select name="categorie" id="categorie" >
+    		<option value="Vente de matériel" <c:if test="${categorie==\"Vente de matériel\"}" >selected</c:if>>Vente de matériel</option>
+    		<option value="Recherche de matériel" <c:if test="${categorie==\"Recherche de matériel\"}" >selected</c:if>>Recherche de matériel</option>
+    		<option value="Recherche de partenaire de jeu" <c:if test="${categorie==\"Recherche de partenaire de jeu\"}" >selected</c:if>>Recherche de partenaire de jeu</option>
     	</select><br>
     	<label for="coordonnees">Coordonnées</label>
-    	<input type="text" name="coordonnees" id="coordonnees" style="width:400px;" value=""/><br>
-    	<label for="prix">Prix</label>
-    	<input type="text" name="prix" id="prix" value=""/><br>
+    	<input type="text" name="coordonnees" id="coordonnees" style="width:400px;" value="${coordonnees}"/><br>
+    	<div id="box-prix"><label for="prix">Prix</label>
+    	<input type="text" name="prix" id="prix" value="${prix}" /><br></div>
     	<div id="editor">
+    	${contenu}
     	</div>
+    	<input type="text" value="${id}" class="hidden" name="id" id="id" />
     	<input type="text" value="" class="hidden" name="texte" id="texte" />
     	<input type="submit" value="Mettre en ligne l'annonce" class="bouton" id="valider"/>
     </form>
