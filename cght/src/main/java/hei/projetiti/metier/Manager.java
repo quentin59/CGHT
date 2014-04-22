@@ -80,8 +80,8 @@ public class Manager {
 		annoncedao.supprimerAnnonce(idAnnonce);
 	}
 	
-	public void AjouterAdherent(Adherent adherent){
-		adherentdao.AjouterAdherent(adherent);
+	public void ajouterAdherent(Adherent adherent){
+		adherentdao.ajouterAdherent(adherent);
 	}
 	
 	public List<Adherent> listerIdentifiantsAdherents(){

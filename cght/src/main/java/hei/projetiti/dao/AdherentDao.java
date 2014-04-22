@@ -10,7 +10,7 @@ public interface AdherentDao {
 	
 	public List<Adherent> listerIdentifiantsAdherents();
 	
-	public void AjouterAdherent(Adherent adherent);
+	public void ajouterAdherent(Adherent adherent);
 	
 	public boolean adherentExiste(String nom, String prenom);
 	

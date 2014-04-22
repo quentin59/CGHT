@@ -97,7 +97,7 @@ public class InscriptionServlet extends HttpServlet {
 		String statut = request.getParameter("statut");
 		Adherent nouveladherent = new Adherent(nom, prenom, cal.getTime(), adresse, codePostal, ville, licence, classement, numPass, telephone, portable, mail, password, certif, prendrePhoto, publierPhoto, statut);
 		
-		Manager.getInstance().AjouterAdherent(nouveladherent);
+		Manager.getInstance().ajouterAdherent(nouveladherent);
 		
 		
 		String jourCours1 = request.getParameter("Cours-1");

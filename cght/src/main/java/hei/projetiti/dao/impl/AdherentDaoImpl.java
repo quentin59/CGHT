@@ -46,7 +46,7 @@ public class AdherentDaoImpl implements AdherentDao{
 		}
 
 	@Override
-	public void AjouterAdherent(Adherent adherent) {
+	public void ajouterAdherent(Adherent adherent) {
 		// CrÃ©er une nouvelle connexion Ã  la BDD
 	    try {
 	        Connection connection = DataSourceProvider.getDataSource().getConnection();
