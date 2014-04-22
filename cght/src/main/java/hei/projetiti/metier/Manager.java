@@ -48,8 +48,28 @@ public class Manager {
 		return actualitedao.listerActualites(annee);
 	}
 	
+	public List<Actualite> listerActualites(String annee, int mois){
+		return actualitedao.listerActualites(annee, mois);
+	}
+	
+	public void supprimerActualite(Integer idActualite){
+		actualitedao.supprimerActualite(idActualite);
+	}
+	
 	public List<Annonce> listerAnnonces(){
 		return annoncedao.listerAnnonces();
+	}
+	
+	public List<Annonce> listerAnnonces(String annee) {
+		return annoncedao.listerAnnonces(annee);
+	}
+	
+	public List<Annonce> listerAnnonces(String annee, int mois) {
+		return annoncedao.listerAnnonces(annee, mois);
+	}
+	
+	public void supprimerAnnonce(Integer idAnnonce){
+		annoncedao.supprimerAnnonce(idAnnonce);
 	}
 	
 	public void AjouterAdherent(Adherent adherent){

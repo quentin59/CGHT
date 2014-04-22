@@ -35,12 +35,14 @@
     
     <div class="menuLateral">  
     <ul>
-    	<li>Accueil</li>
+    	<li><a href="index">Accueil</a></li>
+    	<c:set var="i" value="0" />
     <c:forEach var="annee" items="${annees}" varStatus="listeAnnee" >
 			<li><a href="index?annee=${annee}"> ${annee}</a></li>
-					<ul><c:forEach var="mois" items="${mois[listeAnnee.index]}">
-						<li><a href="index?annee=${annee}&mois=${mois}"> ${mois}</a></li>						
-					</c:forEach> 
+					<ul><c:forEach var="mois" items="${mois[listeAnnee.index]}">					
+						<li><a href="index?annee=${annee}&mois=${moisChiffre[i]}"> ${mois}</a></li>	
+						<c:set var="i" value="${i+1}"/>
+						</c:forEach>
 					</ul>
 		</c:forEach>
 	</ul>
@@ -52,7 +54,7 @@
 			<div class="boutonsadmin">
 				<% if (request.getSession().getAttribute("statut").equals("administrateur")) {%>
 				<a href="#" ><img alt="modifer" src="img/modifier.jpg" height="50" width="50"/></a>
-				<a href="#" ><img alt="supprimer" src="img/supprimer.png" height="52" width="52"/></a>
+				<a href="index?supprimer=${actualite.idActualite}" ><img alt="supprimer" src="img/supprimer.png" height="52" width="52"/></a>
 				<%} %>
 				</div>
 				<p style="float:right;

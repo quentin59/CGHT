@@ -71,8 +71,53 @@ public List<Actualite> listerActualites(String annee) {
             e.printStackTrace();
         }
         return listeActualites;
-		
+	}
+
+public List<Actualite> listerActualites(String annee, int mois) {
 	
+	List<Actualite> listeActualites = new ArrayList<Actualite>();
+	
+	try {
+		//Cr�er une nouvelle connexion � la BDD
+		Connection connection = DataSourceProvider.getDataSource().getConnection();
+		
+		//Utiliser la connexion
+		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `actualite` WHERE YEAR(`dateActualite`)=? AND MONTH(`dateActualite`)=? ORDER BY `dateActualite` DESC ");
+		stmt.setString(1, annee);
+		stmt.setInt(2, mois);
+		ResultSet results = stmt.executeQuery();
+		while (results.next()) {
+            Actualite actualite = new Actualite(results.getInt("idActualite"), 
+                       results.getString("titre"), 
+                       results.getString("contenu"),
+                       results.getString("numLicence"),
+                       results.getDate("dateActualite"));
+            listeActualites.add(actualite);
+        }
+        
+        // Fermer la connexion
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return listeActualites;
+}
+
+	public void supprimerActualite(Integer idActualite){
+		 try {
+		        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+		        // Utiliser la connexion
+		        PreparedStatement stmt = connection.prepareStatement(
+		                  "DELETE FROM `actualite` WHERE `idActualite`=?");
+		        stmt.setInt(1,idActualite);
+		        stmt.executeUpdate();
+
+		        // Fermer la connexion
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
 	}
 
 }

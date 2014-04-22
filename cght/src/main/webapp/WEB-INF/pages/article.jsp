@@ -59,8 +59,11 @@
     
     </div>
     <div class="contenuPage">
+    <form action="index" method="post">
     	<div id="editor">
     	</div>
+    	<input type="submit" value="Mettre en ligne l'article" class="bouton"/>
+    </form>
 	</div>	
     </body>
 </html>

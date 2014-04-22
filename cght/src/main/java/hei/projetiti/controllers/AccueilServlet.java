@@ -25,20 +25,30 @@ public class AccueilServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		if(request.getParameter("supprimer") != null){
+			Manager.getInstance().supprimerActualite(Integer.parseInt(request.getParameter("supprimer")));
+		}
+		
 		
 		List<Actualite> listeActualites;
 		List<Actualite> listeTotaleActualites = Manager.getInstance().listerActualites();
-		if (request.getParameter("annee") == null)
-		{	
+		if (request.getParameter("annee") == null && request.getParameter("mois") == null)
+		{
 			request.setAttribute("actualites", listeTotaleActualites);
+		}
+		else if (request.getParameter("mois") == null)
+		{	
+			listeActualites = Manager.getInstance().listerActualites(request.getParameter("annee"));
+			request.setAttribute("actualites", listeActualites);
 		}
 		else
 		{
-			listeActualites = Manager.getInstance().listerActualites(request.getParameter("annee"));
+			listeActualites = Manager.getInstance().listerActualites(request.getParameter("annee"), Integer.parseInt(request.getParameter("mois")));
 			request.setAttribute("actualites", listeActualites);
 		}
 		List<Integer> anneeListe = new ArrayList<Integer>();
 		List<List<String>> moisParAn= new ArrayList<List<String>>();
+		List<Integer> moisParAnEnChiffre= new ArrayList<Integer>();
 		int compteur=0;
 		for (Actualite actualite : listeTotaleActualites) {
 			
@@ -53,11 +63,14 @@ public class AccueilServlet extends HttpServlet {
 			if (!moisParAn.get(compteur-1).contains(actualite.moisLettre(mois)))
 			{
 				moisParAn.get(compteur-1).add(actualite.moisLettre(mois));
+				moisParAnEnChiffre.add(mois);
 			}
 		}
 		
+		
 		request.setAttribute("mois", moisParAn);
 		request.setAttribute("annees", anneeListe);
+		request.setAttribute("moisChiffre", moisParAnEnChiffre);
 		
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/index.jsp");

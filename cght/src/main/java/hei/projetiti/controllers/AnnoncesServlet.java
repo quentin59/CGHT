@@ -23,15 +23,39 @@ public class AnnoncesServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		List<Annonce> listeAnnonces = Manager.getInstance().listerAnnonces();
-		request.setAttribute("annonces", listeAnnonces);
+		
+		if(request.getParameter("supprimer") != null){
+			Manager.getInstance().supprimerAnnonce(Integer.parseInt(request.getParameter("supprimer")));
+		}
+		
+		
+		List<Annonce> listeAnnonces;
+		List<Annonce> listeTotaleAnnonces = Manager.getInstance().listerAnnonces();
+		if (request.getParameter("annee") == null && request.getParameter("mois") == null)
+		{
+			request.setAttribute("annonces", listeTotaleAnnonces);
+		}
+		else if (request.getParameter("mois") == null)
+		{	
+			listeAnnonces = Manager.getInstance().listerAnnonces(request.getParameter("annee"));
+			request.setAttribute("annonces", listeAnnonces);
+		}
+		else
+		{
+			listeAnnonces = Manager.getInstance().listerAnnonces(request.getParameter("annee"), Integer.parseInt(request.getParameter("mois")));
+			request.setAttribute("annonces", listeAnnonces);
+		}
+		
+		
 		List<Integer> anneeListe = new ArrayList<Integer>();
 		List<List<String>> moisParAn= new ArrayList<List<String>>();
+		List<Integer> moisParAnEnChiffre= new ArrayList<Integer>();
 		int compteur=0;
-		for (Annonce annonce : listeAnnonces) {
+		for (Annonce annonce : listeTotaleAnnonces) {
 			
 			int annee = annonce.getDateAnnonce().getYear()+1900;
 			int mois = annonce.getDateAnnonce().getMonth()+1;
+			
 			if (!anneeListe.contains(annee))
 			{
 				anneeListe.add(annee);
@@ -41,11 +65,13 @@ public class AnnoncesServlet extends HttpServlet{
 			if (!moisParAn.get(compteur-1).contains(annonce.moisLettre(mois)))
 			{
 				moisParAn.get(compteur-1).add(annonce.moisLettre(mois));
+				moisParAnEnChiffre.add(mois);
 			}
 		}
 		
 		request.setAttribute("mois", moisParAn);
 		request.setAttribute("annees", anneeListe);
+		/*request.setAttribute("moisChiffre", moisParAnEnChiffre);*/
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/annonces.jsp");
 		view.forward(request, response);
