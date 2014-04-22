@@ -83,7 +83,7 @@ public String moisLettre(int chiffre){
 		switch (chiffre) {
         case 1:  mois = "Janvier";
                  break;
-        case 2:  mois = "F�vrier";
+        case 2:  mois = "Février";
                  break;
         case 3:  mois = "Mars";
                  break;

@@ -27,7 +27,13 @@ public class ArticleServlet extends HttpServlet {
 			Actualite actualite = Manager.getInstance().getActualite(Integer.parseInt(request.getParameter("id")));
 			request.setAttribute("titre", actualite.getTitre());
 			request.setAttribute("contenu", actualite.getContenu());
+			request.setAttribute("id", request.getParameter("id"));
 		}
+		else
+		{
+			request.setAttribute("id",0);
+		}
+		
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/article.jsp");
 		view.forward(request, response);
@@ -40,15 +46,20 @@ public class ArticleServlet extends HttpServlet {
 		String texte = request.getParameter("texte");
 		String titre = request.getParameter("titre");
 		Calendar cal = GregorianCalendar.getInstance();
-		System.out.println(cal.getTime());
 		HttpSession session = request.getSession(true);
 		String licence= (String) session.getAttribute("licence");
 		
 		Actualite actualite = new Actualite(null,titre, texte, licence, cal.getTime());
 		Manager.getInstance().ajouterActualite(actualite);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/index.jsp");
-		view.forward(request, response);
+		if(request.getParameter("id") != null){
+			Manager.getInstance().supprimerActualite(Integer.parseInt(request.getParameter("id")));
+		}
+		
+		AccueilServlet page = new AccueilServlet();
+		page.doGet(request, response);
+		
+		
 		
 	}
 

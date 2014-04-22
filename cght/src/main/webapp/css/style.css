@@ -164,7 +164,17 @@ div.box p
 	padding:10px 20px;
 }
 
+.menuLateral > ul > li#ajouter-actualite
+{
+	margin-bottom:20px;
+	margin-top:-20px;
+}
 
+.menuLateral ul li:hover 
+{
+	text-decoration:underline;
+	background-color:rgb(240,240,240);
+}
 
 /*** Identification de la session ***/
 

@@ -65,8 +65,10 @@
     	<label for"titre">Titre</label>
     	<input type="text" name="titre" id="titre" style="width:400px;" value="${titre}"/>
     	<div id="editor">
+    	${contenu}
     	</div>
-    	<input type="text" value="" class="" name="texte" id="texte" />
+    	<input type="text" value="" class="hidden" name="texte" id="texte" />
+    	<input type="text" value="${id}" class="hidden" name="id" id="id" />
     	<input type="submit" value="Mettre en ligne l'article" class="bouton" id="valider"/>
     </form>
 	</div>	
