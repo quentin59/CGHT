@@ -46,6 +46,7 @@ public class AccueilServlet extends HttpServlet {
 			listeActualites = Manager.getInstance().listerActualites(request.getParameter("annee"), Integer.parseInt(request.getParameter("mois")));
 			request.setAttribute("actualites", listeActualites);
 		}
+		
 		List<Integer> anneeListe = new ArrayList<Integer>();
 		List<List<String>> moisParAn= new ArrayList<List<String>>();
 		List<Integer> moisParAnEnChiffre= new ArrayList<Integer>();

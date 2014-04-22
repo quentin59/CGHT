@@ -56,6 +56,14 @@ public class Manager {
 		actualitedao.supprimerActualite(idActualite);
 	}
 	
+	public void ajouterActualite(Actualite actualite) {
+		actualitedao.ajouterActualite(actualite);
+	}
+	
+	public Actualite getActualite(Integer idActualite) {
+		return actualitedao.getActualite(idActualite);
+	}
+	
 	public List<Annonce> listerAnnonces(){
 		return annoncedao.listerAnnonces();
 	}

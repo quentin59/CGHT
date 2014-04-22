@@ -1,6 +1,7 @@
 package hei.projetiti.dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -118,6 +119,58 @@ public List<Actualite> listerActualites(String annee, int mois) {
 		    } catch (SQLException e) {
 		        e.printStackTrace();
 		    }
+	}
+
+	@Override
+	public void ajouterActualite(Actualite actualite) {
+		// TODO Auto-generated method stub
+		 try {
+		        Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+		        // Utiliser la connexion
+		        PreparedStatement stmt = connection.prepareStatement(
+		                  "INSERT INTO `actualite`(`titre`, `contenu`, `numLicence`, `dateActualite`) VALUES(?, ?, ?, ?)");
+		        stmt.setString(1, actualite.getTitre());
+		        stmt.setString(2, actualite.getContenu());
+		        stmt.setString(3,actualite.getLicence());
+		        stmt.setDate(4, new Date(actualite.getDateActualite().getTime()));
+		        stmt.executeUpdate();
+
+		        // Fermer la connexion
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+	}
+
+	@Override
+	public Actualite getActualite(Integer idActualite) {
+		// TODO Auto-generated method stub
+		Actualite actualite=null;
+		try {
+			//Cr�er une nouvelle connexion � la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `actualite` WHERE `idActualite`=? ");
+			stmt.setInt(1, idActualite);
+			ResultSet results = stmt.executeQuery();
+			results.next();
+                Actualite newactualite = new Actualite(results.getInt("idActualite"), 
+                           results.getString("titre"), 
+                           results.getString("contenu"),
+                           results.getString("numLicence"),
+                           results.getDate("dateActualite"));
+                actualite=newactualite;
+          
+            
+            
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return actualite;
 	}
 
 }

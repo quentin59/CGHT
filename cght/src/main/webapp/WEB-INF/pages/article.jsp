@@ -16,6 +16,7 @@
 	<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
 	<!-- Javascript spécifique -->
 	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="js/article.js"></script>
 	
 	<!-- jQuery and jQuery UI -->
 	<script src="elrte-1.3/js/jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
@@ -58,11 +59,15 @@
     <div class="menuLateral">  
     
     </div>
+    
     <div class="contenuPage">
-    <form action="index" method="post">
+    <form action="article" method="post">
+    	<label for"titre">Titre</label>
+    	<input type="text" name="titre" id="titre" style="width:400px;" value="${titre}"/>
     	<div id="editor">
     	</div>
-    	<input type="submit" value="Mettre en ligne l'article" class="bouton"/>
+    	<input type="text" value="" class="" name="texte" id="texte" />
+    	<input type="submit" value="Mettre en ligne l'article" class="bouton" id="valider"/>
     </form>
 	</div>	
     </body>

@@ -13,4 +13,8 @@ public interface ActualiteDao {
 	public List<Actualite> listerActualites(String annee, int mois);
 	
 	public void supprimerActualite(Integer idActualite);
+	
+	public void ajouterActualite(Actualite actualite);
+	
+	public Actualite getActualite(Integer idActualite);
 }

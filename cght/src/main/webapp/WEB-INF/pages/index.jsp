@@ -36,6 +36,11 @@
     <div class="menuLateral">  
     <ul>
     	<li><a href="index">Accueil</a></li>
+    	
+    	<% if (request.getSession().getAttribute("statut").equals("administrateur")) {%>
+    	<li><a href="article">Ajouter une actualité</a></li>
+    	<%} %>
+    	
     	<c:set var="i" value="0" />
     <c:forEach var="annee" items="${annees}" varStatus="listeAnnee" >
 			<li><a href="index?annee=${annee}"> ${annee}</a></li>
@@ -53,7 +58,7 @@
 			
 			<div class="boutonsadmin">
 				<% if (request.getSession().getAttribute("statut").equals("administrateur")) {%>
-				<a href="#" ><img alt="modifer" src="img/modifier.jpg" height="50" width="50"/></a>
+				<a href="article?id=${actualite.idActualite}" ><img alt="modifer" src="img/modifier.jpg" height="50" width="50"/></a>
 				<a href="index?supprimer=${actualite.idActualite}" ><img alt="supprimer" src="img/supprimer.png" height="52" width="52"/></a>
 				<%} %>
 				</div>

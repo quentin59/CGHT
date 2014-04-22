@@ -71,7 +71,7 @@ public class AnnoncesServlet extends HttpServlet{
 		
 		request.setAttribute("mois", moisParAn);
 		request.setAttribute("annees", anneeListe);
-		/*request.setAttribute("moisChiffre", moisParAnEnChiffre);*/
+		request.setAttribute("moisChiffre", moisParAnEnChiffre);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/annonces.jsp");
 		view.forward(request, response);
