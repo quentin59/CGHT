@@ -113,16 +113,16 @@ public class AdherentDaoImpl implements AdherentDao{
 	}
 
 	@Override
-	public boolean adherentExiste(String nom, String prenom) {
+	public boolean adherentExiste(String mail, String password) {
 		
 		try {
 	        Connection connection = DataSourceProvider.getDataSource().getConnection();
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = connection.prepareStatement(
-	                  "SELECT * FROM `adherent` WHERE `nom`=? and `prenom`=?");
-	        stmt.setString(1, nom);
-	        stmt.setString(2, prenom);
+	                  "SELECT * FROM `adherent` WHERE `mail`=? and `password`=?");
+	        stmt.setString(1, mail);
+	        stmt.setString(2, password);
 	        ResultSet results = stmt.executeQuery();
             if (results.first())
             {
@@ -170,7 +170,7 @@ public class AdherentDaoImpl implements AdherentDao{
 	}
 
 	@Override
-	public String getLicenceAdherent(String nom, String prenom) {
+	public String getLicenceAdherent(String mail, String password) {
 		
 		String licence=null;
 		try {
@@ -178,9 +178,9 @@ public class AdherentDaoImpl implements AdherentDao{
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = connection.prepareStatement(
-	                  "SELECT `numLicence` FROM `adherent` WHERE `nom`=? and `prenom`=?");
-	        stmt.setString(1, nom);
-	        stmt.setString(2, prenom);
+	                  "SELECT `numLicence` FROM `adherent` WHERE `mail`=? and `password`=?");
+	        stmt.setString(1, mail);
+	        stmt.setString(2, password);
 	        ResultSet results = stmt.executeQuery();
 	        results.next();
 	        licence=results.getString("numLicence");

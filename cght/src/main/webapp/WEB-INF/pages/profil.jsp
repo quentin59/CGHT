@@ -51,7 +51,7 @@
 						<label for="prenom">Prénom</label>
 					</td>
 					<td>
-						<input id="prenom" type="text" name="prenom" value="${prenom}" disabled="disabled"/>
+						<input id="prenom" type="text" name="prenom" value="${adherent.prenom}" disabled="disabled"/>
 					</td>
 				</tr>
 				<tr>

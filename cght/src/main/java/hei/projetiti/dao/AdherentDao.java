@@ -12,11 +12,11 @@ public interface AdherentDao {
 	
 	public void ajouterAdherent(Adherent adherent);
 	
-	public boolean adherentExiste(String nom, String prenom);
+	public boolean adherentExiste(String mail, String password);
 	
 	public Adherent getAdherent(String licence);
 	
-	public String getLicenceAdherent(String nom, String prenom);
+	public String getLicenceAdherent(String mail, String password);
 	
 	public void mettreAJourCoordonneesAdherent(Adherent adherent);
 	

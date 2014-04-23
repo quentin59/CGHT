@@ -45,8 +45,9 @@ public class ConnexionServlet extends HttpServlet{
 		if (Manager.getInstance().adherentExiste(loginRecup, passwordRecup)) {
 			HttpSession session = request.getSession(true);
 			String licence = Manager.getInstance().getLicenceAdherent(loginRecup, passwordRecup);
-			session.setAttribute("nom", loginRecup);
-			session.setAttribute("prenom", passwordRecup);
+			Adherent adherent = Manager.getInstance().getAdherent(licence);
+			session.setAttribute("nom", adherent.getNom());
+			session.setAttribute("prenom", adherent.getPrenom());
 			session.setAttribute("licence", licence);
 			session.setAttribute("adherentConnecte", new Adherent(loginRecup, passwordRecup));
 			session.setAttribute("statut",Manager.getInstance().getAdherent(licence).getStatut());

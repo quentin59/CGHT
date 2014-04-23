@@ -96,16 +96,16 @@ public class Manager {
 		return adherentdao.listerIdentifiantsAdherents();
 	}
 	
-	public boolean adherentExiste(String nom, String prenom){
-		return adherentdao.adherentExiste(nom, prenom);
+	public boolean adherentExiste(String mail, String password){
+		return adherentdao.adherentExiste(mail, password);
 	}
 	
 	public Adherent getAdherent(String licence){
 		return adherentdao.getAdherent(licence);
 	}
 	
-	public String getLicenceAdherent(String nom, String prenom){
-		return adherentdao.getLicenceAdherent(nom, prenom);
+	public String getLicenceAdherent(String mail, String password){
+		return adherentdao.getLicenceAdherent(mail, password);
 	}
 	
 	public void mettreAJourCoordonneesAdherent(Adherent adherent){

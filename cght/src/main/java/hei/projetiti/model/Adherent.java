@@ -84,10 +84,10 @@ public class Adherent {
 		this.portable=portable;
 	}
 	
-	public Adherent(String nom, String prenom)
+	public Adherent(String mail, String password)
 	{
-		this.nom=nom;
-		this.prenom=prenom;
+		this.mail=mail;
+		this.password=password;
 	}
 	
 	public Adherent(String licence, String mail, String password)

@@ -35,7 +35,7 @@ style="
    		<form method="post" action="connexion" >
 		<p style="text-align:center;">
 			<input class="connexion" type="text" name="login" placeholder="Identifiant (adresse mail)" size="25px" required /><br/><br/>
-			<input class="connexion" type="text" name="password" placeholder="Mot de passe" size="25px" required /><br/><br/>
+			<input class="connexion" type="password" name="password" placeholder="Mot de passe" size="25px" required /><br/><br/>
 			<a href="">Mot de passe oublié ?</a><br/><br/><br/><br/>
 			<input id="maintenirConnexion" class="connexion" type="checkbox" />
 			<label for="maintenirConnexion">Maintenir la connexion</label><br/>
