@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: 127.0.0.1
--- Généré le: Jeu 24 Avril 2014 à 14:28
+-- Généré le: Jeu 24 Avril 2014 à 15:41
 -- Version du serveur: 5.5.27-log
 -- Version de PHP: 5.4.6
 
@@ -34,14 +34,16 @@ CREATE TABLE IF NOT EXISTS `actualite` (
   `dateActualite` date NOT NULL,
   PRIMARY KEY (`idActualite`),
   KEY `numLicence` (`numLicence`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `actualite`
 --
 
 INSERT INTO `actualite` (`idActualite`, `titre`, `contenu`, `numLicence`, `dateActualite`) VALUES
-(20, 'Premier article', 'Voici le premier article de ce blog !<br><br>Il est trop cool ce blog!!!', '12345678', '2014-04-22');
+(1, 'Tournoi interne', 'Comme tous les ans, le club vous propose de participer au tournoi interne!\r\n\r\nLes inscriptions sont gratuites et se font auprès de Vincent Dupond.\r\n\r\nOn espère vous voir nombreux !', '12345678', '2014-03-02'),
+(2, 'Assemblée générale', 'L''assemblée générale annuelle aura lieu de vendredi 14 mars dans la salle Polyvalente d''Haubourdin à 18h;\r\n\r\nElle sera suivie d''un cocktail de l''amitié !', '1500000J', '2014-03-07'),
+(3, 'Stage de Pâques', 'Le club vous propose un stage pour les jeunes pendant les vacances de Pâques !\n\nIl se déroulera du lundi 21 au jeudi 24 avril 2014, de 10h à 12h et de 12h30 à 14h30 pour 30€.\n\nBonnes vacances !', '1500000J', '2014-04-20');
 
 -- --------------------------------------------------------
 
@@ -66,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `adherent` (
   `statut` varchar(15) DEFAULT NULL,
   `prendrePhoto` tinyint(1) DEFAULT NULL,
   `publierPhoto` tinyint(1) DEFAULT NULL,
-  `password` varchar(100) DEFAULT NULL,
+  `password` varchar(100) NOT NULL,
   PRIMARY KEY (`numLicence`),
   KEY `numLicence` (`numLicence`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -77,9 +79,9 @@ CREATE TABLE IF NOT EXISTS `adherent` (
 
 INSERT INTO `adherent` (`numLicence`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `ville`, `telephone`, `portable`, `mail`, `numPass`, `classement`, `certif`, `statut`, `prendrePhoto`, `publierPhoto`, `password`) VALUES
 ('12345678', 'Vendeville', 'Quentin', '1992-08-06', '11 allée du Talisman', '59650', 'Villeneuve d''Ascq', '0320916554', '0678987694', 'q@v.fr', '3456', 'NC', 1, 'administrateur', 1, 1, 'az'),
-('1300000G', 'Poillot', 'Thomas', '1992-12-28', '', '', 'Chéreng', '', '', 'thom.poillot@gmail.com', '', '40', 1, 'adherent', 1, 1, '123456'),
-('1500001J', 'Descamps', 'Stanislas', '1991-07-03', '5 rue de la pluie', '06000', 'Nice', '0707070707', '0505050505', 'stan.descamps@hei.Fr', '56789', '30/5', 0, 'adherent', 0, 1, '123456'),
-('23456789', 'Dupond', 'Jean', '2014-03-03', NULL, NULL, NULL, '', NULL, NULL, NULL, '40', NULL, 'adherent', NULL, NULL, 'adazdazdazdadzada');
+('1325364H', 'Descamps', 'Stanislas', '1991-07-03', '5 Rue de la pluie', '59000', 'Lille', '0340506077', '0666709910', 's@d.fr', '124', '30', 1, 'adherent', 1, 0, 'stan.d'),
+('1500000J', 'Regolle', 'Lisa', '1992-11-03', '3 bis chemin de Tavoy', '59320', 'Hallennes-Lez-Haubourdin', '0320384275', '0647941894', 'l@r.fr', '633', '15/3', 1, 'administrateur', 1, 1, 'moi'),
+('8532593A', 'Dupond', 'Vincent', '1992-12-28', '12 Allée de le Lavande', '59550', 'Chéreng', '0345651077', '0777153094', 'v@d.fr', '057', '15/5', 1, 'adherent', 1, 1, 'vinc.d');
 
 -- --------------------------------------------------------
 
@@ -98,15 +100,15 @@ CREATE TABLE IF NOT EXISTS `annonce` (
   `prix` float NOT NULL,
   PRIMARY KEY (`idAnnonce`),
   KEY `numLicence` (`numLicence`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `annonce`
 --
 
 INSERT INTO `annonce` (`idAnnonce`, `titre`, `contenu`, `coordonnees`, `numLicence`, `dateAnnonce`, `categorie`, `prix`) VALUES
-(2, 'Recherche joueur', 'Bonjour,\r\n\r\nJe recherche un ou une joueur/se pour taper la baballe ensemble :p', '0678901234', '12345678', '2014-02-24', 'Recherche', 0),
-(19, 'fzef', 'fze', 'fzef', '12345678', '2014-04-22', 'Recherche de matériel', 0);
+(1, 'Vente de raquette', 'Je me sépare de mon ancienne raquette. C''est une Wilson rouge et blanche. Quelques coups sur le cadre mais bon état général. Faire offre de prix ! Merci !', '06-06-06-06-06', '12345678', '2014-02-15', 'Vente de matériel', 1000),
+(2, 'Recherche joueur', 'Bonjour,\n\nJe recherche un ou une joueur/se pour s''entrainer le samedi ou dimanche matin tous les 15 jours. Je suis de niveau 30.\n\nMerci de me contacter par mail !\n\nSportivement,\nStan.', 's@d.fr', '1325364H', '2014-02-24', 'Recherche', 0);
 
 -- --------------------------------------------------------
 
@@ -122,17 +124,20 @@ CREATE TABLE IF NOT EXISTS `cours` (
   `heureFin` int(11) NOT NULL,
   `minuteFin` int(11) NOT NULL,
   PRIMARY KEY (`idCours`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `cours`
 --
 
 INSERT INTO `cours` (`idCours`, `jourCours`, `heureDebut`, `minuteDebut`, `heureFin`, `minuteFin`) VALUES
-(1, 'lundi', 19, 5, 21, 15),
-(3, 'mardi', 15, 30, 17, 0),
-(4, 'vendredi', 8, 0, 9, 30),
-(5, 'mardi', 13, 0, 14, 30);
+(1, 'Mardi', 19, 0, 21, 0),
+(2, 'Mercredi', 18, 0, 19, 30),
+(3, 'Mercredi', 19, 30, 21, 30),
+(4, 'Jeudi', 19, 0, 20, 30),
+(5, 'Jeudi', 20, 30, 22, 30),
+(6, 'Samedi', 14, 0, 16, 0),
+(7, 'Samedi', 16, 0, 18, 0);
 
 -- --------------------------------------------------------
 
@@ -150,27 +155,6 @@ CREATE TABLE IF NOT EXISTS `paiement` (
   PRIMARY KEY (`idPaiement`),
   KEY `numLicence` (`numLicence`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `participer`
---
-
-CREATE TABLE IF NOT EXISTS `participer` (
-  `numLicence` varchar(8) NOT NULL,
-  `idCours` int(11) NOT NULL,
-  PRIMARY KEY (`numLicence`,`idCours`),
-  KEY `idCours` (`idCours`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `participer`
---
-
-INSERT INTO `participer` (`numLicence`, `idCours`) VALUES
-('1300000G', 1),
-('1300000G', 3);
 
 --
 -- Contraintes pour les tables exportées
@@ -193,13 +177,6 @@ ALTER TABLE `annonce`
 --
 ALTER TABLE `paiement`
   ADD CONSTRAINT `paiement_ibfk_1` FOREIGN KEY (`numLicence`) REFERENCES `adherent` (`numLicence`) ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `participer`
---
-ALTER TABLE `participer`
-  ADD CONSTRAINT `participer_ibfk_1` FOREIGN KEY (`numLicence`) REFERENCES `adherent` (`numLicence`),
-  ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`idCours`) REFERENCES `cours` (`idCours`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
