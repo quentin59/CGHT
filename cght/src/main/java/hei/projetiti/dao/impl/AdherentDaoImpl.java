@@ -13,6 +13,7 @@ import java.util.List;
 
 import hei.projetiti.dao.AdherentDao;
 import hei.projetiti.model.Adherent;
+import hei.projetiti.model.Cours;
 
 public class AdherentDaoImpl implements AdherentDao{
 	
@@ -376,6 +377,38 @@ public class AdherentDaoImpl implements AdherentDao{
 		    } catch (SQLException e) {
 		        e.printStackTrace();
 		    }
+	}
+
+	@Override
+	public List<Adherent> listerAdherentInscrit(Cours cours) {
+		// TODO Auto-generated method stub
+		List<Adherent> listeAdherents = new ArrayList<Adherent>();
+		
+		try {
+			//Crï¿½er une nouvelle connexion ï¿½ la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `adherent` INNER JOIN `participer` ON adherent.numLicence = participer.numLicence WHERE participer.idCours=? ORDER BY `nom` ASC, `prenom` ASC");
+            stmt.setInt(1,cours.getIdCours());
+            ResultSet results = stmt.executeQuery();
+			while (results.next()) {
+                Adherent adherent = new Adherent(results.getString("nom"), 
+                           results.getString("prenom"), 
+                           results.getDate("dateNaissance"),
+                           results.getString("numLicence"),
+                           results.getString("classement"),
+                results.getString("telephone"));
+                listeAdherents.add(adherent);
+            }
+            
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listeAdherents;
 	}
 	
 }

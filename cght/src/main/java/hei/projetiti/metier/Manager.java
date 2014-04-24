@@ -128,6 +128,10 @@ public class Manager {
 		adherentdao.supprimerAdherent(adherent);
 	}
 	
+	public List<Adherent> listerAdherentInscrit(Cours cours){
+		return adherentdao.listerAdherentInscrit(cours);
+	}
+	
 	public List<Cours> listerCours(){
 		return coursdao.listerCours();
 	}
