@@ -36,13 +36,14 @@ public class ContactServlet extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		String nom=request.getParameter("nom");
 		String prenom=request.getParameter("prenom");
 		String mail=request.getParameter("mail");
 		String sujet=request.getParameter("sujet");
-		String message1=request.getParameter("message");
-	
+		String message=request.getParameter("message");
+		
 		Properties props = System.getProperties();
         props.put("mail.smtps.host","smtp.gmail.com");
         props.put("mail.smtps.auth","true");
@@ -68,23 +69,19 @@ public class ContactServlet extends HttpServlet{
 			e.printStackTrace();
 		}
         try {
-			msg.setSubject("Heisann "+System.currentTimeMillis());
+			msg.setSubject(sujet);
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        
         try {
-			msg.setText("Med vennlig hilsennTov Are Jacobsen");
+			msg.setText("Message envoyé par : "+nom+" "+prenom+"\nAdresse mail : "+mail+"\n\n"+message);
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        try {
-			msg.setHeader("X-Mailer", "Tov Are's program");
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+       
         try {
 			msg.setSentDate(new Date());
 		} catch (MessagingException e) {
@@ -99,7 +96,7 @@ public class ContactServlet extends HttpServlet{
 			e.printStackTrace();
 		}
         try {
-			t.connect("smtp.gmail.com", "vendevillequentin@gmail.com", "MOT DE PASSE");
+			t.connect("smtp.gmail.com", "contactcght@gmail.com", "motdepassetoutpourri");
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -120,6 +117,9 @@ public class ContactServlet extends HttpServlet{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        request.setAttribute("acknowledge", "Le message a bien été envoyé");
+	    RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/contact.jsp");
+		view.forward(request, response);
 	}
 	
 }

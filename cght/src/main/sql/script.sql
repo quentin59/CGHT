@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: 127.0.0.1
--- Généré le: Sam 29 Mars 2014 à 19:26
+-- Généré le: Jeu 24 Avril 2014 à 14:28
 -- Version du serveur: 5.5.27-log
 -- Version de PHP: 5.4.6
 
@@ -34,17 +34,14 @@ CREATE TABLE IF NOT EXISTS `actualite` (
   `dateActualite` date NOT NULL,
   PRIMARY KEY (`idActualite`),
   KEY `numLicence` (`numLicence`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `actualite`
 --
 
 INSERT INTO `actualite` (`idActualite`, `titre`, `contenu`, `numLicence`, `dateActualite`) VALUES
-(1, 'coucou', 'zizoiecizecoiezncinzeiocnioznczeoi', '12345678', '2014-02-08'),
-(2, 'ok', 'azerty', '12345678', '2014-02-08'),
-(3, 'a', 'azer', '12345678', '2013-01-15'),
-(4, 'b', 'azer', '12345678', '2013-02-15');
+(20, 'Premier article', 'Voici le premier article de ce blog !<br><br>Il est trop cool ce blog!!!', '12345678', '2014-04-22');
 
 -- --------------------------------------------------------
 
@@ -79,12 +76,10 @@ CREATE TABLE IF NOT EXISTS `adherent` (
 --
 
 INSERT INTO `adherent` (`numLicence`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `ville`, `telephone`, `portable`, `mail`, `numPass`, `classement`, `certif`, `statut`, `prendrePhoto`, `publierPhoto`, `password`) VALUES
-('12345678', 'Vendeville', 'Quentin', '1992-08-06', '11 allée du Talisman', '59650', 'Villeneuve d''Ascq', '0320916554', '0678987694', 'quentin.vendeville@hei.Fr', '3456', 'NC', 1, 'administrateur', 1, 1, 'azertyuiop'),
+('12345678', 'Vendeville', 'Quentin', '1992-08-06', '11 allée du Talisman', '59650', 'Villeneuve d''Ascq', '0320916554', '0678987694', 'q@v.fr', '3456', 'NC', 1, 'administrateur', 1, 1, 'az'),
 ('1300000G', 'Poillot', 'Thomas', '1992-12-28', '', '', 'Chéreng', '', '', 'thom.poillot@gmail.com', '', '40', 1, 'adherent', 1, 1, '123456'),
-('1500000J', 'Regolle', 'Lisa', '1992-11-03', NULL, NULL, NULL, '0808080808', NULL, NULL, NULL, '15/3', NULL, NULL, NULL, NULL, NULL),
 ('1500001J', 'Descamps', 'Stanislas', '1991-07-03', '5 rue de la pluie', '06000', 'Nice', '0707070707', '0505050505', 'stan.descamps@hei.Fr', '56789', '30/5', 0, 'adherent', 0, 1, '123456'),
-('23456789', 'Dupond', 'Jean', '2014-03-03', NULL, NULL, NULL, '', NULL, NULL, NULL, '40', NULL, 'adherent', NULL, NULL, 'adazdazdazdadzada'),
-('9876543F', 'Thibault', 'Damien', '1990-10-10', NULL, NULL, NULL, '0320032003', NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, '');
+('23456789', 'Dupond', 'Jean', '2014-03-03', NULL, NULL, NULL, '', NULL, NULL, NULL, '40', NULL, 'adherent', NULL, NULL, 'adazdazdazdadzada');
 
 -- --------------------------------------------------------
 
@@ -103,15 +98,15 @@ CREATE TABLE IF NOT EXISTS `annonce` (
   `prix` float NOT NULL,
   PRIMARY KEY (`idAnnonce`),
   KEY `numLicence` (`numLicence`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Contenu de la table `annonce`
 --
 
 INSERT INTO `annonce` (`idAnnonce`, `titre`, `contenu`, `coordonnees`, `numLicence`, `dateAnnonce`, `categorie`, `prix`) VALUES
-(1, 'Vente de raquette', 'Je vends une raquette !', '06-06-06-06-06', '12345678', '2014-02-15', 'Vente de matériel', 1000),
-(2, 'Recherche joueur', 'Bonjour,\r\n\r\nJe recherche un ou une joueur/se pour taper la baballe ensemble :p', '0678901234', '12345678', '2014-02-24', 'Recherche', 0);
+(2, 'Recherche joueur', 'Bonjour,\r\n\r\nJe recherche un ou une joueur/se pour taper la baballe ensemble :p', '0678901234', '12345678', '2014-02-24', 'Recherche', 0),
+(19, 'fzef', 'fze', 'fzef', '12345678', '2014-04-22', 'Recherche de matériel', 0);
 
 -- --------------------------------------------------------
 
@@ -203,8 +198,8 @@ ALTER TABLE `paiement`
 -- Contraintes pour la table `participer`
 --
 ALTER TABLE `participer`
-  ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`idCours`) REFERENCES `cours` (`idCours`),
-  ADD CONSTRAINT `participer_ibfk_1` FOREIGN KEY (`numLicence`) REFERENCES `adherent` (`numLicence`);
+  ADD CONSTRAINT `participer_ibfk_1` FOREIGN KEY (`numLicence`) REFERENCES `adherent` (`numLicence`),
+  ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`idCours`) REFERENCES `cours` (`idCours`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

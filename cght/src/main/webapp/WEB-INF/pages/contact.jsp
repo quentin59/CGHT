@@ -1,7 +1,9 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     
-	<!-- En-tête de la page -->
+	<!-- En-tÃªte de la page -->
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Contact</title>
@@ -9,7 +11,7 @@
 		<link rel="icon" type="image/jpg" href="img/cght.jpg" />
 		<!-- JQuery -->
 	<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
-	<!-- Javascript spécifique -->
+	<!-- Javascript spÃ©cifique -->
 	<script type="text/javascript" src="js/menu.js"></script>
     </head>
     
@@ -33,6 +35,14 @@
 		<div class="contenuPage">
 			<form id="contact" action="contact" method="post">
 				<h2>Formulaire de contact</h2>
+				<%
+       				if(request.getAttribute("acknowledge")!=null) 
+       				{
+       					%><p style="color:white; background-color:red; width:220px; padding:5px;"><%
+         			  out.print((String)request.getAttribute("acknowledge"));
+       					%></p><%
+       				}
+  				 %>
 				<table>
 					<tr>
 						<td>
@@ -44,7 +54,7 @@
 					</tr>
 					<tr>
 						<td>
-							<label for="prenom">Prénom</label>
+							<label for="prenom">PrÃ©nom</label>
 						</td>
 						<td>
 							<input type="text" id="prenom" name="prenom" required />
