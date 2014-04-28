@@ -20,7 +20,10 @@ public class AdministrationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/administration.jsp");
+		List<Adherent> listeAdherents = Manager.getInstance().listerAdherents();
+		request.setAttribute("adherents", listeAdherents);
+		
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/gestionComptes.jsp");
 		view.forward(request, response);
 	}
 }

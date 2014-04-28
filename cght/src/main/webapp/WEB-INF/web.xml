@@ -62,6 +62,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-class>hei.projetiti.controllers.ImpressionCoursServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>ImpressionAdherents</servlet-name>
+    <servlet-class>hei.projetiti.controllers.ImpressionAdherentsServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>Parametres</servlet-name>
     <servlet-class>hei.projetiti.controllers.ParametresServlet</servlet-class>
   </servlet>
@@ -141,6 +145,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   <servlet-mapping>
     <servlet-name>ImpressionCours</servlet-name>
     <url-pattern>/admin/impression</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ImpressionAdherents</servlet-name>
+    <url-pattern>/admin/impression-adherents</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Parametres</servlet-name>

@@ -30,12 +30,15 @@ public class AdherentDaoImpl implements AdherentDao{
 			Statement stmt = connection.createStatement();
             ResultSet results = stmt.executeQuery("SELECT * FROM `adherent` ORDER BY `nom` ASC, `prenom` ASC");
             while (results.next()) {
-                Adherent adherent = new Adherent(results.getString("nom"), 
-                           results.getString("prenom"), 
-                           results.getDate("dateNaissance"),
-                           results.getString("numLicence"),
-                           results.getString("classement"),
-                results.getString("telephone"));
+            	Adherent adherent = new Adherent(results.getString("nom"),
+    	        		results.getString("prenom"), results.getDate("dateNaissance"),
+    	        		results.getString("adresse"), results.getString("codePostal"),
+    	        		results.getString("ville"), results.getString("numLicence"),
+    	        		results.getString("classement"), results.getString("numPass"),
+    	        		results.getString("telephone"), results.getString("portable"),
+    	        		results.getString("mail"), results.getString("password"),
+    	        		results.getBoolean("certif"), results.getBoolean("prendrePhoto"),
+    	        		results.getBoolean("publierPhoto"), results.getString("statut"));
                 listeAdherents.add(adherent);
             }
             
