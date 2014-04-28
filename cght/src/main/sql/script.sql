@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `annonce` (
 
 INSERT INTO `annonce` (`idAnnonce`, `titre`, `contenu`, `coordonnees`, `numLicence`, `dateAnnonce`, `categorie`, `prix`) VALUES
 (1, 'Vente de raquette', 'Je me sépare de mon ancienne raquette. C''est une Wilson rouge et blanche. Quelques coups sur le cadre mais bon état général. Faire offre de prix ! Merci !', '06-06-06-06-06', '12345678', '2014-02-15', 'Vente de matériel', 1000),
-(2, 'Recherche joueur', 'Bonjour,\n\nJe recherche un ou une joueur/se pour s''entrainer le samedi ou dimanche matin tous les 15 jours. Je suis de niveau 30.\n\nMerci de me contacter par mail !\n\nSportivement,\nStan.', 's@d.fr', '1325364H', '2014-02-24', 'Recherche', 0);
+(2, 'Recherche joueur', 'Bonjour,\n\nJe recherche un ou une joueur/se pour s''entrainer le samedi ou dimanche matin tous les 15 jours. Je suis de niveau 30.\n\nMerci de me contacter par mail !\n\nSportivement,\nStan.', 's@d.fr', '1325364H', '2014-02-24', 'Recherche de partenaire de jeu', 0);
 
 -- --------------------------------------------------------
 
