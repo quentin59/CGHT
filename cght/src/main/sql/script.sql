@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: 127.0.0.1
--- Généré le: Jeu 24 Avril 2014 à 15:41
+-- Généré le: Lun 28 Avril 2014 à 16:23
 -- Version du serveur: 5.5.27-log
 -- Version de PHP: 5.4.6
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `actualite` (
   `dateActualite` date NOT NULL,
   PRIMARY KEY (`idActualite`),
   KEY `numLicence` (`numLicence`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `actualite`
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `adherent` (
   `statut` varchar(15) DEFAULT NULL,
   `prendrePhoto` tinyint(1) DEFAULT NULL,
   `publierPhoto` tinyint(1) DEFAULT NULL,
-  `password` varchar(100) NOT NULL,
+  `password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`numLicence`),
   KEY `numLicence` (`numLicence`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -79,8 +79,12 @@ CREATE TABLE IF NOT EXISTS `adherent` (
 
 INSERT INTO `adherent` (`numLicence`, `nom`, `prenom`, `dateNaissance`, `adresse`, `codePostal`, `ville`, `telephone`, `portable`, `mail`, `numPass`, `classement`, `certif`, `statut`, `prendrePhoto`, `publierPhoto`, `password`) VALUES
 ('12345678', 'Vendeville', 'Quentin', '1992-08-06', '11 allée du Talisman', '59650', 'Villeneuve d''Ascq', '0320916554', '0678987694', 'q@v.fr', '3456', 'NC', 1, 'administrateur', 1, 1, 'az'),
-('1325364H', 'Descamps', 'Stanislas', '1991-07-03', '5 Rue de la pluie', '59000', 'Lille', '0340506077', '0666709910', 's@d.fr', '124', '30', 1, 'adherent', 1, 0, 'stan.d'),
+('1300000G', 'Poillot', 'Thomas', '1992-12-28', '', '', 'Chéreng', '', '', 'thom.poillot@gmail.com', '', '40', 1, 'adherent', 1, 1, '123456'),
+('1325364H', 'Descamps', 'Stanislas', '1991-07-03', '5 rue de la pluie', '06000', 'Nice', '0707070707', '0505050505', 'stan.descamps@hei.Fr', '56789', '30/5', 0, 'adherent', 0, 1, '123456'),
 ('1500000J', 'Regolle', 'Lisa', '1992-11-03', '3 bis chemin de Tavoy', '59320', 'Hallennes-Lez-Haubourdin', '0320384275', '0647941894', 'l@r.fr', '633', '15/3', 1, 'administrateur', 1, 1, 'moi'),
+('23456789', 'Dupond', 'Jean', '2014-03-03', NULL, NULL, NULL, '', NULL, NULL, NULL, '40', NULL, 'adherent', NULL, NULL, 'adazdazdazdadzada'),
+('2400000R', 'Mayeux', 'Alex', '2014-03-02', '12 rue bleu', '45999', 'Lyon', '', '', 'vendevillequentin59@free.fr', '', '30', 0, 'adherent', 0, 0, 'tdz37jad'),
+('3500000H', 'Malvache', 'Maxime', '1992-08-04', '11 rue des chouettes', '14000', 'Montreal', '0303030303', '0606060606', 'vendevillequentin59@free.fr', '4321', '30/5', 1, 'adherent', 1, 0, 'vh37j20f'),
 ('8532593A', 'Dupond', 'Vincent', '1992-12-28', '12 Allée de le Lavande', '59550', 'Chéreng', '0345651077', '0777153094', 'v@d.fr', '057', '15/5', 1, 'adherent', 1, 1, 'vinc.d');
 
 -- --------------------------------------------------------
@@ -100,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `annonce` (
   `prix` float NOT NULL,
   PRIMARY KEY (`idAnnonce`),
   KEY `numLicence` (`numLicence`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Contenu de la table `annonce`
@@ -156,6 +160,27 @@ CREATE TABLE IF NOT EXISTS `paiement` (
   KEY `numLicence` (`numLicence`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `participer`
+--
+
+CREATE TABLE IF NOT EXISTS `participer` (
+  `numLicence` varchar(8) NOT NULL,
+  `idCours` int(11) NOT NULL,
+  PRIMARY KEY (`numLicence`,`idCours`),
+  KEY `idCours` (`idCours`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `participer`
+--
+
+INSERT INTO `participer` (`numLicence`, `idCours`) VALUES
+('12345678', 2),
+('12345678', 5);
+
 --
 -- Contraintes pour les tables exportées
 --
@@ -177,6 +202,13 @@ ALTER TABLE `annonce`
 --
 ALTER TABLE `paiement`
   ADD CONSTRAINT `paiement_ibfk_1` FOREIGN KEY (`numLicence`) REFERENCES `adherent` (`numLicence`) ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `participer`
+--
+ALTER TABLE `participer`
+  ADD CONSTRAINT `participer_ibfk_1` FOREIGN KEY (`numLicence`) REFERENCES `adherent` (`numLicence`),
+  ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`idCours`) REFERENCES `cours` (`idCours`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

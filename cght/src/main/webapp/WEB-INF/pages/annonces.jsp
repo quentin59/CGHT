@@ -58,6 +58,7 @@
 					<p>${annonce.prix} €</p>
 					</c:if>
 					<p>${annonce.contenu}</p>
+					<p>Contact : ${annonce.coordonnees}</p>
 				</div>
 			</article>								
 		</c:forEach> 

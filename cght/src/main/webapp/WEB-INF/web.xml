@@ -3,7 +3,7 @@
 xmlns="http://java.sun.com/xml/ns/javaee" 
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   
-  
+
 <filter>
 		<filter-name>SessionFilter</filter-name>
 		<filter-class>hei.projetiti.filter.SessionFilter</filter-class>
@@ -12,6 +12,9 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 		<filter-name>AdminFilter</filter-name>
 		<filter-class>hei.projetiti.filter.AdminFilter</filter-class>
   </filter>
+  
+  
+  
  
   
   <servlet>
@@ -90,6 +93,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-name>PosterAnnonce</servlet-name>
     <servlet-class>hei.projetiti.controllers.PosterAnnonceServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ReinitialiserPassword</servlet-name>
+    <servlet-class>hei.projetiti.controllers.ReinitialiserPasswordServlet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>Accueil</servlet-name>
@@ -167,8 +174,8 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-name>PosterAnnonce</servlet-name>
     <url-pattern>/poster-annonce</url-pattern>
   </servlet-mapping>
-  
-  
+
+
   <filter-mapping>
 		<filter-name>SessionFilter</filter-name>
 		<url-pattern>/*</url-pattern>
