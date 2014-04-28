@@ -10,6 +10,7 @@
 				{ %> class="gras" <% } %>> <a href="/mawebapp/admin/gestion-cours">Gestion des cours</a></li>
 		<li <% if (request.getParameter("pageAdminSelectionnee").equals("impression"))
 				{ %> class="gras" <% } %>> <a href="/mawebapp/admin/impression">Impressions</a></li>
-		<li>Importer/Exporter</li>
+		<li <% if (request.getParameter("pageAdminSelectionnee").equals("importer-exporter"))
+				{ %> class="gras" <% } %>> <a href="/mawebapp/admin/importer-exporter">Importer/Exporter</a></li>
 	</ul>
 </div>

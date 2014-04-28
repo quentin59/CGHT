@@ -55,8 +55,8 @@
 						<tr>
 							<td>${adherent.nom}</td>
 							<td>${adherent.prenom}</td>
-						<td><input type="checkbox" name="adherent${adherent.licence}" value="adherent${adherent.licence}"></input></td>
-					</tr>
+							<td><input type="checkbox" name="adherent${adherent.licence}" value="adherent${adherent.licence}"></input></td>
+						</tr>
 					</c:forEach>
 				</table>
 			
