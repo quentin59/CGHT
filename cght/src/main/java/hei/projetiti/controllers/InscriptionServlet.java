@@ -3,6 +3,7 @@ package hei.projetiti.controllers;
 import hei.projetiti.metier.Manager;
 import hei.projetiti.model.Adherent;
 import hei.projetiti.model.Cours;
+import hei.projetiti.model.Mail;
 import hei.projetiti.model.Paiement;
 
 import java.io.IOException;
@@ -93,7 +94,7 @@ public class InscriptionServlet extends HttpServlet {
 		{
 			publierPhoto=false;
 		}
-		String password = "123456";
+		String password = Manager.getInstance().genererPassword();
 		String statut = request.getParameter("statut");
 		Adherent nouveladherent = new Adherent(nom, prenom, cal.getTime(), adresse, codePostal, ville, licence, classement, numPass, telephone, portable, mail, password, certif, prendrePhoto, publierPhoto, statut);
 		
@@ -170,6 +171,9 @@ public class InscriptionServlet extends HttpServlet {
 			Paiement paiement = new Paiement(payer,banque,numCheque,echeance,montant);
 			Manager.getInstance().ajouterPaiement(nouveladherent, paiement);
 		}
+		
+		Mail email = new Mail(mail,password);
+		Manager.getInstance().envoyerMailInscription(email);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/inscription.jsp");
 		view.forward(request, response);

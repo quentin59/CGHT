@@ -5,16 +5,19 @@ import hei.projetiti.dao.ActualiteDao;
 import hei.projetiti.dao.AdherentDao;
 import hei.projetiti.dao.AnnonceDao;
 import hei.projetiti.dao.CoursDao;
+import hei.projetiti.dao.MailDao;
 import hei.projetiti.dao.PaiementDao;
 import hei.projetiti.dao.impl.ActualiteDaoImpl;
 import hei.projetiti.dao.impl.AdherentDaoImpl;
 import hei.projetiti.dao.impl.AnnonceDaoImpl;
 import hei.projetiti.dao.impl.CoursDaoImpl;
+import hei.projetiti.dao.impl.MailDaoImpl;
 import hei.projetiti.dao.impl.PaiementDaoImpl;
 import hei.projetiti.model.Actualite;
 import hei.projetiti.model.Adherent;
 import hei.projetiti.model.Annonce;
 import hei.projetiti.model.Cours;
+import hei.projetiti.model.Mail;
 import hei.projetiti.model.Paiement;
 
 import java.util.List;
@@ -27,6 +30,7 @@ public class Manager {
 	private AnnonceDao annoncedao = new AnnonceDaoImpl();
 	private CoursDao coursdao = new CoursDaoImpl();
 	private PaiementDao paiementdao = new PaiementDaoImpl();
+	private MailDao maildao = new MailDaoImpl();
 	
 	
 	public static Manager getInstance() {
@@ -116,6 +120,10 @@ public class Manager {
 		return adherentdao.crypterPassword(password);
 	}
 	
+	public String genererPassword(){
+		return adherentdao.genererPassword();
+	}
+	
 	public void mettreAJourIdentifiantsAdherent(Adherent adherent){
 		adherentdao.mettreAJourIdentifiantsAdherent(adherent);
 	}
@@ -182,5 +190,13 @@ public class Manager {
 	
 	public void nePasEncaisserPaiement(Integer idPaiement){
 		paiementdao.nePasEncaisserPaiement(idPaiement);
+	}
+	
+	public void envoyerMailInscription(Mail mail){
+		maildao.envoyerMailInscription(mail);
+	}
+	
+	public void envoyerMailContact(Mail mail){
+		maildao.envoyerMailContact(mail);
 	}
 }

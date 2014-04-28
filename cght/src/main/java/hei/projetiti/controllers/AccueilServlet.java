@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -72,7 +73,6 @@ public class AccueilServlet extends HttpServlet {
 		request.setAttribute("mois", moisParAn);
 		request.setAttribute("annees", anneeListe);
 		request.setAttribute("moisChiffre", moisParAnEnChiffre);
-		
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/index.jsp");
 		view.forward(request, response);

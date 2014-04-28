@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="hei.projetiti.model.*, hei.projetiti.metier.*" contentType="text/html" pageEncoding="UTF-8"%>
+
 
 
 <!DOCTYPE html>
@@ -64,9 +65,11 @@
 				</div>
 				<p style="float:right;
 				margin-right:15px;"><fmt:formatDate value="${actualite.dateActualite}" pattern="dd MMMM yyy"/></p>
-				<h2>${actualite.titre}</h2>
+				<c:set var="numLicence" value="${actualite.licence}" />
+				
+				
+				<h2>${actualite.titre} <span style="font-weight:normal; font-size:0.8em;">(écrit par <%= (Manager.getInstance().getAdherent((String)pageContext.getAttribute("numLicence"))).getPrenom() %> <%= (Manager.getInstance().getAdherent((String)pageContext.getAttribute("numLicence"))).getNom() %>)</span></h2>
 				<p>${actualite.contenu}</p>
-				<p>${actualite.licence}</p>
 				
 			</article>								
 		</c:forEach> 

@@ -1,5 +1,8 @@
 package hei.projetiti.controllers;
 
+import hei.projetiti.metier.Manager;
+import hei.projetiti.model.Mail;
+
 import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
@@ -44,79 +47,8 @@ public class ContactServlet extends HttpServlet{
 		String sujet=request.getParameter("sujet");
 		String message=request.getParameter("message");
 		
-		Properties props = System.getProperties();
-        props.put("mail.smtps.host","smtp.gmail.com");
-        props.put("mail.smtps.auth","true");
-        Session session = Session.getInstance(props, null);
-        Message msg = new MimeMessage(session);
-        try {
-			msg.setFrom(new InternetAddress("vendevillequentin@gmail.com"));
-		} catch (AddressException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		};
-        try {
-			msg.setRecipients(Message.RecipientType.TO,
-			InternetAddress.parse("vendevillequentin59@free.fr", false));
-		} catch (AddressException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        try {
-			msg.setSubject(sujet);
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-        try {
-			msg.setText("Message envoyé par : "+nom+" "+prenom+"\nAdresse mail : "+mail+"\n\n"+message);
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-       
-        try {
-			msg.setSentDate(new Date());
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        SMTPTransport t=null;
-		try {
-			t = (SMTPTransport)session.getTransport("smtps");
-		} catch (NoSuchProviderException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        try {
-			t.connect("smtp.gmail.com", "contactcght@gmail.com", "motdepassetoutpourri");
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        try {
-			t.sendMessage(msg, msg.getAllRecipients());
-		} catch (SendFailedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        System.out.println("Response: " + t.getLastServerResponse());
-        try {
-			t.close();
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Mail email = new Mail(nom, prenom, mail, sujet, message);
+		Manager.getInstance().envoyerMailContact(email);
         request.setAttribute("acknowledge", "Le message a bien été envoyé");
 	    RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/contact.jsp");
 		view.forward(request, response);

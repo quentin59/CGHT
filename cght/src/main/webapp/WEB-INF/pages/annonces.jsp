@@ -59,9 +59,6 @@
 					</c:if>
 					<p>${annonce.contenu}</p>
 				</div>
-				<div class="photoannonce"> 
-					<img src="img/1024.png" alt= "filet.jpg" height="200px"/>
-				</div>
 			</article>								
 		</c:forEach> 
 	</div>	

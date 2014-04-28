@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import hei.projetiti.dao.AdherentDao;
 import hei.projetiti.model.Adherent;
@@ -242,6 +243,18 @@ public class AdherentDaoImpl implements AdherentDao{
 			return password;
 			//Renvoi un varchar(32)
 
+	}
+	
+	public String genererPassword(){
+		
+		String alphabet = "abcdefghijklmnopqrstuvwxyz1234567890"; 
+		String pass="";
+		Random rand = new Random(); 
+		for (int i=0; i<8; i++) 
+		{ 
+			pass=pass+alphabet.charAt(rand.nextInt(alphabet.length()));
+		} 
+		return pass;
 	}
 
 	@Override

@@ -23,6 +23,8 @@ public interface AdherentDao {
 	
 	public String crypterPassword(String password) throws Exception;
 	
+	public String genererPassword();
+	
 	public void mettreAJourIdentifiantsAdherent(Adherent adherent);
 	
 	public void mettreAJourAdherentCoteAdmin(Adherent adherent);
