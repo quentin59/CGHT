@@ -24,9 +24,15 @@ public class AnnoncesServlet extends HttpServlet{
 			throws ServletException, IOException {
 		
 		
+		
 		if(request.getParameter("supprimer") != null){
 			Manager.getInstance().supprimerAnnonce(Integer.parseInt(request.getParameter("supprimer")));
 		}
+		
+		
+		
+			
+		
 		
 		
 		List<Annonce> listeAnnonces;
@@ -78,18 +84,57 @@ public class AnnoncesServlet extends HttpServlet{
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		if(req.getParameter("pageSelectionnee").equals("index"))
+		request.setCharacterEncoding("UTF-8");
+		String categorie = request.getParameter("categorie");
+		if (!categorie.equals("toute"))
 		{
+			System.out.println("non nul");
+			List<Annonce> listeAnnonces = Manager.getInstance().listerAnnoncesParCategorie(categorie);
+			request.setAttribute("annonces", listeAnnonces);
+		}
+		else
+		{
+			List<Annonce> listeAnnonces = Manager.getInstance().listerAnnonces();
+			request.setAttribute("annonces", listeAnnonces);
+		}
+		request.setAttribute("categorie", request.getParameter("categorie"));
+		
+		List<Annonce> listeTotaleAnnonces = Manager.getInstance().listerAnnonces();
+		List<Integer> anneeListe = new ArrayList<Integer>();
+		List<List<String>> moisParAn= new ArrayList<List<String>>();
+		List<Integer> moisParAnEnChiffre= new ArrayList<Integer>();
+		int compteur=0;
+		for (Annonce annonce : listeTotaleAnnonces) {
 			
+			int annee = annonce.getDateAnnonce().getYear()+1900;
+			int mois = annonce.getDateAnnonce().getMonth()+1;
+			
+			if (!anneeListe.contains(annee))
+			{
+				anneeListe.add(annee);
+				moisParAn.add(new ArrayList<String>());
+				compteur++;
+			}
+			if (!moisParAn.get(compteur-1).contains(annonce.moisLettre(mois)))
+			{
+				moisParAn.get(compteur-1).add(annonce.moisLettre(mois));
+				moisParAnEnChiffre.add(mois);
+			}
 		}
 		
+		request.setAttribute("mois", moisParAn);
+		request.setAttribute("annees", anneeListe);
+		request.setAttribute("moisChiffre", moisParAnEnChiffre);
 		
-		super.doPost(req, resp);
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/annonces.jsp");
+		view.forward(request, response);
+		
 	}
-	
-	
-	
 }
+	
+	
+	
+

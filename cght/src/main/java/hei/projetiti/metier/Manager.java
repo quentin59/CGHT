@@ -80,6 +80,10 @@ public class Manager {
 		return annoncedao.listerAnnonces(annee, mois);
 	}
 	
+	public List<Annonce> listerAnnoncesParCategorie (String categorie){
+		return annoncedao.listerAnnoncesParCategorie(categorie);
+	}
+	
 	public void supprimerAnnonce(Integer idAnnonce){
 		annoncedao.supprimerAnnonce(idAnnonce);
 	}

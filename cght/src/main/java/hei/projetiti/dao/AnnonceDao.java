@@ -12,6 +12,8 @@ public interface AnnonceDao {
 	
 	public List<Annonce> listerAnnonces(String annee, int mois);
 	
+	public List<Annonce> listerAnnoncesParCategorie (String categorie);
+	
 	public void supprimerAnnonce(Integer idAnnonce);
 	
 	public void ajouterAnnonce(Annonce annonce);

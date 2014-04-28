@@ -129,6 +129,38 @@ List<Annonce> listeAnnonces = new ArrayList<Annonce>();
         }
         return listeAnnonces;
 	}
+	
+	public List<Annonce> listerAnnoncesParCategorie(String categorie) {
+		// TODO Auto-generated method stub
+		List<Annonce> listeAnnonces = new ArrayList<Annonce>();
+		
+		try {
+			//Cr�er une nouvelle connexion � la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `annonce` WHERE `categorie`=? ORDER BY `dateAnnonce` DESC ");
+			stmt.setString(1, categorie);
+			ResultSet results = stmt.executeQuery();
+			while (results.next()) {
+				 Annonce annonce = new Annonce(results.getInt("idAnnonce"), 
+                         results.getString("titre"), 
+                         results.getString("contenu"),
+                         results.getString("coordonnees"),
+                         results.getString("numLicence"),
+                         results.getDate("dateAnnonce"),
+                         results.getString("categorie"),
+                         results.getFloat("prix"));
+              listeAnnonces.add(annonce);
+            }
+            
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listeAnnonces;
+	}
 
 	@Override
 	public void ajouterAnnonce(Annonce annonce) {

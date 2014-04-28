@@ -27,11 +27,25 @@
     	<jsp:param name="pageSelectionnee" value="annonces"/>
 		</jsp:include>
 		
-		<div class="menuLateral">  
+		<div class="menuLateral" style="width:250px;">  
 		    <ul>
-		    	<li><a href="annonces">Annonces</a></li>
-		    	
-		    	<li id="ajouter-contenu"><a href="poster-annonce">Ajouter une annonce</a></li>
+		    	<li style="margin-bottom:20px;"><a href="annonces">Annonces</a></li>
+		    </ul>
+		    <form action="annonces" method="post">
+				<label for="categorie">Catégorie</label>
+		    	<select name="categorie" id="categorie" >
+		    		<option value="toute"></option>
+		    		<option value="Vente de matériel" <c:if test="${categorie==\"Vente de matériel\"}" >selected</c:if>>Vente de matériel</option>
+		    		<option value="Recherche de matériel" <c:if test="${categorie==\"Recherche de matériel\"}" >selected</c:if>>Recherche de matériel</option>
+		    		<option value="Recherche de partenaire de jeu" <c:if test="${categorie==\"Recherche de partenaire de jeu\"}" >selected</c:if>>Recherche de partenaire de jeu</option>
+		    	</select><br>
+		    	<input type="submit" value="Valider"/>
+			</form>
+			<ul>
+		    	<li style="margin-top:0px; margin-bottom:0px; margin-left:-40px;
+	border : 1px solid black;
+	color:black;
+	background-image:none;" id="ajouter-contenu"><a href="poster-annonce">Ajouter une annonce</a></li>
 		    	<c:set var="i" value="0" />
 		    <c:forEach var="annee" items="${annees}" varStatus="listeAnnee" >
 					<li><a href="annonces?annee=${annee}"> ${annee}</a></li>
@@ -41,8 +55,9 @@
 							</ul>
 				</c:forEach>
 			</ul>
+			
     </div>
-   <div class="contenuPage">
+   <div class="contenuPage" style="left:100px;">
     	<c:forEach var="annonce" items="${annonces}" >
 			<article class="annonce">
 			<div class="boutonsadmin" style="float:right;">
