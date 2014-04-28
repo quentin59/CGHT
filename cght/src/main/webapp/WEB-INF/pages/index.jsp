@@ -54,14 +54,6 @@
 	</ul>
     </div>
     <div class="contenuPage">
-    	<a href="#" onclick="oubli();">oublie</a>
-	    <script type="text/javascript">
-			function oubli(){
-				var mail = window.prompt("Nous allons vous renvoyer un mot de passe par mail.\n\nQuelle est votre adresse mail ?","E-mail");
-				location.href="connexion?mail="+mail;
-				
-			}
-		</script>
     	<c:forEach var="actualite" items="${actualites}">
 			<article class="actualite">
 			

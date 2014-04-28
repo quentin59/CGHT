@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ImpressionServlet extends HttpServlet{
+public class ImpressionCoursServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 6682297944195128797L;
 
@@ -45,13 +45,12 @@ public class ImpressionServlet extends HttpServlet{
 		for (int i=0;i<listeCours.size();i++) {
 			if (request.getParameter("cours"+listeCours.get(i).getIdCours())!=null)
 			{
-				System.out.println(listeCours.get(i).getIdCours());
-				File f = new File("cours"+listeCours.get(i).getJourCours()+listeCours.get(i).getHeureDebut()+".csv");
+				File f = new File("C:\\\\Users\\"+System.getProperty("user.name")+"\\Documents\\cours"+listeCours.get(i).getJourCours()+listeCours.get(i).getHeureDebut()+".csv");
 				List<Adherent> listeAdherent = Manager.getInstance().listerAdherentInscrit(listeCours.get(i));
 		        //ECRITURE
 		        try {
 		            PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(f)));
-		            	pw.print("Cours du "+listeCours.get(i).getJourCours()+"h");
+		            	pw.print("Cours du "+listeCours.get(i).getJourCours());
 		            	pw.println();
 		            	pw.print("Heure de début : "+listeCours.get(i).getHeureDebut()+"h"+listeCours.get(i).getMinuteDebut());
 		            	pw.println();
@@ -75,6 +74,14 @@ public class ImpressionServlet extends HttpServlet{
         
 			}
 		}
-        
+		
+		List<Adherent> listeAdherents = Manager.getInstance().listerAdherents();
+		request.setAttribute("adherents", listeAdherents);
+		
+		List<Cours> listesCours = Manager.getInstance().listerCours();
+		request.setAttribute("cours", listesCours);
+		request.setAttribute("acknowledge", "Le fichier a été sauvegardé dans \"Mes documents\"");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/impression.jsp");
+		view.forward(request, response);
 	}
 }

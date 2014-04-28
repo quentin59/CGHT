@@ -92,7 +92,15 @@
 		</c:forEach>
 	</table>
 	
-	<input type="submit" class="bouton" name="imprimerpresence" value="Imprimer" />
+	<input type="submit" class="bouton" name="imprimerpresence" value="Imprimer" /><br>
+	<%
+       				if(request.getAttribute("acknowledge")!=null) 
+       				{
+       					%><p style="color:white; background-color:red; width:220px; padding:5px;"><%
+         			  out.print((String)request.getAttribute("acknowledge"));
+       					%></p><%
+       				}
+  				 %>
 	</form>
 	</fieldset>
         </div>   
