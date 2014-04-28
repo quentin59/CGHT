@@ -49,12 +49,6 @@ style="
 		</p>
 		</form>
 	</div>
-
-	<script type="text/javascript">
-		function oubli(){
-			alert("Merci de contacter l'administrateur du site à l'adresse suivante : cght@gmail.com");
-		}
-	</script>
 </body>
 
 </html>
