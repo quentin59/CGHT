@@ -42,29 +42,29 @@ public class ImpressionAdherentsServlet extends HttpServlet{
 		        //ECRITURE
 		        try {
 		            PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(f)));
-		            	pw.print(adherent.getLicence());
+		            	pw.print("Licence : "+adherent.getLicence());
 		            	pw.println();
-		            	pw.print(adherent.getNom());
+		            	pw.print("Nom : "+adherent.getNom());
 		            	pw.println();
-		            	pw.print(adherent.getPrenom());
+		            	pw.print("Prénom : "+adherent.getPrenom());
 		            	pw.println();
-		            	pw.print(adherent.getDateNaissance());
+		            	pw.print("Date de naissance : "+adherent.getDateNaissance());
 		            	pw.println();
-		            	pw.print(adherent.getAdresse());
+		            	pw.print("Adresse : "+adherent.getAdresse());
 		                pw.println();
-		                pw.print(adherent.getCodePostal());
+		                pw.print("Code postal :"+adherent.getCodePostal());
 		                pw.println();
-		                pw.print(adherent.getVille());
+		                pw.print("Ville : "+adherent.getVille());
 		                pw.println();
-		                pw.print(adherent.getTelephone());
+		                pw.print("Téléphone : "+adherent.getTelephone());
 		                pw.println();
-		                pw.print(adherent.getPortable());
+		                pw.print("Portable : "+adherent.getPortable());
 		                pw.println();
-		                pw.print(adherent.getMail());
+		                pw.print("Mail : "+adherent.getMail());
 		                pw.println();
-		                pw.print(adherent.getNumPass());
+		                pw.print("Numéro de pass : "+adherent.getNumPass());
 		                pw.println();
-		                pw.print(adherent.getClassement());
+		                pw.print("Classement : "+adherent.getClassement());
 		                pw.println();
 		                pw.close();
 		        } catch (IOException exception) {

@@ -1,6 +1,7 @@
 package hei.projetiti.dao.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -16,6 +17,7 @@ import com.sun.mail.smtp.SMTPTransport;
 
 import hei.projetiti.dao.MailDao;
 import hei.projetiti.model.Mail;
+import hei.projetiti.model.Paiement;
 
 public class MailDaoImpl implements MailDao{
 
@@ -172,6 +174,95 @@ public class MailDaoImpl implements MailDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+        
+        public void envoyerMailPaiementAEncaisser(Mail mail, List<Paiement> listePaiements) {
+    		
+    		// TODO Auto-generated method stub
+    		Properties props = System.getProperties();
+            props.put("mail.smtps.host","smtp.gmail.com");
+            props.put("mail.smtps.auth","true");
+            Session session = Session.getInstance(props, null);
+            Message msg = new MimeMessage(session);
+            try {
+    			msg.setFrom(new InternetAddress("cghtcontact@gmail.com"));
+    		} catch (AddressException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		} catch (MessagingException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		};
+            try {
+    			msg.setRecipients(Message.RecipientType.TO,
+    			InternetAddress.parse("vendevillequentin59@free.fr", false));
+    		} catch (AddressException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		} catch (MessagingException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+            try {
+    			msg.setSubject("Paiements à encaisser");
+    		} catch (MessagingException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+            
+            String contenu = "Liste des paiements à encaisser :\n\n";
+            for (Paiement paiement : listePaiements) {
+				contenu.concat(paiement.getNumCheque());
+				contenu.concat("\t");
+				contenu.concat(paiement.getBanque());
+				contenu.concat("\t");
+				contenu.concat(paiement.getMontant()+"");
+				contenu.concat("\t");
+				contenu.concat(paiement.getNumCheque());
+				contenu.concat("\n");
+				
+			}
+            try {
+    			msg.setText(contenu);
+    		} catch (MessagingException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+           
+            try {
+    			msg.setSentDate(new Date());
+    		} catch (MessagingException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+            SMTPTransport t=null;
+    		try {
+    			t = (SMTPTransport)session.getTransport("smtps");
+    		} catch (NoSuchProviderException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+            try {
+    			t.connect("smtp.gmail.com", "contactcght@gmail.com", "motdepassetoutpourri");
+    		} catch (MessagingException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+            try {
+    			t.sendMessage(msg, msg.getAllRecipients());
+    		} catch (SendFailedException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		} catch (MessagingException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+            try {
+    			t.close();
+    		} catch (MessagingException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
 	}
 	
 	

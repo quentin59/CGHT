@@ -16,6 +16,11 @@ public class Mail {
 		this.message=message;
 	}
 	
+	public Mail()
+	{
+		
+	}
+	
 	public Mail(String nom, String prenom, String email, String sujet, String message)
 	{
 		this.nom=nom;

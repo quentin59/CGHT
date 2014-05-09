@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import hei.projetiti.dao.CoursDao;
@@ -110,6 +112,104 @@ public class PaiementDaoImpl implements PaiementDao{
 	        e.printStackTrace();
 	    }
 	}
+
+	@Override
+	public void fermerNotification() {
+		// TODO Auto-generated method stub
+		try {
+			//Créer une nouvelle connexion à la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			 PreparedStatement stmt = connection.prepareStatement(
+	                  "UPDATE flag SET notification = ?");
+	        stmt.setBoolean(1, false);
+	        stmt.executeUpdate();
+			
+               
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+      
+	}
+	
+	public boolean etatNotification() {
+		// TODO Auto-generated method stub
+		boolean res=false;
+		try {
+			//Créer une nouvelle connexion à la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			Statement stmt = connection.createStatement();
+			ResultSet results = stmt.executeQuery("SELECT * FROM `flag`");
+			results.next();
+			res = results.getBoolean("notification");
+			
+               
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		return res;
+      
+	}
+	
+	public void afficherNotification() {
+		// TODO Auto-generated method stub
+		try {
+			//Créer une nouvelle connexion à la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			 PreparedStatement stmt = connection.prepareStatement(
+	                  "UPDATE flag SET notification = ?");
+	        stmt.setBoolean(1, true);
+	        stmt.executeUpdate();
+			
+               
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+      
+	}
+	
+	public List<Paiement> listerPaiementsAEncaisser(java.util.Date date) {
+		List<Paiement> listePaiements= new ArrayList<Paiement>();
+		
+		try {
+			//Créer une nouvelle connexion à la BDD
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			
+			//Utiliser la connexion
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `paiement` WHERE YEAR(`echeance`)=? AND MONTH(`echeance`)=?");
+			stmt.setInt(1, date.getYear()+1900);
+			stmt.setInt(2,date.getMonth()+1);
+			ResultSet results = stmt.executeQuery();
+            while (results.next()) {
+                Paiement paiement = new Paiement(
+                		results.getInt("idPaiement"),	
+                		results.getBoolean("payer"), 
+                		results.getString("banque"), 
+                        results.getString("numCheque"),
+                        results.getDate("echeance"),
+                        results.getFloat("montant"));
+                listePaiements.add(paiement);
+            }
+            
+            // Fermer la connexion
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listePaiements;
+	}
+
 	
 	
 	

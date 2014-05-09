@@ -1,5 +1,6 @@
 package hei.projetiti.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import hei.projetiti.model.Adherent;
@@ -14,5 +15,13 @@ public interface PaiementDao {
 	public void encaisserPaiement(Integer idPaiement);
 	
 	public void nePasEncaisserPaiement(Integer idPaiement);
+	
+	public void fermerNotification();
+	
+	public boolean etatNotification();
+	
+	public void afficherNotification();
+	
+	public List<Paiement> listerPaiementsAEncaisser(Date date);
 	
 }

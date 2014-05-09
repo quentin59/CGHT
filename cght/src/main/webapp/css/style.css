@@ -536,3 +536,29 @@ form#contact input[type="submit"]
 	display:block;
 	margin-left:100px;
 }
+
+
+/*** Notifications ***/
+
+.notif
+{
+	background-color:black;
+	color:yellow;
+	padding:10px 50px;
+	margin-bottom:10px;	
+	font-size:1.1em;
+}
+
+.notif p, .notif img
+{
+	display:inline-block;
+	vertical-align:middle;
+	
+}
+
+.notif img
+{
+	width:40px;
+	height:40px;
+	margin-right:10px;
+}

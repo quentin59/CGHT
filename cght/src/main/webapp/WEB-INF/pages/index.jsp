@@ -20,8 +20,7 @@
     </head>
     
     <body>
-
-    	
+		
     <!-- Header -->
     	<jsp:include page="header.jsp"/>
     	
@@ -54,6 +53,14 @@
 	</ul>
     </div>
     <div class="contenuPage">
+    <c:if test="${notification}">
+    <% if (request.getSession().getAttribute("statut").equals("administrateur")) {%>
+    	<div class="notif">
+	    	<a href="index?notification=vu"><img src="img/notif.png" alt="notification" /></a>
+    		<p>La liste des paiements à encaisser ce mois ci vous a été envoyé par mail.</p>
+    	</div>
+    <%} %>
+    </c:if>
     	<c:forEach var="actualite" items="${actualites}">
 			<article class="actualite">
 			

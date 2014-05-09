@@ -2,10 +2,14 @@ package hei.projetiti.controllers;
 
 import hei.projetiti.metier.Manager;
 import hei.projetiti.model.Adherent;
+import hei.projetiti.model.Paiement;
 
 import java.io.IOException;
 import java.nio.channels.SeekableByteChannel;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -59,6 +63,13 @@ public class ConnexionServlet extends HttpServlet{
 		    RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
 			view.forward(request, response);
 		}
+		Calendar cal = GregorianCalendar.getInstance();
+		if (cal.getTime().getDate()==1)
+		{
+			Manager.getInstance().afficherNotification();
+		}
+	
+	
 	}
 	
 	private void redirectIndex(HttpServletResponse resp) throws IOException {

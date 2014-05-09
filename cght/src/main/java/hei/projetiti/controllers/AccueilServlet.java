@@ -3,6 +3,8 @@ package hei.projetiti.controllers;
 import hei.projetiti.metier.Manager;
 import hei.projetiti.model.Actualite;
 import hei.projetiti.model.Adherent;
+import hei.projetiti.model.Mail;
+import hei.projetiti.model.Paiement;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +31,19 @@ public class AccueilServlet extends HttpServlet {
 		if(request.getParameter("supprimer") != null){
 			Manager.getInstance().supprimerActualite(Integer.parseInt(request.getParameter("supprimer")));
 		}
+		
+		if(request.getParameter("notification") != null){
+			Manager.getInstance().fermerNotification();
+			Calendar cal = GregorianCalendar.getInstance();
+			List <Paiement> listePaiements = Manager.getInstance().listerPaiementsAEncaisser(cal.getTime());
+			Mail mail = new Mail();
+			Manager.getInstance().envoyerMailPaiementAEncaisser(mail, listePaiements);
+			
+			//Envoyer le mail avec la liste des paiements à encaisser ce mot ci
+		}
+		
+		boolean notification = Manager.getInstance().etatNotification();
+		request.setAttribute("notification", notification);
 		
 		
 		List<Actualite> listeActualites;

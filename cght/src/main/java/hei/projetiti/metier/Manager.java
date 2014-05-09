@@ -20,6 +20,7 @@ import hei.projetiti.model.Cours;
 import hei.projetiti.model.Mail;
 import hei.projetiti.model.Paiement;
 
+import java.sql.Date;
 import java.util.List;
 
 public class Manager {
@@ -196,11 +197,31 @@ public class Manager {
 		paiementdao.nePasEncaisserPaiement(idPaiement);
 	}
 	
+	public void fermerNotification(){
+		paiementdao.fermerNotification();
+	}
+	
+	public boolean etatNotification(){
+		return paiementdao.etatNotification();
+	}
+	
+	public void afficherNotification() {
+		paiementdao.afficherNotification();
+	}
+	
+	public List<Paiement> listerPaiementsAEncaisser(java.util.Date date) {
+		return paiementdao.listerPaiementsAEncaisser(date);
+	}
+	
 	public void envoyerMailInscription(Mail mail){
 		maildao.envoyerMailInscription(mail);
 	}
 	
 	public void envoyerMailContact(Mail mail){
 		maildao.envoyerMailContact(mail);
+	}
+	
+	public void envoyerMailPaiementAEncaisser(Mail mail, List<Paiement> listePaiements) {
+		maildao.envoyerMailPaiementAEncaisser(mail, listePaiements);
 	}
 }
