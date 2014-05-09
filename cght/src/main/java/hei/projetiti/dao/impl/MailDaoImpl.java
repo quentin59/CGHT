@@ -212,15 +212,7 @@ public class MailDaoImpl implements MailDao{
             
             String contenu = "Liste des paiements à encaisser :\n\n";
             for (Paiement paiement : listePaiements) {
-				contenu.concat(paiement.getNumCheque());
-				contenu.concat("\t");
-				contenu.concat(paiement.getBanque());
-				contenu.concat("\t");
-				contenu.concat(paiement.getMontant()+"");
-				contenu.concat("\t");
-				contenu.concat(paiement.getNumCheque());
-				contenu.concat("\n");
-				
+				contenu = contenu+paiement.getNumCheque()+"\t"+paiement.getBanque()+"\t"+paiement.getMontant()+"€\t"+paiement.getEcheance()+"\n";	
 			}
             try {
     			msg.setText(contenu);
