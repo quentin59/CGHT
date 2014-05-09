@@ -260,6 +260,80 @@
 	
 	<input type="submit" class="bouton" name="supprimercours" value="Supprimer" />
 	</form>
+	
+	
+	<form action="ajouter-cours-adherent" method="post">
+		<input type="hidden" name="licence" value="${adherent.licence}" />
+		<table>
+			<tr class="hidden" id="cours-hidden-1" >
+					<td>Cours 1</td>
+					<td>
+						<select name="Cours-1">
+								<option value="vide"></option>
+							<c:forEach var="cours" items="${jourscours}" >
+								<option value="${cours}">${cours}</option>
+							</c:forEach>
+						</select>
+						<select name="horaires-1" id="horaires-1">
+						</select>
+					</td>
+				</tr>
+				<tr class="hidden" id="cours-hidden-2">
+					<td>Cours 2</td>
+					<td>
+						<select name="Cours-2">
+								<option value="vide"></option>
+							<c:forEach var="cours" items="${jourscours}" >
+								<option value="${cours}">${cours}</option>
+							</c:forEach>
+						</select>
+						<select name="horaires-2" id="horaires-2">
+						</select>
+					</td>
+				</tr> 
+				<tr class="hidden" id="cours-hidden-3">
+					<td>Cours 3</td>
+					<td>
+						<select name="Cours-3">
+								<option value="vide"></option>
+							<c:forEach var="cours" items="${jourscours}" >
+								<option value="${cours}">${cours}</option>
+							</c:forEach>
+						</select>
+						<select name="horaires-3" id="horaires-3">
+						</select>
+					</td>
+				</tr>
+				<tr class="hidden" id="erreur-nombrecours">
+					<td colspan="2">Vous ne pouvez pas prendre plus de 3 cours.</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" class="valider" id="ajoutercours" name="ajoutercours" value="Ajouter un cours"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="submit" class="bouton" name="valider-ajoutercours" value="Enregistrer" />
+					</td>
+				</tr>
+		</table>
+	</form>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	</fieldset>
 		</div>
 		

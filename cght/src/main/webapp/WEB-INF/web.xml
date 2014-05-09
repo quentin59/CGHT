@@ -101,6 +101,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <servlet-name>ImporterExporter</servlet-name>
     <servlet-class>hei.projetiti.controllers.ImporterExporterServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AjouterCoursAdherent</servlet-name>
+    <servlet-class>hei.projetiti.controllers.AjouterCoursAdherentServlet</servlet-class>
+  </servlet>
 
   
   <servlet-mapping>
@@ -186,6 +190,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   <servlet-mapping>
     <servlet-name>ImporterExporter</servlet-name>
     <url-pattern>/admin/importer-exporter</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AjouterCoursAdherent</servlet-name>
+    <url-pattern>/admin/ajouter-cours-adherent</url-pattern>
   </servlet-mapping>
 
 

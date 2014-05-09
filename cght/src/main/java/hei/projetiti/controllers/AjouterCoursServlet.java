@@ -42,8 +42,7 @@ public class AjouterCoursServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.append(coursJson);
-		
+		out.append(coursJson);	
 		
 	}
 

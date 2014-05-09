@@ -38,6 +38,9 @@ public class ModificationAdherentServlet extends HttpServlet {
 		List<Paiement> listePaiements = Manager.getInstance().listerPaiements(adherent);
 		request.setAttribute("paiements", listePaiements);
 		
+		List<String> listeJoursCours = Manager.getInstance().listerJoursCours();
+		request.setAttribute("jourscours", listeJoursCours);
+		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/modifAdherent.jsp");
 		view.forward(request, response);
 	}

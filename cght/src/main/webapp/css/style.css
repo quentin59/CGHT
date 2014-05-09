@@ -562,3 +562,9 @@ form#contact input[type="submit"]
 	height:40px;
 	margin-right:10px;
 }
+
+
+[required]
+{
+	border:1px solid red;
+}
