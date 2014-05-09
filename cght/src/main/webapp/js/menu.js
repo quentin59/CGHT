@@ -1,6 +1,12 @@
 $(document).ready(function() {
 	
-	window.onresize= function(){
+	dimension();
+	window.onresize=function(){dimension();};
+	
+
+});
+
+function dimension(){
 	var hauteur=$(document).height();
 	var hauteurBoite=$(".contenuPage").height();
 	if (hauteur<hauteurBoite)
@@ -14,5 +20,4 @@ $(document).ready(function() {
 	var largeur=$(document).width();
 	var largeurMenuLateral=$(".menuLateral").width();
 	$(".contenuPage").css("width",largeur-largeurMenuLateral-96);
-	};
-});
+}
