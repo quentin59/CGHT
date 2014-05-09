@@ -5,7 +5,7 @@
 		<li <% if (request.getParameter("pageSelectionnee").equals("annonces"))
 				{ %> class="active" <% } %>> <a href="/mawebapp/annonces">Petites annonces</a></li>
 		<li <% if (request.getParameter("pageSelectionnee").equals("profil"))
-				{ %> class="active" <% } %>> <a href="/mawebapp/profil">Mon Profil</a></li>
+				{ %> class="active" <% } %>> <a href="/mawebapp/profil">Mon profil</a></li>
 		<li <% if (request.getParameter("pageSelectionnee").equals("contact"))
 				{ %> class="active" <% } %>> <a href="/mawebapp/contact">Contact</a></li>
 	
