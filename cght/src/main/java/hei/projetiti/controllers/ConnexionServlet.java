@@ -24,10 +24,7 @@ public class ConnexionServlet extends HttpServlet{
 	
 	private static final long serialVersionUID = -5637709157426990297L;
 	
-	public void init() throws ServletException {
-		super.init();
-	}
-
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -44,16 +41,16 @@ public class ConnexionServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String loginRecup = request.getParameter("login");
-		String passwordRecup = request.getParameter("password");
-		if (Manager.getInstance().adherentExiste(loginRecup, passwordRecup)) {
+		String mail = request.getParameter("mail");
+		String password = request.getParameter("password");
+		if (Manager.getInstance().adherentExiste(mail, password)) {
 			HttpSession session = request.getSession(true);
-			String licence = Manager.getInstance().getLicenceAdherent(loginRecup, passwordRecup);
+			String licence = Manager.getInstance().getLicenceAdherent(mail, password);
 			Adherent adherent = Manager.getInstance().getAdherent(licence);
 			session.setAttribute("nom", adherent.getNom());
 			session.setAttribute("prenom", adherent.getPrenom());
 			session.setAttribute("licence", licence);
-			session.setAttribute("adherentConnecte", new Adherent(loginRecup, passwordRecup));
+			session.setAttribute("adherentConnecte", new Adherent(mail, password));
 			session.setAttribute("statut",Manager.getInstance().getAdherent(licence).getStatut());
 			redirectIndex(response);
 		}

@@ -22,20 +22,13 @@ public class AjouterCoursServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -8830849795476708949L;
 
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-	
-		
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
 		request.setCharacterEncoding("UTF-8");
-		String cours = request.getParameter("cours");
-		List<Cours> listeCours = Manager.getInstance().listerCours(cours);
+		String jour = request.getParameter("cours");
+		List<Cours> listeCours = Manager.getInstance().listerCours(jour);
 		
 		Gson gson = new Gson();
 		String coursJson = gson.toJson(listeCours);

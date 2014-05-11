@@ -59,8 +59,6 @@ public class ParametresServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
-		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/parametres.jsp");
 		view.forward(request, response);
 	}

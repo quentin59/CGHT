@@ -30,6 +30,10 @@ public class SupprimerCoursAdherentServlet extends HttpServlet{
 			}
 		}
 		
+		ModificationAdherentServlet servlet = new ModificationAdherentServlet();
+		servlet.doGet(request, response);
+		
+		/*
 		List<Cours> listCours = Manager.getInstance().listerCoursparAdherent(numLicence);
 		request.setAttribute("cours", listCours);
 		
@@ -37,7 +41,7 @@ public class SupprimerCoursAdherentServlet extends HttpServlet{
 		request.setAttribute("adherent", adherent);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/modifAdherent.jsp");
-		view.forward(request, response);
+		view.forward(request, response);*/
 		
 	}
 	

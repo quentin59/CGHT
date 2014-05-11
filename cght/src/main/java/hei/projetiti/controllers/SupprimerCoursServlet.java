@@ -30,11 +30,8 @@ public class SupprimerCoursServlet extends HttpServlet{
 			}
 		}
 		
-		List<Cours> listCours = Manager.getInstance().listerCours();
-		request.setAttribute("cours", listCours);
-		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/gestionCours.jsp");
-		view.forward(request, response);
+		GestionCoursServlet servlet = new GestionCoursServlet();
+		servlet.doGet(request, response);
 		
 	}
 	

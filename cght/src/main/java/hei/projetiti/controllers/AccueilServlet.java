@@ -39,7 +39,7 @@ public class AccueilServlet extends HttpServlet {
 			Mail mail = new Mail();
 			Manager.getInstance().envoyerMailPaiementAEncaisser(mail, listePaiements);
 			
-			//Envoyer le mail avec la liste des paiements à encaisser ce mot ci
+			//Envoyer le mail avec la liste des paiements à encaisser ce mois ci
 		}
 		
 		boolean notification = Manager.getInstance().etatNotification();

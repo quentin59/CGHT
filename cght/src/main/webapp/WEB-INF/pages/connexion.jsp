@@ -36,11 +36,10 @@ style="
    %></p>
    		<form method="post" action="connexion" >
 		<p style="text-align:center;">
-			<input class="connexion" type="text" name="login" placeholder="Identifiant (adresse mail)" size="25px" required /><br/><br/>
+			<input class="connexion" type="text" name="mail" placeholder="Identifiant (adresse mail)" size="25px" required /><br/><br/>
 			<input class="connexion" type="password" name="password" placeholder="Mot de passe" size="25px" required /><br/><br/>
 			<a href="mailto:cght@gmail.com?subject=Oubli de mot de passe">Mot de passe oublié ?</a><br/><br/>
-			<input id="maintenirConnexion" class="connexion" type="checkbox" />
-			<label for="maintenirConnexion">Maintenir la connexion</label><br/></br>
+			
 			<input id="modifier" style="border-radius:0px;
 	background-color:rgb(200,200,200);
 	border:1px solid black;

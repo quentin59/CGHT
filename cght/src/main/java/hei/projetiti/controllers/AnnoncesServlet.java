@@ -30,11 +30,6 @@ public class AnnoncesServlet extends HttpServlet{
 		}
 		
 		
-		
-			
-		
-		
-		
 		List<Annonce> listeAnnonces;
 		List<Annonce> listeTotaleAnnonces = Manager.getInstance().listerAnnonces();
 		if (request.getParameter("annee") == null && request.getParameter("mois") == null)
@@ -91,7 +86,6 @@ public class AnnoncesServlet extends HttpServlet{
 		String categorie = request.getParameter("categorie");
 		if (!categorie.equals("toute"))
 		{
-			System.out.println("non nul");
 			List<Annonce> listeAnnonces = Manager.getInstance().listerAnnoncesParCategorie(categorie);
 			request.setAttribute("annonces", listeAnnonces);
 		}

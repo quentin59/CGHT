@@ -36,17 +36,7 @@ public class ProfilServlet extends HttpServlet{
 		Adherent adherent = new Adherent(licence, adresse, codePostal, ville, telephone, portable);
 		Manager.getInstance().mettreAJourCoordonneesAdherent(adherent);
 		
-		Adherent adherentComplet = Manager.getInstance().getAdherent(licence);
-		request.setAttribute("adherent", adherentComplet);
-		
-		List<Paiement> listePaiements = Manager.getInstance().listerPaiements(adherent);
-		request.setAttribute("paiements", listePaiements);
-		
-		List<Cours> listeCours = Manager.getInstance().listerCoursparAdherent(licence);
-		request.setAttribute("cours", listeCours);
-		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/profil.jsp");
-		view.forward(request, response);
+		doGet(request, response);
 	}
 
 	@Override

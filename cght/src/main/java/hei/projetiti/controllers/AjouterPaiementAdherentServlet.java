@@ -27,6 +27,7 @@ public class AjouterPaiementAdherentServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
 		String numLicence = request.getParameter("licence");
 		Adherent adherent = Manager.getInstance().getAdherent(numLicence);
 		List<Paiement> listePaiements = Manager.getInstance().listerPaiements(adherent);
@@ -71,16 +72,9 @@ public class AjouterPaiementAdherentServlet extends HttpServlet{
 			Manager.getInstance().ajouterPaiement(adherent, paiement);
 		}
 		
-		List<Cours> listCours = Manager.getInstance().listerCoursparAdherent(numLicence);
-		request.setAttribute("cours", listCours);
 		
-		request.setAttribute("adherent", adherent);
-		
-		List<Paiement> listPaiements = Manager.getInstance().listerPaiements(adherent);
-		request.setAttribute("paiements", listPaiements);
-		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/modifAdherent.jsp");
-		view.forward(request, response);
+		ModificationAdherentServlet servlet = new ModificationAdherentServlet();
+		servlet.doGet(request, response);
 		
 	}
 	

@@ -175,8 +175,7 @@ public class InscriptionServlet extends HttpServlet {
 		Mail email = new Mail(mail,password);
 		Manager.getInstance().envoyerMailInscription(email);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/inscription.jsp");
-		view.forward(request, response);
+		doGet(request, response);
 	}
 
 }
