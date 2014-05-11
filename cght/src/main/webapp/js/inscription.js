@@ -4,6 +4,8 @@ $(document).ready(function() {
 	var compteurCheque=1;
 	
 	$("#inscription").submit(function(event) {
+		
+		//Controle du format du numéro de licence ainsi que de la date.
 		var licence = $("#licence").val();
 		var licence1 = licence.substring(0,7);
 		var licence2 = licence.substring(7);
@@ -13,6 +15,7 @@ $(document).ready(function() {
 		var annee = $("select[name='annee'] > option:selected").val();
 		if (jour=="jour" || mois=="mois" || annee=="annee")
 		{
+		$(".dateNaissanceIncorrecte").slideDown();
 		event.preventDefault();
 		}
 		if (licence.length!=8 || isNaN(licence1) || !regex.test(licence2))
@@ -32,7 +35,7 @@ $(document).ready(function() {
 				$("#horaires-1").append('<option value="'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'">'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'</option>');
 			}
 		}).fail(function(){
-			alert("un truc foire !");		
+			alert("Il y a un problème, contactez l'administrateur.");		
 		});
 	});
 	
@@ -46,7 +49,7 @@ $(document).ready(function() {
 				$("#horaires-2").append('<option value="'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'">'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'</option>');
 			}
 		}).fail(function(){
-			alert("un truc foire !");		
+			alert("Il y a un problème, contactez l'administrateur.");		
 		});
 	});
 	
@@ -60,7 +63,7 @@ $(document).ready(function() {
 				$("#horaires-3").append('<option value="'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'">'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'</option>');
 			}
 		}).fail(function(){
-			alert("un truc foire !");		
+			alert("Il y a un problème, contactez l'administrateur.");		
 		});
 	});
 	

@@ -24,14 +24,13 @@ nav#menuGeneral
 	right:0px;			/* occupe toute la largeur de l'écran */
 	left:0px;
 	height:50px;
-	background-color:#FDD909;
 	background-image:linear-gradient(to top, rgb(255,247,0), rgb(255,167,0));
 }
 
 
 a.bandeau					/* Liens du bandeau de navigation */
 {
-	color:#000000;			
+	color:black;			
 	text-decoration:none;	/* Sans soulignement */	
 }
 
@@ -62,7 +61,7 @@ nav#menuGeneral > ul > li:last-child
 
 li.active a			/* Elément sélectionné, c'est à dire la page sur laquelle on se trouve */
 {
-	background-color:#000000;
+	background-color:black;
 	color:white;	
 	border-radius:10px;
 	padding: 5px 10px;
@@ -292,6 +291,12 @@ div.box p
 }
 
 .licenceIncorrecte
+{
+	display:none;
+	color:red;
+}
+
+.dateNaissanceIncorrecte
 {
 	display:none;
 	color:red;

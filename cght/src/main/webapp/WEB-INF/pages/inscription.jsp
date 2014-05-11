@@ -67,23 +67,24 @@
 		<legend>Informations générales</legend>
 			<table class="col">
 				<tr>
+				<div class="dateNaissanceIncorrecte">Veuillez renseigner la date de naissance</div>
 					<td>
 						<label for="datenaissance">Date de naissance</label>
 					</td>
 					<td>
-						<select name="jour">
+						<select name="jour" required>
 								<option value="jour">Jour</option>
 							<c:forEach var="i" begin="1" end="31">
 								<option value="${i}">${i}</option>
 							</c:forEach>
 						</select>
-						<select name="mois">
+						<select name="mois" required>
 								<option value="mois">Mois</option>
 							<c:forEach var="j" begin="1" end="12">
 								<option value="${j}">${j}</option>
 							</c:forEach>
 						</select>
-						<select name="annee">
+						<select name="annee" required>
 							<option value="annee">Année</option>
 							<c:forEach var="k" begin="0" end="100">
 								<option value="${2014-k}">${2014-k}</option>
@@ -145,7 +146,7 @@
 						<label for="licence">Licence</label>
 					</td>
 					<td>
-						<input id="licence" type="text" name="licence" placeholder="Licence"/>
+						<input id="licence" type="text" name="licence" placeholder="Licence" required/>
 					</td>
 					<td>
 					</td>
