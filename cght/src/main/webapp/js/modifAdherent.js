@@ -22,6 +22,34 @@ $("select[name='Cours-1']").change(function(event) {
 	});
 });
 
+$("select[name='Cours-2']").change(function(event) {
+	$("#horaires-2").empty();
+	var coursSelectionne = $("select[name='Cours-2'] > option:selected").val();
+	$.post("ajoutercours", {cours:coursSelectionne}).done(function(data){
+		
+		for (var i=0;i<data.length;i++)
+		{
+			$("#horaires-2").append('<option value="'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'">'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'</option>');
+		}
+	}).fail(function(){
+		alert("Il y a un problème, contactez l'administrateur.");		
+	});
+});
+
+$("select[name='Cours-3']").change(function(event) {
+	$("#horaires-3").empty();
+	var coursSelectionne = $("select[name='Cours-3'] > option:selected").val();
+	$.post("ajoutercours", {cours:coursSelectionne}).done(function(data){
+		
+		for (var i=0;i<data.length;i++)
+		{
+			$("#horaires-3").append('<option value="'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'">'+formater(data[i].heureDebut)+'h'+formater(data[i].minuteDebut)+' - '+formater(data[i].heureFin)+'h'+formater(data[i].minuteFin)+'</option>');
+		}
+	}).fail(function(){
+		alert("Il y a un problème, contactez l'administrateur.");		
+	});
+});
+
 $("#ajoutercours").click(function(event) {
 	compteurAjouterCours++;
 	if (compteurAjouterCours==1)

@@ -180,7 +180,7 @@ div.box p
 #identifiant
 {
 	position:relative;
-	border:2px solid rgb(50,155,50);
+	border:2px solid rgb(120,184,35);
 	width:19.7%;
 	left:80%;
 	text-align:center;
@@ -481,7 +481,6 @@ form#modif
 	margin-top:-16px;
 	margin-left:195px;
 	padding:20px;
-	border: 1px solid red;
 }
 
 article.actualite, article.annonce

@@ -33,7 +33,7 @@
     	<!-- Corps de la page -->
 		
 		<div class="contenuPage">
-			<form id="contact" action="contact" method="post">
+			<form id="contact" action="contact" method="post" style="margin-left:100px;">
 				<h2>Formulaire de contact</h2>
 				<%
        				if(request.getAttribute("acknowledge")!=null) 
@@ -72,9 +72,9 @@
 				
 				
 				<label for="sujet">Sujet :</label></br>
-				<input type="text" id="sujet" name="sujet" required size="37" /></br></br>
+				<input type="text" id="sujet" name="sujet" required size="62" /></br></br>
 				<label for="message">Message :</label></br>
-				<textarea id="message" name="message" cols="35" rows="5" required></textarea></br></br>
+				<textarea id="message" name="message" cols="60" rows="10" required></textarea></br></br>
 				<input type="submit" value="Envoyer"/>
 			</form>
         </div>   

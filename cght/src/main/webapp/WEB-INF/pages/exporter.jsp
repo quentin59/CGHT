@@ -8,7 +8,7 @@
 	<!-- En-tête de la page -->
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Importer - Exporter</title>
+        <title>Exporter</title>
         <link rel="icon" type="image/jpg" href="../img/cght.jpg" />
 		<link rel="stylesheet" href="../css/style.css"/>
 		<!-- JQuery -->
@@ -35,14 +35,16 @@
     
      <!-- Menu d'administration -->
     	<jsp:include page="adminMenu.jsp">
-    	<jsp:param name="pageAdminSelectionnee" value="importer-exporter"/>
+    	<jsp:param name="pageAdminSelectionnee" value="exporter"/>
 		</jsp:include>
     	
     	
     	<!-- Corps de la page -->
 		
         <div class="contenuPage">
-	
+			<form style="text-align:center;" action="exporter" method="post">
+				<input type="submit" value="Exporter la base  de données" />
+			</form>
         </div>   
 		
     </body>

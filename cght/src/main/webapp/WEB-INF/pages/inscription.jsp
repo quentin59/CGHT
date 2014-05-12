@@ -277,7 +277,7 @@
 			<input type= "radio" name="statut" value="administrateur">Administrateur</input>
 		</fieldset>
 		
-		<input type="submit" id="ajouteradherent" name="ajouteradherent" value="Ajouter un adherent"/>
+		<input type="submit" id="ajouteradherent" name="ajouteradherent" value="Ajouter un adhérent"/>
 		
 	</form>
        </div>   

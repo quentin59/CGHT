@@ -96,7 +96,13 @@ public class InscriptionServlet extends HttpServlet {
 		}
 		String password = Manager.getInstance().genererPassword();
 		String statut = request.getParameter("statut");
-		Adherent nouveladherent = new Adherent(nom, prenom, cal.getTime(), adresse, codePostal, ville, licence, classement, numPass, telephone, portable, mail, password, certif, prendrePhoto, publierPhoto, statut);
+		Adherent nouveladherent=null;
+		try {
+			nouveladherent = new Adherent(nom, prenom, cal.getTime(), adresse, codePostal, ville, licence, classement, numPass, telephone, portable, mail, Manager.getInstance().crypterPassword(password), certif, prendrePhoto, publierPhoto, statut);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		Manager.getInstance().ajouterAdherent(nouveladherent);
 		

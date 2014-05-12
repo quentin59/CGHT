@@ -43,22 +43,27 @@ public class ConnexionServlet extends HttpServlet{
 		// TODO Auto-generated method stub
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
-		if (Manager.getInstance().adherentExiste(mail, password)) {
-			HttpSession session = request.getSession(true);
-			String licence = Manager.getInstance().getLicenceAdherent(mail, password);
-			Adherent adherent = Manager.getInstance().getAdherent(licence);
-			session.setAttribute("nom", adherent.getNom());
-			session.setAttribute("prenom", adherent.getPrenom());
-			session.setAttribute("licence", licence);
-			session.setAttribute("adherentConnecte", new Adherent(mail, password));
-			session.setAttribute("statut",Manager.getInstance().getAdherent(licence).getStatut());
-			redirectIndex(response);
-		}
-		else
-		{
-			request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valides.");
-		    RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
-			view.forward(request, response);
+		try {
+			if (Manager.getInstance().adherentExiste(mail, Manager.getInstance().crypterPassword(password))) {
+				HttpSession session = request.getSession(true);
+				String licence = Manager.getInstance().getLicenceAdherent(mail, Manager.getInstance().crypterPassword(password));
+				Adherent adherent = Manager.getInstance().getAdherent(licence);
+				session.setAttribute("nom", adherent.getNom());
+				session.setAttribute("prenom", adherent.getPrenom());
+				session.setAttribute("licence", licence);
+				session.setAttribute("adherentConnecte", new Adherent(mail, Manager.getInstance().crypterPassword(password)));
+				session.setAttribute("statut",Manager.getInstance().getAdherent(licence).getStatut());
+				redirectIndex(response);
+			}
+			else
+			{
+				request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valides.");
+			    RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
+				view.forward(request, response);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		Calendar cal = GregorianCalendar.getInstance();
 		if (cal.getTime().getDate()==1)

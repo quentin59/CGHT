@@ -312,12 +312,11 @@
 						<input type="text" class="valider" id="ajoutercours" name="ajoutercours" value="Ajouter un cours"/>
 					</td>
 				</tr>
-				<tr>
-					<td>
-						<input type="submit" class="bouton" name="valider-ajoutercours" value="Enregistrer" />
-					</td>
-				</tr>
+			
+						
+				
 		</table>
+		<input type="submit" class="bouton" name="valider-ajoutercours" value="Enregistrer" />
 	</form>
 	
 	

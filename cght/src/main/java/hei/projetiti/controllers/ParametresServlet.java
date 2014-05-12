@@ -29,10 +29,10 @@ public class ParametresServlet extends HttpServlet{
 		String vieuxmdp=request.getParameter("vieuxmdp");
 		
 		try {
-			if (Manager.getInstance().adherentExiste(vieuxmail, vieuxmdp))
+			if (Manager.getInstance().adherentExiste(vieuxmail, Manager.getInstance().crypterPassword(vieuxmdp)))
 			{
 				try {
-					Adherent adherent= new Adherent (licence, newmail, newmdp);
+					Adherent adherent= new Adherent (licence, newmail, Manager.getInstance().crypterPassword(newmdp));
 					Manager.getInstance().mettreAJourIdentifiantsAdherent(adherent);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block

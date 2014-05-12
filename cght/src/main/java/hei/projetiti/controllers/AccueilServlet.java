@@ -45,7 +45,6 @@ public class AccueilServlet extends HttpServlet {
 		boolean notification = Manager.getInstance().etatNotification();
 		request.setAttribute("notification", notification);
 		
-		
 		List<Actualite> listeActualites;
 		List<Actualite> listeTotaleActualites = Manager.getInstance().listerActualites();
 		if (request.getParameter("annee") == null && request.getParameter("mois") == null)
