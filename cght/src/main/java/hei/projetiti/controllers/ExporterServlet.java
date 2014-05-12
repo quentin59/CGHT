@@ -37,11 +37,7 @@ public class ExporterServlet extends HttpServlet{
 			throws ServletException, IOException {
 		
 		List<Adherent> listeAdherents = Manager.getInstance().listerAdherents();
-		List<Annonce> listeAnnonces = Manager.getInstance().listerAnnonces();
-		List<Actualite> listeActualites = Manager.getInstance().listerActualites();
-		//List<Paiement> listePaiements = Manager.getInstance().listerPaiements(adherent);
 		List<Cours> listeCours = Manager.getInstance().listerCours();
-		//List<Cours> listeDUnAdherent = Manager.getInstance().listerCoursparAdherent(numLicence);
 		
 		File f = new File("C:\\\\Users\\"+System.getProperty("user.name")+"\\Documents\\exportBDD.csv");
 		
@@ -88,6 +84,8 @@ public class ExporterServlet extends HttpServlet{
         } catch (IOException exception) {
             System.out.println("Erreur lors de la lecture : " + exception.getMessage());
         }
+		
+		request.setAttribute("acknowledge", "Le fichier a été sauvegardé dans \"Mes documents\"");
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/exporter.jsp");
 		view.forward(request, response);

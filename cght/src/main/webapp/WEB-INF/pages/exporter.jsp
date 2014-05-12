@@ -44,6 +44,15 @@
         <div class="contenuPage">
 			<form style="text-align:center;" action="exporter" method="post">
 				<input type="submit" value="Exporter la base  de données" />
+				
+				<%
+					if(request.getAttribute("acknowledge")!=null) 
+					{
+						%><p style="text-align:center; color:white; background-color:red; width:220px; padding:5px;"><%
+						  out.print((String)request.getAttribute("acknowledge"));
+						%></p><%
+					}
+			  	%>
 			</form>
         </div>   
 		
