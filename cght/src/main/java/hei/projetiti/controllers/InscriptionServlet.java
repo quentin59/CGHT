@@ -177,7 +177,7 @@ public class InscriptionServlet extends HttpServlet {
 			Paiement paiement = new Paiement(payer,banque,numCheque,echeance,montant);
 			Manager.getInstance().ajouterPaiement(nouveladherent, paiement);
 		}
-		
+		System.out.println(password);
 		Mail email = new Mail(mail,password);
 		Manager.getInstance().envoyerMailInscription(email);
 		
