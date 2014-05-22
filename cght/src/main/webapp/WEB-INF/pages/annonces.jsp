@@ -50,7 +50,8 @@
 		    <c:forEach var="annee" items="${annees}" varStatus="listeAnnee" >
 					<li><a href="annonces?annee=${annee}"> ${annee}</a></li>
 							<ul><c:forEach var="mois" items="${mois[listeAnnee.index]}">
-								<li><a href="annonces?annee=${annee}&mois=${moisChiffre[i]}"> ${mois}</a></li>						
+								<li><a href="annonces?annee=${annee}&mois=${moisChiffre[i]}"> ${mois}</a></li>
+								<c:set var="i" value="${i+1}"/>						
 							</c:forEach> 
 							</ul>
 				</c:forEach>

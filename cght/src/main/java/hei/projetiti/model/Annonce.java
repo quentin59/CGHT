@@ -103,7 +103,7 @@ public String moisLettre(int chiffre){
                  break;
         case 11: mois = "Novembre";
                  break;
-        case 12: mois = "D�cembre";
+        case 12: mois = "Décembre";
                  break;
 		}
 		return mois;
